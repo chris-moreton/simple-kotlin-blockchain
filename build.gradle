@@ -7,7 +7,7 @@ plugins {
 }
 
 version = "0.1"
-group = "simple.kotlin.blockchain"
+group = "com.netsensia.blockchain"
 
 repositories {
     mavenCentral()
@@ -28,12 +28,13 @@ dependencies {
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     testImplementation("io.micronaut:micronaut-http-client")
+    testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.23")
 
 }
 
 
 application {
-    mainClass.set("simple.kotlin.blockchain.SimpleKotlinBlockchainCommand")
+    mainClass.set("com.netsensia.blockchain.SimpleKotlinBlockchainCommand")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
@@ -55,7 +56,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("simple.kotlin.blockchain.*")
+        annotations("com.netsensia.blockchain.*")
     }
 }
 

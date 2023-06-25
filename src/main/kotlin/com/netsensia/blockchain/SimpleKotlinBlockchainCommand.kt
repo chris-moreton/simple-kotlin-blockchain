@@ -1,4 +1,4 @@
-package simple.kotlin.blockchain
+package com.netsensia.blockchain
 
 import io.micronaut.configuration.picocli.PicocliRunner
 import io.micronaut.context.ApplicationContext

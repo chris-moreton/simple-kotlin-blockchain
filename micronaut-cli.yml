@@ -1,5 +1,5 @@
 applicationType: cli
-defaultPackage: simple.kotlin.blockchain
+defaultPackage: com.netsensia.blockchain
 testFramework: junit
 sourceLanguage: kotlin
 buildTool: gradle
