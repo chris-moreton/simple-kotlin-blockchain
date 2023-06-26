@@ -3,7 +3,6 @@ package com.netsensia.blockchain.service
 import Block
 import Blockchain
 import Transaction
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import jakarta.inject.Singleton
@@ -47,13 +46,32 @@ class BlockchainService {
     }
 
     private fun createGenesisBlock(): Block.Mined {
-        val genesisTransactions = listOf(Transaction("Genesis", "Genesis", 0.0))
+        val preMineTransactions = listOf(
+            Transaction("Genesis", "Alice", 10000.0),
+            Transaction("Genesis", "Bob", 10000.0),
+            Transaction("Genesis", "Chrismo", 10000.0)
+       )
         val unminedGenesisBlock = Block.Unmined(
             index = 0,
             timestamp = System.currentTimeMillis(),
-            transactions = genesisTransactions,
+            transactions = preMineTransactions,
             previousHash = "0"
         )
         return unminedGenesisBlock.mine(4)
+    }
+
+    fun getBalance(address: String, chain: Blockchain): Double {
+        var balance = 0.0
+        for (block in chain.blocks) {
+            for (transaction in block.transactions) {
+                if (transaction.sender == address) {
+                    balance -= transaction.amount
+                }
+                if (transaction.recipient == address) {
+                    balance += transaction.amount
+                }
+            }
+        }
+        return balance
     }
 }
