@@ -1,4 +1,6 @@
+import io.micronaut.serde.annotation.Serdeable
 import java.security.MessageDigest
+
 
 sealed class Block {
     abstract val index: Int
@@ -20,7 +22,7 @@ sealed class Block {
                 nonce++
                 hash = calculateHash(this, nonce)
             }
-            return Mined(index, timestamp, transactions, previousHash, nonce, hash)
+            return Mined(index, timestamp, transactions, previousHash, difficulty, nonce, hash)
         }
     }
 
@@ -29,6 +31,7 @@ sealed class Block {
         override val timestamp: Long,
         override val transactions: List<Transaction>,
         override val previousHash: String,
+        val difficulty: Int,
         val nonce: Int,
         val hash: String
     ) : Block()
