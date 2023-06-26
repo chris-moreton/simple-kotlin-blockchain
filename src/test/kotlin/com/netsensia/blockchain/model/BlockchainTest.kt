@@ -1,14 +1,19 @@
+package com.netsensia.blockchain.model
+
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.isTrue
 import assertk.assertions.isFalse
-import com.netsensia.blockchain.service.BlockService
 import com.netsensia.blockchain.service.BlockchainService
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest
+import jakarta.inject.Inject
 import org.junit.jupiter.api.Test
 
+@MicronautTest
 class BlockchainTest {
 
-    val blockchainService = BlockchainService()
+    @Inject
+    lateinit var blockchainService: BlockchainService
 
     @Test
     fun `blockchain should start with genesis block`() {

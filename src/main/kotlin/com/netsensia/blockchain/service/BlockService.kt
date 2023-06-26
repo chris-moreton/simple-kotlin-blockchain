@@ -1,11 +1,16 @@
 package com.netsensia.blockchain.service
 
-import Transaction
+import com.netsensia.blockchain.model.Block
+import com.netsensia.blockchain.model.Transaction
 import jakarta.inject.Singleton
 
+interface BlockService {
+    fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int): Block.Mined
+}
+
 @Singleton
-class BlockService {
-    fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int): Block.Mined {
+class DefaultBlockService : BlockService {
+    override fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int): Block.Mined {
         val unminedBlock = Block.Unmined(
             index = previousBlock.index + 1,
             timestamp = System.currentTimeMillis(),

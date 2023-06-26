@@ -1,7 +1,11 @@
+package com.netsensia.blockchain.model
+
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
 
+@MicronautTest
 class BlockTest {
 
     @Test

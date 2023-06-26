@@ -1,6 +1,6 @@
+package com.netsensia.blockchain.model
 import io.micronaut.serde.annotation.Serdeable
 import java.security.MessageDigest
-
 
 sealed class Block {
     abstract val index: Int

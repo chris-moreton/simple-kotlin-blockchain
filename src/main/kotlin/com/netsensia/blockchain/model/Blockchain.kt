@@ -1,9 +1,10 @@
-import com.netsensia.blockchain.service.BlockService
-import jakarta.inject.Inject
+package com.netsensia.blockchain.model
+
+import com.netsensia.blockchain.service.DefaultBlockService
 
 class Blockchain(val blocks: List<Block.Mined>) {
 
-    val blockService = BlockService()
+    val blockService = DefaultBlockService()
 
     fun addBlock(transactions: List<Transaction>, difficulty: Int): Blockchain {
         var effectiveBalances = HashMap<String, Double>()
