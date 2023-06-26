@@ -37,20 +37,5 @@ class BlockchainServiceTest {
         assertThat(loadedChain.equals(newChain)).isTrue()
     }
 
-    @Test
-    fun `should calculate balances`() {
-        val blockchain = blockchainService.genesis()
-            .addBlock(listOf(Transaction("Alice", "Chrismo", 50.0)), 4)
-            .addBlock(listOf(
-                Transaction("Alice", "Bob", 10.0),
-                Transaction("Chrismo", "Alice", 10.2)),
-                4
-            )
 
-        assertThat(blockchain.blocks.size).isEqualTo(3)
-
-        assertThat(blockchainService.getBalance("Alice", blockchain)).isEqualTo(10000 - 50.0 - 10.0 + 10.2)
-        assertThat(blockchainService.getBalance("Chrismo", blockchain)).isEqualTo(10000 + 50.0 - 10.2)
-        assertThat(blockchainService.getBalance("Bob", blockchain)).isEqualTo(10000 + 10.0)
-    }
 }

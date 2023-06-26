@@ -69,4 +69,42 @@ class BlockchainTest {
         assertThat(tamperedChain.validate()).isFalse()
     }
 
+    @Test
+    fun `should calculate balances`() {
+        val blockchain = blockchainService.genesis()
+            .addBlock(listOf(Transaction("Alice", "Chrismo", 50.0)), 4)
+            .addBlock(listOf(
+                Transaction("Alice", "Bob", 10.0),
+                Transaction("Chrismo", "Alice", 10.2)),
+                4
+            )
+
+        assertThat(blockchain.blocks.size).isEqualTo(3)
+
+        assertThat(blockchain.getBalance("Alice")).isEqualTo(10000 - 50.0 - 10.0 + 10.2)
+        assertThat(blockchain.getBalance("Chrismo")).isEqualTo(10000 + 50.0 - 10.2)
+        assertThat(blockchain.getBalance("Bob")).isEqualTo(10000 + 10.0)
+    }
+
+    @Test
+    fun `should filter out transactions where balance is too low`() {
+        val blockchain = blockchainService.genesis()
+            .addBlock(listOf(Transaction("Alice", "Chrismo", 50.0)), 4)
+            .addBlock(listOf(
+                Transaction("Alice", "Bob", 10.0),
+                Transaction("Chrismo", "Alice", 10.2)),
+                4
+            )
+            .addBlock(listOf(
+                Transaction("Alice", "Chrismo", 100000.0),
+                Transaction("Chrismo", "Alice", 10.0),
+                Transaction("Chrismo", "Bob", 20.0),
+            ), 4)
+
+        assertThat(blockchain.blocks.size).isEqualTo(4)
+
+        assertThat(blockchain.getBalance("Alice")).isEqualTo(10000 - 50.0 - 10.0 + 10.2 + 10.0)
+        assertThat(blockchain.getBalance("Chrismo")).isEqualTo(10000 + 50.0 - 10.2 - 10.0 - 20.0)
+        assertThat(blockchain.getBalance("Bob")).isEqualTo(10000 + 10.0 + 20.0)
+    }
 }

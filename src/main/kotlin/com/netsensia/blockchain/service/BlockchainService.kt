@@ -60,18 +60,4 @@ class BlockchainService {
         return unminedGenesisBlock.mine(4)
     }
 
-    fun getBalance(address: String, chain: Blockchain): Double {
-        var balance = 0.0
-        for (block in chain.blocks) {
-            for (transaction in block.transactions) {
-                if (transaction.sender == address) {
-                    balance -= transaction.amount
-                }
-                if (transaction.recipient == address) {
-                    balance += transaction.amount
-                }
-            }
-        }
-        return balance
-    }
 }
