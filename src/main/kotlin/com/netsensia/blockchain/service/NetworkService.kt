@@ -1,6 +1,7 @@
 package com.netsensia.blockchain.service
 
-import com.netsensia.blockchain.model.Network
+import com.netsensia.blockchain.simulate.Network
+import com.netsensia.blockchain.simulate.Node
 import jakarta.inject.Singleton
 
 interface NetworkService {

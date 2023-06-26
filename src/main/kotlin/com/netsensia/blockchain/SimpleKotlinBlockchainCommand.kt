@@ -1,9 +1,8 @@
 package com.netsensia.blockchain
 
-import com.netsensia.blockchain.model.Network
 import com.netsensia.blockchain.service.NetworkService
+import com.netsensia.blockchain.simulate.Simulator
 import io.micronaut.configuration.picocli.PicocliRunner
-import io.micronaut.context.ApplicationContext
 import jakarta.inject.Inject
 
 import picocli.CommandLine.Command
@@ -14,22 +13,17 @@ import picocli.CommandLine.Option
 class SimpleKotlinBlockchainCommand : Runnable {
 
     @Inject
-    lateinit var applicationContext: ApplicationContext
-
-    @Inject
-    lateinit var networkService: NetworkService
+    lateinit var simulator: Simulator
 
     @Option(names = ["-v", "--verbose"], description = ["..."])
     private var verbose : Boolean = false
 
     override fun run() {
-        // business logic here
         if (verbose) {
             println("Hi!")
         }
 
-        val network = networkService.createNetwork(100)
-        network.randomlyConnect()
+        simulator.run()
     }
 
     companion object {

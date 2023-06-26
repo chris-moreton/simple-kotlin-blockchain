@@ -1,24 +1,45 @@
 package com.netsensia.blockchain.model
 
 import com.netsensia.blockchain.service.DefaultBlockService
+import com.netsensia.blockchain.simulate.Network
+import kotlinx.coroutines.runBlocking
 
 class Blockchain(val blocks: List<Block.Mined>) {
 
     val blockService = DefaultBlockService()
 
-    fun addBlock(transactions: List<Transaction>, difficulty: Int): Blockchain {
+    fun mineAndAddBlock(transactions: List<Transaction>, difficulty: Int = Network.DIFFICULTY): Blockchain {
+        val validTransactions = validTransactionsOnly(transactions)
+        val minedBlock = runBlocking {
+            blockService.mineBlock(blocks.last(), validTransactions, difficulty)
+        }
+        return Blockchain(blocks + minedBlock)
+    }
+
+    fun validTransactionsOnly(
+        transactions: List<Transaction>
+    ): List<Transaction> {
         var effectiveBalances = HashMap<String, Double>()
         val validTransactions = transactions.filter { transaction ->
             val valid = validTransaction(transaction, effectiveBalances)
             // update effective balance
             if (valid) {
-                effectiveBalances[transaction.sender] = effectiveBalances.getOrDefault(transaction.sender, getBalance(transaction.sender)) - transaction.amount
-                effectiveBalances[transaction.recipient] = effectiveBalances.getOrDefault(transaction.recipient, getBalance(transaction.recipient)) + transaction.amount
+                effectiveBalances[transaction.sender] = effectiveBalances.getOrDefault(
+                    transaction.sender,
+                    getBalance(transaction.sender)
+                ) - transaction.amount
+                effectiveBalances[transaction.recipient] = effectiveBalances.getOrDefault(
+                    transaction.recipient,
+                    getBalance(transaction.recipient)
+                ) + transaction.amount
             }
             valid
         }
-        val minedBlock = blockService.mineBlock(blocks.last(), validTransactions, difficulty)
-        return Blockchain(blocks + minedBlock)
+        return validTransactions
+    }
+
+    fun addMinedBlock(block: Block.Mined): Blockchain {
+        return Blockchain(blocks + block)
     }
 
     fun validTransaction(transaction: Transaction, effectiveBalances: HashMap<String, Double>): Boolean {

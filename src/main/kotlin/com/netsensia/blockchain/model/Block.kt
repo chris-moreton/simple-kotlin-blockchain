@@ -1,6 +1,7 @@
 package com.netsensia.blockchain.model
-import io.micronaut.serde.annotation.Serdeable
+import com.netsensia.blockchain.simulate.Network
 import java.security.MessageDigest
+import kotlin.random.Random
 
 sealed class Block {
     abstract val index: Int
@@ -14,12 +15,12 @@ sealed class Block {
         override val transactions: List<Transaction>,
         override val previousHash: String,
     ) : Block() {
-        fun mine(difficulty: Int): Block.Mined {
+        fun mine(difficulty: Int = Network.DIFFICULTY): Mined {
             val target = "0".repeat(difficulty)
-            var nonce = 0
+            var nonce = Random.nextInt()
             var hash = calculateHash(this, nonce)
             while (hash.substring(0, difficulty) != target) {
-                nonce++
+                nonce = Random.nextInt()
                 hash = calculateHash(this, nonce)
             }
             return Mined(index, timestamp, transactions, previousHash, difficulty, nonce, hash)

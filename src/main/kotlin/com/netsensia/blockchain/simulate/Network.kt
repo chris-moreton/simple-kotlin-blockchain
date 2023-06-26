@@ -1,11 +1,10 @@
-package com.netsensia.blockchain.model
+package com.netsensia.blockchain.simulate
 
-import com.netsensia.blockchain.service.BlockchainService
 import kotlin.random.Random
 
 class Network {
 
-    private val nodes = mutableListOf<Node>()
+    val nodes = mutableListOf<Node>()
 
     fun createNode(id: String): Node {
         val node = Node(id)
@@ -23,7 +22,13 @@ class Network {
         }
     }
 
+    fun randomlySelectNode(): Node {
+        return nodes.random()
+    }
+
     companion object {
+        const val DIFFICULTY = 4
+
         fun createNetwork(numberOfNodes: Int): Network {
             val network = Network()
             for (i in 1..numberOfNodes) {

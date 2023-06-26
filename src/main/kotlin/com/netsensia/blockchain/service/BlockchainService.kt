@@ -63,6 +63,7 @@ class DefaultBlockchainService : BlockchainService {
     }
 
     override fun isValidNewBlock(block: Block.Mined, lastBlock: Block.Mined): Boolean {
+        // Todo - need to check difficulty
         return block.index == lastBlock.index + 1 &&
                 block.previousHash == lastBlock.hash &&
                 block.hash == Block.calculateHash(block, block.nonce)
@@ -73,14 +74,16 @@ class DefaultBlockchainService : BlockchainService {
             Transaction("Genesis", "Alice", 10000.0),
             Transaction("Genesis", "Bob", 10000.0),
             Transaction("Genesis", "Chrismo", 10000.0)
-       )
-        val unminedGenesisBlock = Block.Unmined(
+        )
+        return Block.Mined(
             index = 0,
             timestamp = System.currentTimeMillis(),
             transactions = preMineTransactions,
-            previousHash = "0"
+            previousHash = "0",
+            nonce = 0,
+            hash = "GENESIS",
+            difficulty = 0
         )
-        return unminedGenesisBlock.mine(4)
     }
 
 }
