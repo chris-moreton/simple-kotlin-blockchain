@@ -15,6 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList
 import kotlin.math.min
 
 private const val MIN_TXS_PER_BLOCK = 2
+private const val MAX_TXS_PER_BLOCK = 4
 private const val LOAD_FROM_FILE = false
 private const val MAX_FORKS = 50
 
@@ -90,16 +91,12 @@ class Node(val id: String) {
             broadcastTransaction(transaction)
 
             // If this node has enough transactions and is not currently mining, start mining
-            considerMining()
+            considerMining("new transaction was received")
         }
     }
 
     @OptIn(DelicateCoroutinesApi::class)
     fun startMining() {
-        if (!mineLock) {
-            println("Node $id may already be mining. Won't start new job.")
-            return
-        }
         println("Node $id is starting to mine.")
         miningJob = GlobalScope.launch {
             mineBlock()
@@ -109,7 +106,7 @@ class Node(val id: String) {
     suspend fun mineBlock() {
         // Add logic to mine a new block with the current transactions
         val transactionsToConsider = transactions.toList()
-        val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider)
+        val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider).take(MAX_TXS_PER_BLOCK)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
             println("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.")
             val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
@@ -121,9 +118,9 @@ class Node(val id: String) {
             blockchain = blockchain.addMinedBlock(block)
             broadcastBlock(block)
         } else {
-            println("Node $id doesn't have enough transactions to mine a new block. Will wait for more.")
+            println("Node $id doesn't have enough valid transactions to mine a new block. Will wait for more.")
         }
-        mineUnlock()
+        mineUnlock("mineBlock function completed")
     }
 
     // Receive a block from a peer
@@ -137,13 +134,13 @@ class Node(val id: String) {
         // Verify if block is valid and add it to the blockchain if so
         if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
             if (miningJob?.isActive == true) {
-                println("Node $id is cancelling mining job.")
+                println("Node $id is cancelling mining job because a valid block being received from a peer.")
                 miningJob?.cancel()
-                mineUnlock()
+                mineUnlock("mining job was cancelled")
             }
             blockchain = blockchain.addMinedBlock(block)
             println("Node $id added a new block ${block.hash} to the chain!")
-            considerMining()
+            considerMining("new block was added to chain")
             broadcastBlock(block)
         } else {
             println("Node $id received a block ${block.hash} that doesn't fit on the main chain.")
@@ -170,13 +167,10 @@ class Node(val id: String) {
             if (block.previousHash == blockchain.getLastBlock().previousHash && block.hash != blockchain.getLastBlock().hash) {
                 println("Node $id is starting a new fork.")
                 forks.add(blockchain.replaceLastBlock(block))
-                println("Node $id added block ${block.hash} to a new fork [${forks.size - 1}]")
+                println("Node $id added block ${block.hash} to a new fork [${forks.size - 1}] with size ${forks.last().blocks.size}")
                 broadcastBlock(block)
                 return
             }
-
-            forks.add(blockchain.addMinedBlock(block))
-            println("Node $id added block ${block.hash} to a new fork [${forks.size - 1}]")
 
             // If any fork is longer than the main chain, swap the main chain with the fork
             forks.forEachIndexed { index, fork ->
@@ -194,21 +188,26 @@ class Node(val id: String) {
         }
     }
 
-    private fun considerMining() {
-        mineLock()
+    private fun considerMining(reason: String) {
+        if (mineLock) {
+            println("Node $id is already mining. Won't consider mining ($reason).")
+            return
+        }
+        mineLock(reason)
         if (transactions.size >= MIN_TXS_PER_BLOCK) {
             println("Node $id has enough transactions to mine a new block.")
             startMining()
         }
+        mineUnlock("not enough transactions to mine a new block")
     }
 
-    private fun mineLock() {
-        println("Node $id is locking mining.")
+    private fun mineLock(reason: String) {
+        println("Node $id is locking mining because $reason.")
         mineLock = true
     }
 
-    private fun mineUnlock() {
-        println("Node $id is unlocking mining.")
+    private fun mineUnlock(reason: String) {
+        println("Node $id is unlocking mining because $reason.")
         mineLock = false
     }
 }

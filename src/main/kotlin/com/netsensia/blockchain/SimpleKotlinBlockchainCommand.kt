@@ -19,6 +19,7 @@ class SimpleKotlinBlockchainCommand : Runnable {
     private var verbose : Boolean = false
 
     override fun run() {
+
         if (verbose) {
             println("Hi!")
         }
