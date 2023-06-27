@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.util.*
 import java.util.concurrent.CopyOnWriteArrayList
+import kotlin.math.min
 
 private const val MIN_TXS_PER_BLOCK = 2
 private const val LOAD_FROM_FILE = false
@@ -77,23 +78,26 @@ class Node(val id: String) {
     }
 
     fun receiveTransaction(transaction: Transaction) {
-        //println("Node $id received a new transaction from ${transaction.sender} to ${transaction.recipient} for ${transaction.amount}")
         if (transactionsReceived.count { it == transaction.id } > 0) {
             return
         }
+        transactionsReceived.add(transaction.id)
+        //println("Node $id received a new transaction from ${transaction.sender} to ${transaction.recipient} for ${transaction.amount}")
         if (transactions.count { it.id == transaction.id } == 0) {
             transactions.add(transaction.copy())
             broadcastTransaction(transaction)
 
             // If this node has enough transactions and is not currently mining, start mining
-            if (miningJob?.isActive != true && transactions.size >= MIN_TXS_PER_BLOCK) {
-                startMining()
-            }
+            considerMining()
         }
     }
 
     @OptIn(DelicateCoroutinesApi::class)
     fun startMining() {
+        if (miningJob?.isActive == true) {
+            println("Node $id is mining. Won't start new job.")
+            return
+        }
         println("Node $id is starting to mine.")
         miningJob = GlobalScope.launch {
             mineBlock()
@@ -105,6 +109,7 @@ class Node(val id: String) {
         val transactionsToConsider = transactions.toList()
         val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
+            println("Node $id has enough transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.")
             val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
             println("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
             transactions.removeIf {
@@ -132,10 +137,8 @@ class Node(val id: String) {
             }
             blockchain = blockchain.addMinedBlock(block)
             println("Node $id added a new block ${block.hash} to the chain!")
+            considerMining()
             broadcastBlock(block)
-            if (transactions.size >= MIN_TXS_PER_BLOCK) {
-                startMining()
-            }
         } else {
             println("Node $id received a block ${block.hash} that doesn't fit on the main chain.")
 
@@ -182,6 +185,12 @@ class Node(val id: String) {
         }
         if (LOAD_FROM_FILE) {
             blockchainService.save(filename, blockchain)
+        }
+    }
+
+    private fun considerMining() {
+        if (transactions.size >= MIN_TXS_PER_BLOCK) {
+            startMining()
         }
     }
 }

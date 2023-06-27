@@ -25,14 +25,14 @@ class DefaultSimulator : Simulator {
         network.randomlyConnect()
 
         GlobalScope.launch {
-            (0..25).forEach {
+            (0..250).forEach {
                 network.randomlySelectNode().generateTransaction()
                 // sleep for a random amount of time between 0 and 1000 milliseconds
                 Thread.sleep((0..1000).random().toLong())
             }
         }
 
-        (0..50).forEach {
+        (0..500).forEach {
             network.nodes.forEach {
                 print("${it.blockchain.blocks.size} ")
             }
