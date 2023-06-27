@@ -23,6 +23,8 @@ class Node(val id: String) {
     val filename = "blockchain_${id}.txt"
     private var miningJob: Job? = null
 
+    var mineLock = false
+
     val blockchainService = DefaultBlockchainService()
     val blockService = DefaultBlockService()
 
@@ -94,8 +96,8 @@ class Node(val id: String) {
 
     @OptIn(DelicateCoroutinesApi::class)
     fun startMining() {
-        if (miningJob?.isActive == true) {
-            println("Node $id is mining. Won't start new job.")
+        if (!mineLock) {
+            println("Node $id may already be mining. Won't start new job.")
             return
         }
         println("Node $id is starting to mine.")
@@ -109,7 +111,7 @@ class Node(val id: String) {
         val transactionsToConsider = transactions.toList()
         val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
-            println("Node $id has enough transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.")
+            println("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.")
             val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
             println("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
             transactions.removeIf {
@@ -118,7 +120,10 @@ class Node(val id: String) {
             blocksReceived.add(block.hash)
             blockchain = blockchain.addMinedBlock(block)
             broadcastBlock(block)
+        } else {
+            println("Node $id doesn't have enough transactions to mine a new block. Will wait for more.")
         }
+        mineUnlock()
     }
 
     // Receive a block from a peer
@@ -134,6 +139,7 @@ class Node(val id: String) {
             if (miningJob?.isActive == true) {
                 println("Node $id is cancelling mining job.")
                 miningJob?.cancel()
+                mineUnlock()
             }
             blockchain = blockchain.addMinedBlock(block)
             println("Node $id added a new block ${block.hash} to the chain!")
@@ -189,8 +195,20 @@ class Node(val id: String) {
     }
 
     private fun considerMining() {
+        mineLock()
         if (transactions.size >= MIN_TXS_PER_BLOCK) {
+            println("Node $id has enough transactions to mine a new block.")
             startMining()
         }
+    }
+
+    private fun mineLock() {
+        println("Node $id is locking mining.")
+        mineLock = true
+    }
+
+    private fun mineUnlock() {
+        println("Node $id is unlocking mining.")
+        mineLock = false
     }
 }
