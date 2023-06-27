@@ -42,10 +42,24 @@ class Blockchain(val blocks: List<Block.Mined>) {
         return Blockchain(blocks + block)
     }
 
+    fun replaceLastBlock(block: Block.Mined): Blockchain {
+        return Blockchain(blocks.dropLast(1) + block)
+    }
+
     fun validTransaction(transaction: Transaction, effectiveBalances: HashMap<String, Double>): Boolean {
         if (transaction.sender == "Genesis") {
             return true
         }
+
+        // reject if transaction already exists in blockchain
+        blocks.forEach { block ->
+            block.transactions.forEach { blockTransaction ->
+                if (blockTransaction.id == transaction.id) {
+                    return false
+                }
+            }
+        }
+
         val balance = effectiveBalances.getOrDefault(transaction.sender, getBalance(transaction.sender))
         return (balance >= transaction.amount)
     }

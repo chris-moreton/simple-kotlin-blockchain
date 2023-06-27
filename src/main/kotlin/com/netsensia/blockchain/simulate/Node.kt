@@ -15,6 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList
 
 private const val MIN_TXS_PER_BLOCK = 2
 private const val LOAD_FROM_FILE = false
+private const val MAX_FORKS = 50
 
 class Node(val id: String) {
 
@@ -25,6 +26,7 @@ class Node(val id: String) {
     val blockService = DefaultBlockService()
 
     lateinit var blockchain: Blockchain
+    val forks = mutableListOf<Blockchain>()
 
     val transactions = CopyOnWriteArrayList<Transaction>()
 
@@ -67,7 +69,7 @@ class Node(val id: String) {
 
         transactions.add(transaction)
 
-        println("Node $id generated a new transaction from $sender to $recipient for ${transaction.amount}")
+        //println("Node $id generated a new transaction from $sender to $recipient for ${transaction.amount}")
 
         broadcastTransaction(transaction)
     }
@@ -75,12 +77,14 @@ class Node(val id: String) {
     fun receiveTransaction(transaction: Transaction) {
         if (transactions.count { it.id == transaction.id } == 0) {
             transactions.add(transaction.copy())
+            broadcastTransaction(transaction)
         }
 
         // If this node has enough transactions and is not currently mining, start mining
         if (miningJob?.isActive != true && transactions.size >= MIN_TXS_PER_BLOCK) {
             startMining()
         }
+
     }
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -117,8 +121,46 @@ class Node(val id: String) {
                 startMining()
             }
         } else {
-            // The received block is not valid, re-sync might be required
-            println("Node $id received an invalid block, re-syncing might be needed.")
+            println("Node $id received a block ${block.hash} that doesn't fit on the main chain.")
+
+            // Does it fit on any fork?
+            forks.forEachIndexed { index, fork ->
+                if (blockchainService.isValidNewBlock(block, fork.getLastBlock())) {
+                    forks[index] = fork.addMinedBlock(block)
+                    println("Node $id added block ${block.hash} to an existing fork [$index]")
+                    return
+                }
+            }
+
+            if (forks.size == MAX_FORKS) {
+                println("Node $id has reached the maximum number of forks. Removing oldest fork.")
+                forks.sortedBy { it.getLastBlock().timestamp }.firstOrNull()?.let {
+                    forks.remove(it)
+                }
+            }
+
+            // Does the block fit in the same position as the latest block on the main chain?
+            // If so, start a fork
+            if (block.previousHash == blockchain.getLastBlock().previousHash) {
+                println("Node $id is starting a new fork.")
+                forks.add(blockchain.replaceLastBlock(block))
+                println("Node $id added block ${block.hash} to a new fork [${forks.size - 1}]")
+                return
+            }
+
+            forks.add(blockchain.addMinedBlock(block))
+            println("Node $id added block ${block.hash} to a new fork [${forks.size - 1}]")
+
+            // If any fork is longer than the main chain, swap the main chain with the fork
+            forks.forEachIndexed { index, fork ->
+                if (fork.blocks.size > blockchain.blocks.size) {
+                    println("Node $id has a fork that is longer than the main chain. Swapping to the fork.")
+                    val temp = fork
+                    forks[index] = blockchain
+                    blockchain = temp
+                    return
+                }
+            }
         }
         if (LOAD_FROM_FILE) {
             blockchainService.save(filename, blockchain)

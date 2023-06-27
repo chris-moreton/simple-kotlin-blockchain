@@ -3,6 +3,9 @@ package com.netsensia.blockchain.simulate
 import com.netsensia.blockchain.service.NetworkService
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 interface Simulator {
     fun run()
@@ -14,24 +17,27 @@ class DefaultSimulator : Simulator {
     @Inject
     lateinit var networkService: NetworkService
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun run() {
         println("Creating network")
         val network = networkService.createNetwork(50)
         println("Randomly connecting network")
         network.randomlyConnect()
-        (0..10000).forEach {
-            network.randomlySelectNode().generateTransaction()
-            network.nodes.forEach {
-                println("Node ${it.id} chain length is ${network.randomlySelectNode().blockchain.blocks.size}")
+
+        GlobalScope.launch {
+            (0..10000).forEach {
+                network.randomlySelectNode().generateTransaction()
+                // sleep for a random amount of time between 0 and 1000 milliseconds
+                Thread.sleep((0..1000).random().toLong())
             }
         }
 
-        println("All transactions generated. Waiting to see what happens.")
         (0..10000).forEach {
             network.nodes.forEach {
-                println("Node ${it.id} chain length is ${network.randomlySelectNode().blockchain.blocks.size}")
+                print("${it.blockchain.blocks.size} ")
             }
-            Thread.sleep(500)
+            println()
+            Thread.sleep(5000)
         }
     }
 }
