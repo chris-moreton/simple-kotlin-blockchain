@@ -30,7 +30,7 @@ class DefaultSimulator : Simulator {
             (0..2500).forEach {
                 network.randomlySelectNode().generateTransaction()
                 // sleep for a random amount of time between 0 and 1000 milliseconds
-                Thread.sleep((0..5000).random().toLong())
+                //Thread.sleep((0..5000).random().toLong())
             }
         }
 
@@ -41,7 +41,7 @@ class DefaultSimulator : Simulator {
             println()
             val similarity = calculateSimilarityPercentage(network.nodes.map { it.blockchain }).toInt()
             println("Similarity: $similarity")
-            Thread.sleep(5000)
+            Thread.sleep(1000)
         }
     }
 

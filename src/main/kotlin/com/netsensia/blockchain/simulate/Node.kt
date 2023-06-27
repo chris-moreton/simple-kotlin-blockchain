@@ -67,12 +67,12 @@ class Node(val id: String) {
 
     fun generateTransaction() {
 
-        val name: List<String> = listOf("Jim", "Fred", "Alice", "Bob", "Chrismo", "Dave")
+        val name: List<String> = listOf("Alice", "Bob", "Chrismo")
 
         val sender = name.random()
         val recipient = name.random()
 
-        val transaction = Transaction(UUID.randomUUID(), sender, recipient, (1..10000).random() / 100.0)
+        val transaction = Transaction(UUID.randomUUID(), sender, recipient, (1..10000).random() / 500.0)
 
         transactions.add(transaction)
         transactionsReceived.add(transaction.id)
@@ -107,20 +107,25 @@ class Node(val id: String) {
         // Add logic to mine a new block with the current transactions
         val transactionsToConsider = transactions.toList()
         val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider).take(MAX_TXS_PER_BLOCK)
+        val invalidTransactions = transactionsToConsider.filter { it !in validTransactions }
+        transactions.removeIf {
+            it.id in invalidTransactions.map { it.id }
+        }
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
             println("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.")
             val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
             println("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
             transactions.removeIf {
-                it.id in transactionsToConsider.map { it.id }
+                it.id in validTransactions.map { it.id }
             }
             blocksReceived.add(block.hash)
             blockchain = blockchain.addMinedBlock(block)
             broadcastBlock(block)
+            mineUnlock("mined a block")
+            considerMining("mined a block")
         } else {
-            println("Node $id doesn't have enough valid transactions to mine a new block. Will wait for more.")
+            mineUnlock("there are not enough valid transactions")
         }
-        mineUnlock("mineBlock function completed")
     }
 
     // Receive a block from a peer
@@ -194,11 +199,7 @@ class Node(val id: String) {
             return
         }
         mineLock(reason)
-        if (transactions.size >= MIN_TXS_PER_BLOCK) {
-            println("Node $id has enough transactions to mine a new block.")
-            startMining()
-        }
-        mineUnlock("not enough transactions to mine a new block")
+        startMining()
     }
 
     private fun mineLock(reason: String) {
