@@ -7,6 +7,7 @@ import jakarta.inject.Singleton
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlin.system.exitProcess
 
 interface Simulator {
     fun run()
@@ -38,7 +39,8 @@ class DefaultSimulator : Simulator {
                 print("${it.blockchain.blocks.size} ")
             }
             println()
-            println("Similarity: ${calculateSimilarityPercentage(network.nodes.map { it.blockchain }).toInt()}")
+            val similarity = calculateSimilarityPercentage(network.nodes.map { it.blockchain }).toInt()
+            println("Similarity: $similarity")
             Thread.sleep(5000)
         }
     }
@@ -50,10 +52,16 @@ class DefaultSimulator : Simulator {
 
         for (position in 0 until minLength) {
             val blocksAtPosition = allChains.map { it.blocks[position] }
-            val scoreAtPosition = blocksAtPosition.sumOf { block -> blocksAtPosition.count { it == block } }
+            println("Blocks at position $position: ${blocksAtPosition.size}")
+            val scoreAtPosition = blocksAtPosition.sumOf { block ->
+                blocksAtPosition.count { it.hash == block.hash }
+            }
+            println("Score at position $position: $scoreAtPosition")
             totalScore += scoreAtPosition
+            println("Total score: $totalScore")
         }
 
+        println("Total score: $totalScore, max score: $maxScore")
         return (totalScore.toDouble() / maxScore.toDouble()) * 100
     }
 
