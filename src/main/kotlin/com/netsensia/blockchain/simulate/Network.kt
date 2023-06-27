@@ -27,7 +27,7 @@ class Network {
     }
 
     companion object {
-        const val DIFFICULTY = 4
+        const val DIFFICULTY = 3
 
         fun createNetwork(numberOfNodes: Int): Network {
             val network = Network()

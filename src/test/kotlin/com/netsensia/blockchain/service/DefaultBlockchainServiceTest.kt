@@ -10,6 +10,7 @@ import com.netsensia.blockchain.model.hash
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
+import java.util.*
 
 @MicronautTest
 class DefaultBlockchainServiceTest(
@@ -20,18 +21,18 @@ class DefaultBlockchainServiceTest(
     @Test
     fun `should save blockchain to a file and be able to reload it`() {
         val blockchain = blockchainService.genesis()
-            .mineAndAddBlock(listOf(Transaction("Alice", "Bob", 50.0)), 4)
-            .mineAndAddBlock(listOf(Transaction("Alice", "Barry", 10.0)), 4)
-            .mineAndAddBlock(listOf(Transaction("Anna", "Alice", 10.2)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Bob", 50.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Barry", 10.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Anna", "Alice", 10.2)), 4)
 
         assertThat(blockchain.blocks.size).isEqualTo(4)
 
         blockchainService.save("blockchain.txt", blockchain)
 
         val newChain = blockchainService.genesis()
-            .mineAndAddBlock(listOf(Transaction("Steve", "Bob", 5.0)), 4)
-            .mineAndAddBlock(listOf(Transaction("Alice", "Barry", 16.0)), 3)
-            .mineAndAddBlock(listOf(Transaction("Anna", "Jemma", 11.1)), 5)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Steve", "Bob", 5.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Barry", 16.0)), 3)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Anna", "Jemma", 11.1)), 5)
 
         assertThat(newChain.blocks.size).isEqualTo(4)
 
@@ -46,16 +47,16 @@ class DefaultBlockchainServiceTest(
     @Test
     fun `should validate a valid newly-received block`() {
         val blockchain = blockchainService.genesis()
-            .mineAndAddBlock(listOf(Transaction("Alice", "Chrismo", 50.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Chrismo", 50.0)), 4)
             .mineAndAddBlock(listOf(
-                Transaction("Alice", "Bob", 10.0),
-                Transaction("Chrismo", "Alice", 10.2)),
+                Transaction(UUID.randomUUID(), "Alice", "Bob", 10.0),
+                Transaction(UUID.randomUUID(), "Chrismo", "Alice", 10.2)),
                 4
             )
 
         val transactions = listOf(
-            Transaction("Alice", "Bob", 15.0),
-            Transaction("Chrismo", "Alice", 12.2)
+            Transaction(UUID.randomUUID(), "Alice", "Bob", 15.0),
+            Transaction(UUID.randomUUID(), "Chrismo", "Alice", 12.2)
         )
 
         val newBlock = runBlocking {
@@ -68,16 +69,16 @@ class DefaultBlockchainServiceTest(
     @Test
     fun `should not validate am invalid newly-received block`() {
         val blockchain = blockchainService.genesis()
-            .mineAndAddBlock(listOf(Transaction("Alice", "Chrismo", 50.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Chrismo", 50.0)), 4)
             .mineAndAddBlock(listOf(
-                Transaction("Alice", "Bob", 10.0),
-                Transaction("Chrismo", "Alice", 10.2)),
+                Transaction(UUID.randomUUID(), "Alice", "Bob", 10.0),
+                Transaction(UUID.randomUUID(), "Chrismo", "Alice", 10.2)),
                 4
             )
 
         val transactions = listOf(
-            Transaction("Alice", "Bob", 15.0),
-            Transaction("Chrismo", "Alice", 12.2)
+            Transaction(UUID.randomUUID(), "Alice", "Bob", 15.0),
+            Transaction(UUID.randomUUID(), "Chrismo", "Alice", 12.2)
         )
 
         val fakeBlock = Block.Mined(

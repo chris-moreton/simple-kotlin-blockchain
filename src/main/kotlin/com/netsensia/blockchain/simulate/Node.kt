@@ -10,8 +10,11 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.io.File
+import java.util.*
+import java.util.concurrent.CopyOnWriteArrayList
 
 private const val MIN_TXS_PER_BLOCK = 2
+private const val LOAD_FROM_FILE = false
 
 class Node(val id: String) {
 
@@ -23,12 +26,12 @@ class Node(val id: String) {
 
     lateinit var blockchain: Blockchain
 
-    val transactions = mutableListOf<Transaction>()
+    val transactions = CopyOnWriteArrayList<Transaction>()
 
     private val peers = mutableListOf<Node>()
 
     fun loadChain() {
-        blockchain = if (false && File(filename).exists()) {
+        blockchain = if (LOAD_FROM_FILE && File(filename).exists()) {
             blockchainService.load(filename)
         } else {
             blockchainService.genesis()
@@ -60,7 +63,7 @@ class Node(val id: String) {
         val sender = name.random()
         val recipient = name.random()
 
-        val transaction = Transaction(sender, recipient, (1..10000).random() / 100.0)
+        val transaction = Transaction(UUID.randomUUID(), sender, recipient, (1..10000).random() / 100.0)
 
         transactions.add(transaction)
 
@@ -70,8 +73,8 @@ class Node(val id: String) {
     }
 
     fun receiveTransaction(transaction: Transaction) {
-        if (!transactions.contains(transaction)) {
-            transactions.add(transaction)
+        if (transactions.count { it.id == transaction.id } == 0) {
+            transactions.add(transaction.copy())
         }
 
         // If this node has enough transactions and is not currently mining, start mining
@@ -89,11 +92,14 @@ class Node(val id: String) {
 
     suspend fun mineBlock() {
         // Add logic to mine a new block with the current transactions
-        val validTransactions = blockchain.validTransactionsOnly(transactions)
+        val transactionsToConsider = transactions.toList()
+        val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
             val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
             println("Node $id mined a new block!")
-            transactions.clear()
+            transactions.removeIf {
+                it.id in transactionsToConsider.map { it.id }
+            }
             broadcastBlock(block)
         }
     }
@@ -114,6 +120,8 @@ class Node(val id: String) {
             // The received block is not valid, re-sync might be required
             println("Node $id received an invalid block, re-syncing might be needed.")
         }
-        blockchainService.save(filename, blockchain)
+        if (LOAD_FROM_FILE) {
+            blockchainService.save(filename, blockchain)
+        }
     }
 }

@@ -16,7 +16,7 @@ class DefaultSimulator : Simulator {
 
     override fun run() {
         println("Creating network")
-        val network = networkService.createNetwork(5)
+        val network = networkService.createNetwork(50)
         println("Randomly connecting network")
         network.randomlyConnect()
         (0..10000).forEach {

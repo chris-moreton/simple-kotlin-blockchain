@@ -8,6 +8,7 @@ import com.netsensia.blockchain.service.BlockchainService
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Inject
 import org.junit.jupiter.api.Test
+import java.util.*
 
 @MicronautTest
 class BlockchainTest {
@@ -26,7 +27,7 @@ class BlockchainTest {
     @Test
     fun `adding a block should increase the size of blockchain`() {
         val blockchain = blockchainService.genesis()
-        val newChain = blockchain.mineAndAddBlock(listOf(Transaction("Alice", "Bob", 50.0)), 4)
+        val newChain = blockchain.mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Bob", 50.0)), 4)
         assertThat(blockchain.blocks.size).isEqualTo(1)
         assertThat(newChain.blocks.size).isEqualTo(2)
     }
@@ -34,7 +35,7 @@ class BlockchainTest {
     @Test
     fun `newly added block should contain given transactions`() {
         val blockchain = blockchainService.genesis()
-        val transactions = listOf(Transaction("Alice", "Bob", 50.0))
+        val transactions = listOf(Transaction(UUID.randomUUID(), "Alice", "Bob", 50.0))
         val newChain = blockchain.mineAndAddBlock(transactions, 4)
         assertThat(newChain.getLastBlock().transactions).isEqualTo(transactions)
     }
@@ -42,7 +43,7 @@ class BlockchainTest {
     @Test
     fun `blockchain should be valid after adding blocks`() {
         val blockchain = blockchainService.genesis()
-        blockchain.mineAndAddBlock(listOf(Transaction("Alice", "Bob", 50.0)), 4)
+        blockchain.mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Bob", 50.0)), 4)
         assertThat(blockchain.validate()).isTrue()
     }
 
@@ -51,9 +52,9 @@ class BlockchainTest {
         val blockchain = blockchainService.genesis()
 
         val validChain = blockchain
-            .mineAndAddBlock(listOf(Transaction("Alice", "Bob", 50.0)), 4)
-            .mineAndAddBlock(listOf(Transaction("Alice", "Barry", 10.0)), 4)
-            .mineAndAddBlock(listOf(Transaction("Anna", "Alice", 10.2)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Bob", 50.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Barry", 10.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Anna", "Alice", 10.2)), 4)
 
         assertThat(validChain.validate()).isTrue()
 
@@ -65,7 +66,7 @@ class BlockchainTest {
                 this[1] = Block.Unmined(
                     1,
                     validBlocks[1].timestamp,
-                    listOf(Transaction("Alice", "Barry", 11.0)),
+                    listOf(Transaction(UUID.randomUUID(), "Alice", "Barry", 11.0)),
                     validBlocks[1].previousHash
                 ).mine(4)
             }
@@ -77,10 +78,10 @@ class BlockchainTest {
     @Test
     fun `should calculate balances`() {
         val blockchain = blockchainService.genesis()
-            .mineAndAddBlock(listOf(Transaction("Alice", "Chrismo", 50.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Chrismo", 50.0)), 4)
             .mineAndAddBlock(listOf(
-                Transaction("Alice", "Bob", 10.0),
-                Transaction("Chrismo", "Alice", 10.2)),
+                Transaction(UUID.randomUUID(), "Alice", "Bob", 10.0),
+                Transaction(UUID.randomUUID(), "Chrismo", "Alice", 10.2)),
                 4
             )
 
@@ -94,16 +95,16 @@ class BlockchainTest {
     @Test
     fun `should filter out transactions where balance is too low`() {
         val blockchain = blockchainService.genesis()
-            .mineAndAddBlock(listOf(Transaction("Alice", "Chrismo", 50.0)), 4)
+            .mineAndAddBlock(listOf(Transaction(UUID.randomUUID(), "Alice", "Chrismo", 50.0)), 4)
             .mineAndAddBlock(listOf(
-                Transaction("Alice", "Bob", 10.0),
-                Transaction("Chrismo", "Alice", 10.2)),
+                Transaction(UUID.randomUUID(), "Alice", "Bob", 10.0),
+                Transaction(UUID.randomUUID(), "Chrismo", "Alice", 10.2)),
                 4
             )
             .mineAndAddBlock(listOf(
-                Transaction("Alice", "Chrismo", 100000.0),
-                Transaction("Chrismo", "Alice", 10.0),
-                Transaction("Chrismo", "Bob", 20.0),
+                Transaction(UUID.randomUUID(), "Alice", "Chrismo", 100000.0),
+                Transaction(UUID.randomUUID(), "Chrismo", "Alice", 10.0),
+                Transaction(UUID.randomUUID(), "Chrismo", "Bob", 20.0),
             ), 4)
 
         assertThat(blockchain.blocks.size).isEqualTo(4)

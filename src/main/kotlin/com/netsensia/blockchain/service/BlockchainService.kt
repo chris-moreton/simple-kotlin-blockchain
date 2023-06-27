@@ -9,6 +9,7 @@ import com.netsensia.blockchain.model.Transaction
 import jakarta.inject.Singleton
 import java.nio.file.Files
 import java.nio.file.Path
+import java.util.*
 import kotlin.io.path.writeLines
 
 interface BlockchainService {
@@ -71,9 +72,9 @@ class DefaultBlockchainService : BlockchainService {
 
     private fun createGenesisBlock(): Block.Mined {
         val preMineTransactions = listOf(
-            Transaction("Genesis", "Alice", 10000.0),
-            Transaction("Genesis", "Bob", 10000.0),
-            Transaction("Genesis", "Chrismo", 10000.0)
+            Transaction(UUID.randomUUID(), "Genesis", "Alice", 10000.0),
+            Transaction(UUID.randomUUID(), "Genesis", "Bob", 10000.0),
+            Transaction(UUID.randomUUID(), "Genesis", "Chrismo", 10000.0)
         )
         return Block.Mined(
             index = 0,
