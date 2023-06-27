@@ -30,6 +30,9 @@ class Node(val id: String) {
 
     val transactions = CopyOnWriteArrayList<Transaction>()
 
+    val transactionsReceived = mutableListOf<Transaction>()
+    val blocksReceived = mutableListOf<Block.Mined>()
+
     private val peers = mutableListOf<Node>()
 
     fun loadChain() {
@@ -75,16 +78,16 @@ class Node(val id: String) {
     }
 
     fun receiveTransaction(transaction: Transaction) {
+        //println("Node $id received a new transaction from ${transaction.sender} to ${transaction.recipient} for ${transaction.amount}")
         if (transactions.count { it.id == transaction.id } == 0) {
             transactions.add(transaction.copy())
             broadcastTransaction(transaction)
-        }
 
-        // If this node has enough transactions and is not currently mining, start mining
-        if (miningJob?.isActive != true && transactions.size >= MIN_TXS_PER_BLOCK) {
-            startMining()
+            // If this node has enough transactions and is not currently mining, start mining
+            if (miningJob?.isActive != true && transactions.size >= MIN_TXS_PER_BLOCK) {
+                startMining()
+            }
         }
-
     }
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -110,6 +113,11 @@ class Node(val id: String) {
 
     // Receive a block from a peer
     fun receiveBlock(block: Block.Mined) {
+        if (blocksReceived.count { it.hash == block.hash } > 0) {
+            //println("Ignoring previously-received block ${block.hash}")
+            return
+        }
+        blocksReceived.add(block)
         println("Node $id received a new block from a peer! Block has index ${block.index} - last chain index is ${blockchain.getLastBlock().index}")
         // Verify if block is valid and add it to the blockchain if so
         if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
@@ -128,6 +136,7 @@ class Node(val id: String) {
                 if (blockchainService.isValidNewBlock(block, fork.getLastBlock())) {
                     forks[index] = fork.addMinedBlock(block)
                     println("Node $id added block ${block.hash} to an existing fork [$index]")
+                    broadcastBlock(block)
                     return
                 }
             }
@@ -141,10 +150,11 @@ class Node(val id: String) {
 
             // Does the block fit in the same position as the latest block on the main chain?
             // If so, start a fork
-            if (block.previousHash == blockchain.getLastBlock().previousHash) {
+            if (block.previousHash == blockchain.getLastBlock().previousHash && block.hash != blockchain.getLastBlock().hash) {
                 println("Node $id is starting a new fork.")
                 forks.add(blockchain.replaceLastBlock(block))
                 println("Node $id added block ${block.hash} to a new fork [${forks.size - 1}]")
+                broadcastBlock(block)
                 return
             }
 
