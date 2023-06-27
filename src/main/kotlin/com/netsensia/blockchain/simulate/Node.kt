@@ -30,8 +30,8 @@ class Node(val id: String) {
 
     val transactions = CopyOnWriteArrayList<Transaction>()
 
-    val transactionsReceived = mutableListOf<Transaction>()
-    val blocksReceived = mutableListOf<Block.Mined>()
+    val transactionsReceived = mutableListOf<UUID>()
+    val blocksReceived = mutableListOf<String>()
 
     private val peers = mutableListOf<Node>()
 
@@ -71,14 +71,16 @@ class Node(val id: String) {
         val transaction = Transaction(UUID.randomUUID(), sender, recipient, (1..10000).random() / 100.0)
 
         transactions.add(transaction)
-
-        //println("Node $id generated a new transaction from $sender to $recipient for ${transaction.amount}")
+        transactionsReceived.add(transaction.id)
 
         broadcastTransaction(transaction)
     }
 
     fun receiveTransaction(transaction: Transaction) {
         //println("Node $id received a new transaction from ${transaction.sender} to ${transaction.recipient} for ${transaction.amount}")
+        if (transactionsReceived.count { it == transaction.id } > 0) {
+            return
+        }
         if (transactions.count { it.id == transaction.id } == 0) {
             transactions.add(transaction.copy())
             broadcastTransaction(transaction)
@@ -92,6 +94,7 @@ class Node(val id: String) {
 
     @OptIn(DelicateCoroutinesApi::class)
     fun startMining() {
+        println("Node $id is starting to mine.")
         miningJob = GlobalScope.launch {
             mineBlock()
         }
@@ -103,27 +106,32 @@ class Node(val id: String) {
         val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
             val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
-            println("Node $id mined a new block!")
+            println("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
             transactions.removeIf {
                 it.id in transactionsToConsider.map { it.id }
             }
+            blocksReceived.add(block.hash)
+            blockchain = blockchain.addMinedBlock(block)
             broadcastBlock(block)
         }
     }
 
     // Receive a block from a peer
     fun receiveBlock(block: Block.Mined) {
-        if (blocksReceived.count { it.hash == block.hash } > 0) {
+        if (blocksReceived.count { it == block.hash } > 0) {
             //println("Ignoring previously-received block ${block.hash}")
             return
         }
-        blocksReceived.add(block)
-        println("Node $id received a new block from a peer! Block has index ${block.index} - last chain index is ${blockchain.getLastBlock().index}")
+        blocksReceived.add(block.hash)
+        println("Node $id received a new block ${block.hash} from a peer. Block has index ${block.index} and last chain index is ${blockchain.getLastBlock().index}")
         // Verify if block is valid and add it to the blockchain if so
         if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
-            miningJob?.cancel()
+            if (miningJob?.isActive == true) {
+                println("Node $id is cancelling mining job.")
+                miningJob?.cancel()
+            }
             blockchain = blockchain.addMinedBlock(block)
-            println("Node $id added a new block to the chain!")
+            println("Node $id added a new block ${block.hash} to the chain!")
             broadcastBlock(block)
             if (transactions.size >= MIN_TXS_PER_BLOCK) {
                 startMining()
