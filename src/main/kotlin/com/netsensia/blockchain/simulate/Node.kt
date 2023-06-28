@@ -84,14 +84,8 @@ class Node(val id: String) {
             return
         }
         transactionsReceived.add(transaction.id)
-        //println("Node $id received a new transaction from ${transaction.sender} to ${transaction.recipient} for ${transaction.amount}")
-        if (transactions.count { it.id == transaction.id } == 0) {
-            transactions.add(transaction.copy())
-            broadcastTransaction(transaction)
-
-            // If this node has enough transactions and is not currently mining, start mining
-            considerMining("new transaction was received")
-        }
+        broadcastTransaction(transaction)
+        considerMining("new transaction was received")
     }
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -135,11 +129,11 @@ class Node(val id: String) {
     // Receive a block from a peer
     fun receiveBlock(block: Block.Mined) {
         if (blocksReceived.count { it == block.hash } > 0) {
-            //println("Ignoring previously-received block ${block.hash}")
             return
         }
         blocksReceived.add(block.hash)
-        println("Node $id received a new block ${block.hash} from a peer. Block has index ${block.index} and last chain index is ${blockchain.getLastBlock().index}")
+        broadcastBlock(block)
+        println("Node $id received a new block ${block.hash} from a peer. Block has index ${block.index}. Last chain index is ${blockchain.getLastBlock().index}. Chain size is ${blockchain.blocks.size}.")
         // Verify if block is valid and add it to the blockchain if so
         if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
             if (miningJob?.isActive == true) {
@@ -154,15 +148,19 @@ class Node(val id: String) {
         } else {
             println("Node $id received a block ${block.hash} that doesn't fit on the main chain.")
 
+            println("Node $id has ${forks.size} forks.")
+
             // Does it fit on any fork?
             forks.forEachIndexed { index, fork ->
                 if (blockchainService.isValidNewBlock(block, fork.getLastBlock())) {
                     forks[index] = fork.addMinedBlock(block)
                     println("Node $id added block ${block.hash} to an existing fork [$index]")
-                    broadcastBlock(block)
+                    checkChainLengths(index)
                     return
                 }
             }
+
+            println("Node $id could not fit block onto an existing fork.")
 
             if (forks.size == MAX_FORKS) {
                 println("Node $id has reached the maximum number of forks. Removing oldest fork.")
@@ -177,24 +175,24 @@ class Node(val id: String) {
                 println("Node $id is starting a new fork.")
                 forks.add(blockchain.replaceLastBlock(block))
                 println("Node $id added block ${block.hash} to a new fork [${forks.size - 1}] with size ${forks.last().blocks.size}")
-                broadcastBlock(block)
                 return
             }
 
-            // If any fork is longer than the main chain, swap the main chain with the fork
-            forks.forEachIndexed { index, fork ->
-                if (fork.blocks.size > blockchain.blocks.size) {
-                    println("Node $id has a fork that is longer than the main chain. Swapping to the fork.")
-                    val temp = fork
-                    forks[index] = blockchain
-                    blockchain = temp
-                    return
-                }
-            }
+            println("Node $id is ignoring block ${block.hash} because it doesn't fit on the main chain or any existing forks.")
         }
-        if (LOAD_FROM_FILE) {
-            blockchainService.save(filename, blockchain)
+    }
+
+    private fun checkChainLengths(forkNumber: Int) {
+        // If any fork is longer than the main chain, swap the main chain with the fork
+        println("Node $id is checking if fork $forkNumber is longer than the main chain.")
+        if (forks[forkNumber].blocks.size > blockchain.blocks.size) {
+            println("Node $id has a fork [$forkNumber] that is longer than the main chain. Swapping to the fork.")
+            val temp = forks[forkNumber]
+            forks[forkNumber] = blockchain
+            blockchain = temp
+            return
         }
+        println("Node $id found that fork [$forkNumber] is not longer than the main chain.")
     }
 
     private fun considerMining(reason: String) {

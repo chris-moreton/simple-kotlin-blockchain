@@ -22,7 +22,7 @@ class DefaultSimulator : Simulator {
     @OptIn(DelicateCoroutinesApi::class)
     override fun run() {
         println("Creating network")
-        val network = networkService.createNetwork(20)
+        val network = networkService.createNetwork(6)
         println("Randomly connecting network")
         network.randomlyConnect()
 
