@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.util.*
 import java.util.concurrent.CopyOnWriteArrayList
-import kotlin.math.min
 
 private const val MIN_TXS_PER_BLOCK = 2
 private const val MAX_TXS_PER_BLOCK = 4
@@ -30,11 +29,11 @@ class Node(val id: String) {
     val blockService = DefaultBlockService()
 
     lateinit var blockchain: Blockchain
-    val forks = mutableListOf<Blockchain>()
+    val forks = CopyOnWriteArrayList<Blockchain>()
 
     val transactions = CopyOnWriteArrayList<Transaction>()
 
-    val transactionsReceived = mutableListOf<UUID>()
+    val transactionsReceived = CopyOnWriteArrayList<UUID>()
     val blocksReceived = mutableListOf<String>()
 
     private val peers = mutableListOf<Node>()
@@ -105,19 +104,13 @@ class Node(val id: String) {
 
     suspend fun mineBlock() {
         // Add logic to mine a new block with the current transactions
-        val transactionsToConsider = transactions.toList()
-        val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider).take(MAX_TXS_PER_BLOCK)
-        val invalidTransactions = transactionsToConsider.filter { it !in validTransactions }
-        transactions.removeIf {
-            it.id in invalidTransactions.map { it.id }
-        }
+        println("Node $id has ${transactions.size} transactions queued.")
+        val validTransactions = getMaxAllowedValidTransactions()
+        println("Node $id has ${validTransactions.size} valid transactions.")
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
             println("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.")
             val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
             println("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
-            transactions.removeIf {
-                it.id in validTransactions.map { it.id }
-            }
             blocksReceived.add(block.hash)
             blockchain = blockchain.addMinedBlock(block)
             broadcastBlock(block)
@@ -126,6 +119,17 @@ class Node(val id: String) {
         } else {
             mineUnlock("there are not enough valid transactions")
         }
+    }
+
+    private fun getMaxAllowedValidTransactions(): List<Transaction> {
+        val transactionsToConsider = transactions.toList()
+        val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider)
+        val invalidTransactions = transactionsToConsider.filter { it !in validTransactions }
+        println("Removing ${invalidTransactions.size} invalid transactions from the queue.")
+        transactions.removeIf {
+            it.id in invalidTransactions.map { it.id }
+        }
+        return validTransactions.take(MAX_TXS_PER_BLOCK)
     }
 
     // Receive a block from a peer
@@ -194,6 +198,7 @@ class Node(val id: String) {
     }
 
     private fun considerMining(reason: String) {
+        println("Node $id is considering mining because $reason.")
         if (mineLock) {
             println("Node $id is already mining. Won't consider mining ($reason).")
             return
