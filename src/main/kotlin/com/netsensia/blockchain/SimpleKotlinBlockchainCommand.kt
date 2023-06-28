@@ -1,6 +1,7 @@
 package com.netsensia.blockchain
 
 import com.netsensia.blockchain.service.NetworkService
+import com.netsensia.blockchain.simulate.DefaultSimulator
 import com.netsensia.blockchain.simulate.Simulator
 import io.micronaut.configuration.picocli.PicocliRunner
 import jakarta.inject.Inject
@@ -30,6 +31,12 @@ class SimpleKotlinBlockchainCommand : Runnable {
     companion object {
         @JvmStatic fun main(args: Array<String>) {
             PicocliRunner.run(SimpleKotlinBlockchainCommand::class.java, *args)
+        }
+
+        fun output(s: String, logLevel: Int = 0) {
+            if (logLevel <= DefaultSimulator.LOG_LEVEL) {
+                println(s)
+            }
         }
     }
 }

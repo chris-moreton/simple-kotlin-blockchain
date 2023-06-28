@@ -1,10 +1,12 @@
 package com.netsensia.blockchain.simulate
 
+import com.netsensia.blockchain.SimpleKotlinBlockchainCommand.Companion.output
 import com.netsensia.blockchain.model.Block
 import com.netsensia.blockchain.model.Blockchain
 import com.netsensia.blockchain.model.Transaction
 import com.netsensia.blockchain.service.DefaultBlockService
 import com.netsensia.blockchain.service.DefaultBlockchainService
+import com.netsensia.blockchain.simulate.DefaultSimulator.Companion.LOG_LEVEL
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
@@ -90,7 +92,7 @@ class Node(val id: String) {
 
     @OptIn(DelicateCoroutinesApi::class)
     fun startMining() {
-        println("Node $id is starting to mine.")
+        output("Node $id is starting to mine (if there are enough valid transactions).", 1)
         miningJob = GlobalScope.launch {
             mineBlock()
         }
@@ -98,13 +100,13 @@ class Node(val id: String) {
 
     suspend fun mineBlock() {
         // Add logic to mine a new block with the current transactions
-        println("Node $id has ${transactions.size} transactions queued.")
+        output("Node $id has ${transactions.size} transactions queued.", 2)
         val validTransactions = getMaxAllowedValidTransactions()
-        println("Node $id has ${validTransactions.size} valid transactions.")
+        output("Node $id has ${validTransactions.size} valid transactions.", 2)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
-            println("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.")
+            output("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.", 2)
             val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
-            println("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
+            output("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
             blocksReceived.add(block.hash)
             blockchain = blockchain.addMinedBlock(block)
             broadcastBlock(block)
@@ -119,7 +121,7 @@ class Node(val id: String) {
         val transactionsToConsider = transactions.toList()
         val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider)
         val invalidTransactions = transactionsToConsider.filter { it !in validTransactions }
-        println("Removing ${invalidTransactions.size} invalid transactions from the queue.")
+        output("Removing ${invalidTransactions.size} invalid transactions from the queue.", 2)
         transactions.removeIf {
             it.id in invalidTransactions.map { it.id }
         }
@@ -133,37 +135,37 @@ class Node(val id: String) {
         }
         blocksReceived.add(block.hash)
         broadcastBlock(block)
-        println("Node $id received a new block ${block.hash} from a peer. Block has index ${block.index}. Last chain index is ${blockchain.getLastBlock().index}. Chain size is ${blockchain.blocks.size}.")
+        output("Node $id received a new block ${block.hash} from a peer. Block has index ${block.index}. Last chain index is ${blockchain.getLastBlock().index}. Chain size is ${blockchain.blocks.size}.")
         // Verify if block is valid and add it to the blockchain if so
         if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
             if (miningJob?.isActive == true) {
-                println("Node $id is cancelling mining job because a valid block being received from a peer.")
+                output("Node $id is cancelling mining job because a valid block being received from a peer.")
                 miningJob?.cancel()
                 mineUnlock("mining job was cancelled")
             }
             blockchain = blockchain.addMinedBlock(block)
-            println("Node $id added a new block ${block.hash} to the chain!")
+            output("Node $id added a new block ${block.hash} to the chain!")
             considerMining("new block was added to chain")
             broadcastBlock(block)
         } else {
-            println("Node $id received a block ${block.hash} that doesn't fit on the main chain.")
+            output("Node $id received a block ${block.hash} that doesn't fit on the main chain.")
 
-            println("Node $id has ${forks.size} forks.")
+            output("Node $id has ${forks.size} forks.")
 
             // Does it fit on any fork?
             forks.forEachIndexed { index, fork ->
                 if (blockchainService.isValidNewBlock(block, fork.getLastBlock())) {
                     forks[index] = fork.addMinedBlock(block)
-                    println("Node $id added block ${block.hash} to an existing fork [$index]")
+                    output("Node $id added block ${block.hash} to an existing fork [$index]")
                     checkChainLengths(index)
                     return
                 }
             }
 
-            println("Node $id could not fit block onto an existing fork.")
+            output("Node $id could not fit block onto an existing fork.")
 
             if (forks.size == MAX_FORKS) {
-                println("Node $id has reached the maximum number of forks. Removing oldest fork.")
+                output("Node $id has reached the maximum number of forks. Removing oldest fork.")
                 forks.sortedBy { it.getLastBlock().timestamp }.firstOrNull()?.let {
                     forks.remove(it)
                 }
@@ -172,33 +174,33 @@ class Node(val id: String) {
             // Does the block fit in the same position as the latest block on the main chain?
             // If so, start a fork
             if (block.previousHash == blockchain.getLastBlock().previousHash && block.hash != blockchain.getLastBlock().hash) {
-                println("Node $id is starting a new fork.")
+                output("Node $id is starting a new fork.")
                 forks.add(blockchain.replaceLastBlock(block))
-                println("Node $id added block ${block.hash} to a new fork [${forks.size - 1}] with size ${forks.last().blocks.size}")
+                output("Node $id added block ${block.hash} to a new fork [${forks.size - 1}] with size ${forks.last().blocks.size}")
                 return
             }
 
-            println("Node $id is ignoring block ${block.hash} because it doesn't fit on the main chain or any existing forks.")
+            output("Node $id is ignoring block ${block.hash} because it doesn't fit on the main chain or any existing forks.")
         }
     }
 
     private fun checkChainLengths(forkNumber: Int) {
         // If any fork is longer than the main chain, swap the main chain with the fork
-        println("Node $id is checking if fork $forkNumber is longer than the main chain.")
+        output("Node $id is checking if fork $forkNumber is longer than the main chain.")
         if (forks[forkNumber].blocks.size > blockchain.blocks.size) {
-            println("Node $id has a fork [$forkNumber] that is longer than the main chain. Swapping to the fork.")
+            output("Node $id has a fork [$forkNumber] that is longer than the main chain. Swapping to the fork.")
             val temp = forks[forkNumber]
             forks[forkNumber] = blockchain
             blockchain = temp
             return
         }
-        println("Node $id found that fork [$forkNumber] is not longer than the main chain.")
+        output("Node $id found that fork [$forkNumber] is not longer than the main chain.")
     }
 
     private fun considerMining(reason: String) {
-        println("Node $id is considering mining because $reason.")
+        output("Node $id is considering mining because $reason.", 2)
         if (mineLock) {
-            println("Node $id is already mining. Won't consider mining ($reason).")
+            output("Node $id is already mining. Won't consider mining ($reason).", 2)
             return
         }
         mineLock(reason)
@@ -206,12 +208,13 @@ class Node(val id: String) {
     }
 
     private fun mineLock(reason: String) {
-        println("Node $id is locking mining because $reason.")
+        output("Node $id is locking mining because $reason.", 2)
         mineLock = true
     }
 
     private fun mineUnlock(reason: String) {
-        println("Node $id is unlocking mining because $reason.")
+        output("Node $id is unlocking mining because $reason.", 1)
         mineLock = false
     }
+
 }
