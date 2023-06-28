@@ -72,9 +72,9 @@ class DefaultBlockchainService : BlockchainService {
 
     private fun createGenesisBlock(): Block.Mined {
         val preMineTransactions = listOf(
-            Transaction(UUID.randomUUID(), "Genesis", "Alice", 10000.0),
-            Transaction(UUID.randomUUID(), "Genesis", "Bob", 10000.0),
-            Transaction(UUID.randomUUID(), "Genesis", "Chrismo", 10000.0)
+            Transaction(UUID.randomUUID(), "Genesis", "Alice", 10000000.0),
+            Transaction(UUID.randomUUID(), "Genesis", "Bob", 10000000.0),
+            Transaction(UUID.randomUUID(), "Genesis", "Chrismo", 10000000.0)
         )
         return Block.Mined(
             index = 0,

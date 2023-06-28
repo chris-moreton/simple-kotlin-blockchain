@@ -1,5 +1,6 @@
 package com.netsensia.blockchain.model
 
+import com.netsensia.blockchain.SimpleKotlinBlockchainCommand.Companion.output
 import com.netsensia.blockchain.service.DefaultBlockService
 import com.netsensia.blockchain.simulate.Network
 import kotlinx.coroutines.runBlocking
@@ -53,15 +54,19 @@ class Blockchain(val blocks: List<Block.Mined>) {
 
         // reject if transaction already exists in blockchain
         blocks.forEach { block ->
-            block.transactions.forEach { blockTransaction ->
-                if (blockTransaction.id == transaction.id) {
-                    return false
-                }
+            if (transaction.id in block.transactions.map { it.id }) {
+                output("Transaction ${transaction.id} already exists in blockchain in block ${block.hash}", 5)
+                return false
             }
         }
 
         val balance = effectiveBalances.getOrDefault(transaction.sender, getBalance(transaction.sender))
-        return (balance >= transaction.amount)
+        if (balance >= transaction.amount) {
+            return true
+        } else {
+            output("Insufficient funds [${balance}] for transaction ${transaction.id} with amount ${transaction.amount}", 5)
+            return false
+        }
     }
 
     fun getBalance(address: String): Double {

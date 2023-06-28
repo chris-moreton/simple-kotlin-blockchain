@@ -51,7 +51,7 @@ class Node(val id: String) {
                 generateTransaction()
                 lastTransactionGeneratedAt = System.currentTimeMillis()
             }
-            // if 1 second has passed since we last tried mining, try again
+
             if (System.currentTimeMillis() - lastMiningAttemptAt > 1000) {
                 lastMiningAttemptAt = System.currentTimeMillis()
                 tryMining()
@@ -73,7 +73,7 @@ class Node(val id: String) {
 
     fun broadcastTransaction(transaction: Transaction) {
         peers.forEach {
-            output("Node $id is broadcasting transaction ${transaction.id} to ${it.id}", 4)
+            output("Node $id is broadcasting transaction ${transaction.id} to ${it.id}", 7)
             it.receiveTransaction(transaction)
         }
     }
@@ -90,18 +90,18 @@ class Node(val id: String) {
         transactions.add(transaction)
         transactionsReceived.add(transaction.id)
 
-        println("Node $id has generated transaction ${transaction.id} from $sender to $recipient for ${transaction.amount}")
+        output("Node $id has generated transaction ${transaction.id} from $sender to $recipient for ${transaction.amount}", 3)
 
         broadcastTransaction(transaction)
     }
 
     fun tryMining() {
         mineLock("Node $id is starting to mine (if there are enough valid transactions)")
-        output("Node $id has ${transactions.size} transactions queued.", 2)
+        output("Node $id has ${transactions.size} transactions queued.", 3)
         val validTransactions = getMaxAllowedValidTransactions()
-        output("Node $id has ${validTransactions.size} valid transactions.", 2)
+        output("Node $id has ${validTransactions.size} valid transactions.", 3)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
-            output("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.", 2)
+            output("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.", 3)
 
             val unminedBlock = Block.Unmined(
                 index = blockchain.getLastBlock().index + 1,
@@ -115,7 +115,7 @@ class Node(val id: String) {
             var hash = Block.calculateHash(unminedBlock, nonce)
             while (mineLock && hash.substring(0, Network.DIFFICULTY) != target) {
                 nonce = Random.nextInt()
-                if (nonce % (Math.pow(10.0, Network.DIFFICULTY.toDouble())).toInt() == 0) output("Currently being mined by $id to add to block ${blockchain.getLastBlock().hash}", 3)
+                if (nonce % (Math.pow(10.0, Network.DIFFICULTY.toDouble())).toInt() == 0) output("Currently being mined by $id to add to block ${blockchain.getLastBlock().hash}", 4)
                 hash = Block.calculateHash(unminedBlock, nonce)
             }
 
@@ -130,6 +130,7 @@ class Node(val id: String) {
                     hash
                 )
                 output("Node $id mined a new block ${minedBlock.hash}. Index is ${minedBlock.index}, previous hash is ${minedBlock.previousHash}")
+                output("Block ${minedBlock.hash} contains ${minedBlock.transactions}", 3)
                 if (blockchainService.isValidNewBlock(minedBlock, blockchain.getLastBlock())) {
                     blockchain = blockchain.addMinedBlock(minedBlock)
                     output("Newly-mined block is valid, node $id added a new block ${minedBlock.hash} to chain tip ${minedBlock.previousHash}!")
@@ -151,7 +152,12 @@ class Node(val id: String) {
         val transactionsToConsider = transactions.toList()
         val validTransactions = blockchain.validTransactionsOnly(transactionsToConsider)
         val invalidTransactions = transactionsToConsider.filter { it !in validTransactions }
-        output("Removing ${invalidTransactions.size} invalid transactions from the queue.", 2)
+
+        invalidTransactions.forEach {
+            output("Node $id found invalid transaction ${it.id} from ${it.sender} to ${it.recipient} for ${it.amount.toInt()}", 5)
+        }
+
+        output("Removing ${invalidTransactions.size} invalid transactions from the queue.", 4)
         transactions.removeIf {
             it.id in invalidTransactions.map { it.id }
         }
@@ -172,7 +178,9 @@ class Node(val id: String) {
     }
 
     fun receiveTransaction(transaction: Transaction) {
+        output("Node $id received a new transaction ${transaction.id} from a peer.", 7)
         if (transactionsReceived.count { it == transaction.id } > 0) {
+            output("Node $id is ignoring transaction ${transaction.id} because it has already been received from a peer.", 7)
             return
         }
         transactionsReceived.add(transaction.id)
@@ -185,7 +193,7 @@ class Node(val id: String) {
         }
         blocksReceived.add(block.hash)
         broadcastBlock(block)
-        output("Node $id received a new block ${block.hash} from a peer. Block has index ${block.index}. Last chain index is ${blockchain.getLastBlock().index}. Chain size is ${blockchain.blocks.size}.")
+        output("Node $id received a new block ${block.hash} from a peer. Block has index ${block.index}. Last chain index is ${blockchain.getLastBlock().index}. Chain size is ${blockchain.blocks.size}.", 1)
         // Verify if block is valid and add it to the blockchain if so
         if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
             blockchain = blockchain.addMinedBlock(block)
@@ -193,11 +201,11 @@ class Node(val id: String) {
                 output("Node $id is cancelling mining job because a valid block was received from a peer.")
                 mineUnlock("a valid block was received from a peer")
             }
-            output("Node $id added a new block ${block.hash} to the chain!")
+            output("Node $id added a new block ${block.hash} to the chain!", 0)
         } else {
-            output("Node $id received a block ${block.hash} that doesn't fit on the main chain. Block previous hash is ${block.previousHash}. Chain tip is ${blockchain.getLastBlock().hash}.")
+            output("Node $id received a block ${block.hash} that doesn't fit on the main chain. Block previous hash is ${block.previousHash}. Chain tip is ${blockchain.getLastBlock().hash}.", 1)
 
-            output("Node $id has ${forks.size} forks.")
+            output("Node $id has ${forks.size} forks.", 1)
 
             // Does it fit on any fork?
             forks.forEachIndexed { index, fork ->
@@ -232,12 +240,12 @@ class Node(val id: String) {
     }
 
     private fun mineLock(reason: String) {
-        output("Node $id is locking mining because $reason.", 2)
+        output("Node $id is locking mining because $reason.", 3)
         mineLock = true
     }
 
     private fun mineUnlock(reason: String) {
-        output("Node $id is unlocking mining because $reason.", 1)
+        output("Node $id is unlocking mining because $reason.", 3)
         mineLock = false
     }
 
