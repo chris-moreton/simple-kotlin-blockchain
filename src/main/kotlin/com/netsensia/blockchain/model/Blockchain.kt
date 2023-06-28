@@ -56,6 +56,7 @@ class Blockchain(val blocks: List<Block.Mined>) {
         blocks.forEach { block ->
             if (transaction.id in block.transactions.map { it.id }) {
                 output("Transaction ${transaction.id} already exists in blockchain in block ${block.hash}", 5)
+                output("Block transactions: ${block.transactions}", 5)
                 return false
             }
         }

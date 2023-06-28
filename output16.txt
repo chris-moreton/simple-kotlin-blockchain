@@ -3608,6 +3608,15 @@ Randomly connecting network
 2023-06-28T18:58:37.824054: Node Node1 has generated transaction 2a4ffae2-2712-4b01-8f8e-2e22cf904f7c from Bob to Bob for 4.89
 2023-06-28T18:58:37.824194: Node Node1 is locking mining because Node Node1 is starting to mine (if there are enough valid transactions).
 2023-06-28T18:58:37.824205: Node Node1 has 2 transactions queued.
+
+2023-06-28T18:57:42.841572: Node Node1 mined a new block 000036c74aff796183c10495722556543d33afbb60514a0291fe8dfa81b9ad09. Index is 5, previous hash is 000037ff8974a0653b7aeb7d86b52c720dd62e17b62f823193406b195ee09d8e
+2023-06-28T18:57:42.841644: Block 000036c74aff796183c10495722556543d33afbb60514a0291fe8dfa81b9ad09 contains [
+Transaction(id=e3f723d6-0969-4c05-982b-94daae391f80, sender=Bob, recipient=Alice, amount=3.404),
+Transaction(id=7189fc02-66c6-420c-85bd-a5651b618a5e, sender=Alice, recipient=Bob, amount=11.048),
+Transaction(id=3f219740-8b74-46ad-b4e5-f8d189418b53, sender=Bob, recipient=Alice, amount=5.806),
+Transaction(id=1e4a932e-5966-41c3-87fe-712ed19b9e58, sender=Alice, recipient=Bob, amount=5.568),
+Transaction(id=63aef040-860f-4605-a614-31290d4b2666, sender=Chrismo, recipient=Bob, amount=11.458)]
+
 2023-06-28T18:58:37.824225: Transaction 7411982a-59e2-409d-9656-22799acd1d0c already exists in blockchain in block 000036c74aff796183c10495722556543d33afbb60514a0291fe8dfa81b9ad09
 2023-06-28T18:58:37.824239: Transaction 2a4ffae2-2712-4b01-8f8e-2e22cf904f7c already exists in blockchain in block 000036c74aff796183c10495722556543d33afbb60514a0291fe8dfa81b9ad09
 2023-06-28T18:58:37.824250: Node Node1 found invalid transaction 7411982a-59e2-409d-9656-22799acd1d0c from Bob to Chrismo for 9
