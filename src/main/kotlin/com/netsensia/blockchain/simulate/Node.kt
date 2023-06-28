@@ -6,12 +6,11 @@ import com.netsensia.blockchain.model.Blockchain
 import com.netsensia.blockchain.model.Transaction
 import com.netsensia.blockchain.service.DefaultBlockService
 import com.netsensia.blockchain.service.DefaultBlockchainService
-import com.netsensia.blockchain.simulate.DefaultSimulator.Companion.LOG_LEVEL
 import kotlinx.coroutines.*
 import java.io.File
 import java.util.*
 import java.util.concurrent.CopyOnWriteArrayList
-import kotlin.math.min
+import kotlin.random.Random
 
 private const val MIN_TXS_PER_BLOCK = 2
 private const val MAX_TXS_PER_BLOCK = 4
@@ -21,12 +20,10 @@ private const val MAX_FORKS = 50
 class Node(val id: String) {
 
     val filename = "blockchain_${id}.txt"
-    private var miningJob: Job? = null
 
     var mineLock = false
 
     val blockchainService = DefaultBlockchainService()
-    val blockService = DefaultBlockService()
 
     lateinit var blockchain: Blockchain
     val forks = CopyOnWriteArrayList<Blockchain>()
@@ -54,6 +51,7 @@ class Node(val id: String) {
     // Broadcast a block to all peers
     fun broadcastBlock(block: Block.Mined) {
         peers.forEach {
+            println("Node $id is broadcasting block ${block.hash} to ${it.id}")
             it.receiveBlock(block)
         }
     }
@@ -91,30 +89,57 @@ class Node(val id: String) {
     @OptIn(DelicateCoroutinesApi::class)
     fun startMining() {
         output("Node $id is starting to mine (if there are enough valid transactions).", 1)
-        miningJob = GlobalScope.launch {
-            mineBlock()
-        }
+        mineBlock()
     }
 
-    suspend fun mineBlock() {
+    fun mineBlock() {
         // Add logic to mine a new block with the current transactions
         output("Node $id has ${transactions.size} transactions queued.", 2)
         val validTransactions = getMaxAllowedValidTransactions()
         output("Node $id has ${validTransactions.size} valid transactions.", 2)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
             output("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.", 2)
-            val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions, miner = id)
-            output("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
-            if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
-                blockchain = blockchain.addMinedBlock(block)
-                output("Newly-mined block is valid, node $id added a new block ${block.hash} to the chain!")
-                blocksReceived.add(block.hash)
-                blockchain = blockchain.addMinedBlock(block)
-                broadcastBlock(block)
-            } else {
-                output("Newly-mined block is invalid. This really shouldn't happen.")
+
+            val unminedBlock = Block.Unmined(
+                index = blockchain.getLastBlock().index + 1,
+                timestamp = System.currentTimeMillis(),
+                transactions = transactions,
+                previousHash = blockchain.getLastBlock().hash
+            )
+
+            val target = "0".repeat(Network.DIFFICULTY)
+            var nonce = Random.nextInt()
+            var hash = Block.calculateHash(unminedBlock, nonce)
+            while (mineLock && hash.substring(0, Network.DIFFICULTY) != target) {
+                nonce = Random.nextInt()
+                if (nonce % (Math.pow(10.0, Network.DIFFICULTY.toDouble())).toInt() == 0) output("Currently being mined by $id to add to block ${blockchain.getLastBlock().hash}", 3)
+                hash = Block.calculateHash(unminedBlock, nonce)
             }
-            mineUnlock("mined a block")
+
+            if (mineLock) {
+                val minedBlock = Block.Mined(
+                    unminedBlock.index,
+                    unminedBlock.timestamp,
+                    unminedBlock.transactions,
+                    unminedBlock.previousHash,
+                    Network.DIFFICULTY,
+                    nonce,
+                    hash
+                )
+                output("Node $id mined a new block ${minedBlock.hash}. Index is ${minedBlock.index}, previous hash is ${minedBlock.previousHash}")
+                if (blockchainService.isValidNewBlock(minedBlock, blockchain.getLastBlock())) {
+                    blockchain = blockchain.addMinedBlock(minedBlock)
+                    output("Newly-mined block is valid, node $id added a new block ${minedBlock.hash} to chain tip ${minedBlock.previousHash}!")
+                    blocksReceived.add(minedBlock.hash)
+                    blockchain = blockchain.addMinedBlock(minedBlock)
+                    broadcastBlock(minedBlock)
+                } else {
+                    output("Newly-mined block is invalid. This really shouldn't happen.")
+                }
+            } else {
+                output("Node $id stopped mining because the mineLock was lifted.")
+            }
+
             considerMining("mined a block")
         } else {
             mineUnlock("there are not enough valid transactions")
@@ -143,13 +168,9 @@ class Node(val id: String) {
         // Verify if block is valid and add it to the blockchain if so
         if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
             blockchain = blockchain.addMinedBlock(block)
-            if (miningJob?.isActive == true) {
+            if (mineLock) {
                 output("Node $id is cancelling mining job because a valid block was received from a peer.")
-                miningJob?.cancel()
-                runBlocking {
-                    miningJob?.join()
-                }
-                mineUnlock("mining job was cancelled")
+                mineUnlock("a valid block was received from a peer")
             }
             output("Node $id added a new block ${block.hash} to the chain!")
             considerMining("new block was added to chain")

@@ -17,7 +17,6 @@ class DefaultBlockService : BlockService {
             timestamp = System.currentTimeMillis(),
             transactions = transactions,
             previousHash = previousBlock.hash,
-            miner = miner
         )
 
         val minedBlock = unminedBlock.mine(difficulty)
