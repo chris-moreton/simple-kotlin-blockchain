@@ -37,8 +37,8 @@ class DefaultSimulator : Simulator {
             networkDetails(network, 2)
             val smallestChain = network.nodes.minByOrNull { it.blockchain.blocks.size }!!.blockchain
             val longestChain = network.nodes.maxByOrNull { it.blockchain.blocks.size }!!.blockchain
-            if (smallestChain.blocks.size < longestChain.blocks.size - 2) {
-                networkDetails(network)
+            if (smallestChain.blocks.size < longestChain.blocks.size - 20) {
+                networkDetails(network, 2)
                 exitProcess(0)
             }
             Thread.sleep(10000)
@@ -57,6 +57,7 @@ class DefaultSimulator : Simulator {
     private fun calculateSimilarityPercentage(allChains: List<Blockchain>, logLevel: Int = 0): Double {
         val minLength = allChains.minByOrNull { it.blocks.size }!!.blocks.size
         var totalScore = 0
+        var sameUntilBlock = 0
         val maxScore = minLength * allChains.size * allChains.size
 
         for (position in 0 until minLength) {
@@ -65,17 +66,21 @@ class DefaultSimulator : Simulator {
             val scoreAtPosition = blocksAtPosition.sumOf { block ->
                 blocksAtPosition.count { it.hash == block.hash }
             }
-            output("Score at position $position: $scoreAtPosition", logLevel)
+            output("Score at position $position: $scoreAtPosition", 8)
+            if (scoreAtPosition == allChains.size * allChains.size) {
+                sameUntilBlock = position
+            }
             totalScore += scoreAtPosition
-            output("Total score: $totalScore", logLevel)
+            output("Total score: $totalScore", 8)
         }
 
         output("Total score: $totalScore, max score: $maxScore", logLevel)
+        output("Same until block: $sameUntilBlock / $minLength", logLevel)
         return (totalScore.toDouble() / maxScore.toDouble()) * 100
     }
 
     companion object {
-        const val LOG_LEVEL = 6
+        const val LOG_LEVEL = 2
     }
 
 }

@@ -106,7 +106,7 @@ class Node(val id: String) {
             val unminedBlock = Block.Unmined(
                 index = blockchain.getLastBlock().index + 1,
                 timestamp = System.currentTimeMillis(),
-                transactions = transactions,
+                transactions = validTransactions.toList(),
                 previousHash = blockchain.getLastBlock().hash
             )
 

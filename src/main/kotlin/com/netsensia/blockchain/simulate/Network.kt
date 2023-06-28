@@ -22,12 +22,8 @@ class Network {
         }
     }
 
-    fun randomlySelectNode(): Node {
-        return nodes.random()
-    }
-
     companion object {
-        const val DIFFICULTY = 4
+        const val DIFFICULTY = 5
 
         fun createNetwork(numberOfNodes: Int): Network {
             val network = Network()
