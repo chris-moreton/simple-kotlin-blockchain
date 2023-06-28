@@ -1,0 +1,434 @@
+> Task :processResources UP-TO-DATE
+> Task :inspectRuntimeClasspath UP-TO-DATE
+> Task :kaptGenerateStubsKotlin
+> Task :kaptKotlin UP-TO-DATE
+> Task :compileKotlin
+> Task :compileJava NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar
+> Task :inspectClassesForKotlinIC
+
+> Task :run
+[36m21:20:30.702[0;39m [1;30m[main][0;39m [34mINFO [0;39m [35mi.m.context.env.DefaultEnvironment[0;39m - Established active environments: [cli]
+Creating network
+Randomly connecting network
+2023-06-28T21:20:31.083559: Node1: 1 ESIS 
+2023-06-28T21:20:31.084114: Node2: 1 ESIS 
+2023-06-28T21:20:31.084135: Node3: 1 ESIS 
+2023-06-28T21:20:31.084149: Node4: 1 ESIS 
+2023-06-28T21:20:31.084160: Node5: 1 ESIS 
+2023-06-28T21:20:31.084171: Node6: 1 ESIS 
+2023-06-28T21:20:31.084277: Node1: 1 
+2023-06-28T21:20:31.084299: Node2: 1 
+2023-06-28T21:20:31.084312: Node3: 1 
+2023-06-28T21:20:31.084322: Node4: 1 
+2023-06-28T21:20:31.084332: Node5: 1 
+2023-06-28T21:20:31.084342: Node6: 1 
+2023-06-28T21:20:31.084353: 
+2023-06-28T21:20:31.087316: Total score: 36, max score: 36
+2023-06-28T21:20:31.087439: Same until block: 1 / 1
+2023-06-28T21:20:31.087512: Similarity: 100
+2023-06-28T21:20:40.647275: Node Node1 mined a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a. Index is 1, previous hash is GENESIS
+2023-06-28T21:20:40.654448: Newly-mined block is valid, node Node1 added a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a to chain tip GENESIS!
+2023-06-28T21:20:40.657158: Node Node5 received a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T21:20:40.657319: Node Node5 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:40.657406: Node Node5 added a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a to the chain!
+2023-06-28T21:20:40.657427: Node Node5 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:40.657431: Node Node2 received a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T21:20:40.657498: Node Node2 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:40.657510: Node Node2 added a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a to the chain!
+2023-06-28T21:20:40.657532: Node Node6 received a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T21:20:40.657574: Node Node6 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:40.657591: Node Node6 added a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a to the chain!
+2023-06-28T21:20:40.657606: Node Node3 received a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T21:20:40.657614: Node Node6 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:40.657652: Node Node3 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:40.657663: Node Node3 added a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a to the chain!
+2023-06-28T21:20:40.657677: Node Node4 received a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T21:20:40.657689: Node Node3 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:40.657560: Node Node2 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:40.657718: Node Node4 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:40.657855: Node Node4 added a new block 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a to the chain!
+2023-06-28T21:20:40.657873: Node Node4 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:41.092694: Node1: 3 ESIS 941a 941a 
+2023-06-28T21:20:41.092988: Node2: 2 ESIS 941a 
+2023-06-28T21:20:41.093093: Node3: 2 ESIS 941a 
+2023-06-28T21:20:41.093176: Node4: 2 ESIS 941a 
+2023-06-28T21:20:41.093209: Node5: 2 ESIS 941a 
+2023-06-28T21:20:41.093221: Node6: 2 ESIS 941a 
+2023-06-28T21:20:41.093260: Node1: 3 
+2023-06-28T21:20:41.093280: Node2: 2 
+2023-06-28T21:20:41.093293: Node3: 2 
+2023-06-28T21:20:41.093303: Node4: 2 
+2023-06-28T21:20:41.093312: Node5: 2 
+2023-06-28T21:20:41.093321: Node6: 2 
+2023-06-28T21:20:41.093328: 
+2023-06-28T21:20:41.093355: Total score: 72, max score: 72
+2023-06-28T21:20:41.093364: Same until block: 2 / 2
+2023-06-28T21:20:41.093373: Similarity: 100
+2023-06-28T21:20:49.867114: Node Node2 mined a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27. Index is 2, previous hash is 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a
+2023-06-28T21:20:49.867610: Newly-mined block is valid, node Node2 added a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 to chain tip 000000ee7e5d1dd8e32ee15d9d753e019d3dfa150d9c4f43cc3c738a562b941a!
+2023-06-28T21:20:49.867730: Node Node5 received a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 from a peer. Block has index 2. Last chain index is 1. Chain size is 2.
+2023-06-28T21:20:49.867778: Node Node5 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:49.867790: Node Node5 added a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 to the chain!
+2023-06-28T21:20:49.867802: Node Node6 received a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 from a peer. Block has index 2. Last chain index is 1. Chain size is 2.
+2023-06-28T21:20:49.867840: Node Node6 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:49.867850: Node Node6 added a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 to the chain!
+2023-06-28T21:20:49.867898: Node Node6 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:49.867953: Node Node5 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:49.868055: Node Node1 received a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 from a peer. Block has index 2. Last chain index is 1. Chain size is 3.
+2023-06-28T21:20:49.868227: Node Node1 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:49.868350: Node Node1 added a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 to the chain!
+2023-06-28T21:20:49.868361: Node Node1 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:49.868376: Node Node3 received a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 from a peer. Block has index 2. Last chain index is 1. Chain size is 2.
+2023-06-28T21:20:49.868529: Node Node3 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:49.868543: Node Node3 added a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 to the chain!
+2023-06-28T21:20:49.868547: Node Node3 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:49.868560: Node Node4 received a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 from a peer. Block has index 2. Last chain index is 1. Chain size is 2.
+2023-06-28T21:20:49.868692: Node Node4 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:20:49.868821: Node Node4 added a new block 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27 to the chain!
+2023-06-28T21:20:49.868840: Node Node4 stopped mining because the mineLock was lifted.
+2023-06-28T21:20:51.098580: Node1: 4 ESIS 941a 941a 0b27 
+2023-06-28T21:20:51.098913: Node2: 4 ESIS 941a 0b27 0b27 
+2023-06-28T21:20:51.098945: Node3: 3 ESIS 941a 0b27 
+2023-06-28T21:20:51.098973: Node4: 3 ESIS 941a 0b27 
+2023-06-28T21:20:51.098998: Node5: 3 ESIS 941a 0b27 
+2023-06-28T21:20:51.099023: Node6: 3 ESIS 941a 0b27 
+2023-06-28T21:20:51.099053: Node1: 4 
+2023-06-28T21:20:51.099077: Node2: 4 
+2023-06-28T21:20:51.099099: Node3: 3 
+2023-06-28T21:20:51.099121: Node4: 3 
+2023-06-28T21:20:51.099145: Node5: 3 
+2023-06-28T21:20:51.099167: Node6: 3 
+2023-06-28T21:20:51.099186: 
+2023-06-28T21:20:51.099265: Total score: 98, max score: 108
+2023-06-28T21:20:51.099295: Same until block: 2 / 3
+2023-06-28T21:20:51.099327: Similarity: 90
+2023-06-28T21:21:01.103475: Node1: 4 ESIS 941a 941a 0b27 
+2023-06-28T21:21:01.103656: Node2: 4 ESIS 941a 0b27 0b27 
+2023-06-28T21:21:01.103687: Node3: 3 ESIS 941a 0b27 
+2023-06-28T21:21:01.103718: Node4: 3 ESIS 941a 0b27 
+2023-06-28T21:21:01.103745: Node5: 3 ESIS 941a 0b27 
+2023-06-28T21:21:01.103770: Node6: 3 ESIS 941a 0b27 
+2023-06-28T21:21:01.103794: Node1: 4 
+2023-06-28T21:21:01.103816: Node2: 4 
+2023-06-28T21:21:01.103839: Node3: 3 
+2023-06-28T21:21:01.103862: Node4: 3 
+2023-06-28T21:21:01.104032: Node5: 3 
+2023-06-28T21:21:01.104055: Node6: 3 
+2023-06-28T21:21:01.104063: 
+2023-06-28T21:21:01.104095: Total score: 98, max score: 108
+2023-06-28T21:21:01.104103: Same until block: 2 / 3
+2023-06-28T21:21:01.104111: Similarity: 90
+2023-06-28T21:21:11.105102: Node1: 4 ESIS 941a 941a 0b27 
+2023-06-28T21:21:11.105251: Node2: 4 ESIS 941a 0b27 0b27 
+2023-06-28T21:21:11.105288: Node3: 3 ESIS 941a 0b27 
+2023-06-28T21:21:11.105315: Node4: 3 ESIS 941a 0b27 
+2023-06-28T21:21:11.105339: Node5: 3 ESIS 941a 0b27 
+2023-06-28T21:21:11.105364: Node6: 3 ESIS 941a 0b27 
+2023-06-28T21:21:11.105387: Node1: 4 
+2023-06-28T21:21:11.105408: Node2: 4 
+2023-06-28T21:21:11.105430: Node3: 3 
+2023-06-28T21:21:11.105451: Node4: 3 
+2023-06-28T21:21:11.105472: Node5: 3 
+2023-06-28T21:21:11.105494: Node6: 3 
+2023-06-28T21:21:11.105512: 
+2023-06-28T21:21:11.105578: Total score: 98, max score: 108
+2023-06-28T21:21:11.105600: Same until block: 2 / 3
+2023-06-28T21:21:11.105623: Similarity: 90
+2023-06-28T21:21:18.638859: Node Node2 mined a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d. Index is 3, previous hash is 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27
+2023-06-28T21:21:18.639474: Newly-mined block is valid, node Node2 added a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d to chain tip 000000d14427fef9defe7814def6570b6ff2ed6b1edf6871db8c143e33c80b27!
+2023-06-28T21:21:18.639613: Node Node5 received a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d from a peer. Block has index 3. Last chain index is 2. Chain size is 3.
+2023-06-28T21:21:18.639665: Node Node5 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:18.639681: Node Node5 added a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d to the chain!
+2023-06-28T21:21:18.639693: Node Node6 received a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d from a peer. Block has index 3. Last chain index is 2. Chain size is 3.
+2023-06-28T21:21:18.639730: Node Node6 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:18.639738: Node Node6 added a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d to the chain!
+2023-06-28T21:21:18.639750: Node Node1 received a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d from a peer. Block has index 3. Last chain index is 2. Chain size is 4.
+2023-06-28T21:21:18.639787: Node Node1 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:18.639795: Node Node1 added a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d to the chain!
+2023-06-28T21:21:18.639787: Node Node5 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:18.639824: Node Node6 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:18.639808: Node Node3 received a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d from a peer. Block has index 3. Last chain index is 2. Chain size is 3.
+2023-06-28T21:21:18.639800: Node Node1 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:18.639973: Node Node3 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:18.640073: Node Node3 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:18.640078: Node Node3 added a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d to the chain!
+2023-06-28T21:21:18.640178: Node Node4 received a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d from a peer. Block has index 3. Last chain index is 2. Chain size is 3.
+2023-06-28T21:21:18.640495: Node Node4 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:18.640543: Node Node4 added a new block 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d to the chain!
+2023-06-28T21:21:18.640562: Node Node4 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:21.106006: Node1: 5 ESIS 941a 941a 0b27 397d 
+2023-06-28T21:21:21.106094: Node2: 6 ESIS 941a 0b27 0b27 397d 397d 
+2023-06-28T21:21:21.106116: Node3: 4 ESIS 941a 0b27 397d 
+2023-06-28T21:21:21.106137: Node4: 4 ESIS 941a 0b27 397d 
+2023-06-28T21:21:21.106158: Node5: 4 ESIS 941a 0b27 397d 
+2023-06-28T21:21:21.106178: Node6: 4 ESIS 941a 0b27 397d 
+2023-06-28T21:21:21.106195: Node1: 5 
+2023-06-28T21:21:21.106467: Node2: 6 
+2023-06-28T21:21:21.106488: Node3: 4 
+2023-06-28T21:21:21.106495: Node4: 4 
+2023-06-28T21:21:21.106501: Node5: 4 
+2023-06-28T21:21:21.106506: Node6: 4 
+2023-06-28T21:21:21.106511: 
+2023-06-28T21:21:21.106546: Total score: 118, max score: 144
+2023-06-28T21:21:21.106551: Same until block: 2 / 4
+2023-06-28T21:21:21.106558: Similarity: 81
+2023-06-28T21:21:31.109511: Node1: 5 ESIS 941a 941a 0b27 397d 
+2023-06-28T21:21:31.109575: Node2: 6 ESIS 941a 0b27 0b27 397d 397d 
+2023-06-28T21:21:31.109585: Node3: 4 ESIS 941a 0b27 397d 
+2023-06-28T21:21:31.109595: Node4: 4 ESIS 941a 0b27 397d 
+2023-06-28T21:21:31.109603: Node5: 4 ESIS 941a 0b27 397d 
+2023-06-28T21:21:31.109620: Node6: 4 ESIS 941a 0b27 397d 
+2023-06-28T21:21:31.109626: Node1: 5 
+2023-06-28T21:21:31.109632: Node2: 6 
+2023-06-28T21:21:31.109723: Node3: 4 
+2023-06-28T21:21:31.109763: Node4: 4 
+2023-06-28T21:21:31.109783: Node5: 4 
+2023-06-28T21:21:31.109832: Node6: 4 
+2023-06-28T21:21:31.109850: 
+2023-06-28T21:21:31.109885: Total score: 118, max score: 144
+2023-06-28T21:21:31.109892: Same until block: 2 / 4
+2023-06-28T21:21:31.109898: Similarity: 81
+2023-06-28T21:21:35.353481: Node Node3 mined a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b. Index is 4, previous hash is 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d
+2023-06-28T21:21:35.353609: Newly-mined block is valid, node Node3 added a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b to chain tip 000000296b542dfa2651c13ac1e7ab1d609d9d8be1275129292d3604dd81397d!
+2023-06-28T21:21:35.353647: Node Node5 received a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b from a peer. Block has index 4. Last chain index is 3. Chain size is 4.
+2023-06-28T21:21:35.353689: Node Node5 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:35.353698: Node Node5 added a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b to the chain!
+2023-06-28T21:21:35.353710: Node Node2 received a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b from a peer. Block has index 4. Last chain index is 3. Chain size is 6.
+2023-06-28T21:21:35.353706: Node Node5 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:35.353761: Node Node2 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:35.353842: Node Node2 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:35.353826: Node Node2 added a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b to the chain!
+2023-06-28T21:21:35.353921: Node Node6 received a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b from a peer. Block has index 4. Last chain index is 3. Chain size is 4.
+2023-06-28T21:21:35.354034: Node Node6 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:35.354110: Node Node6 added a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b to the chain!
+2023-06-28T21:21:35.354126: Node Node6 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:35.354145: Node Node4 received a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b from a peer. Block has index 4. Last chain index is 3. Chain size is 4.
+2023-06-28T21:21:35.354190: Node Node4 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:35.354198: Node Node4 added a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b to the chain!
+2023-06-28T21:21:35.354203: Node Node4 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:35.354212: Node Node1 received a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b from a peer. Block has index 4. Last chain index is 3. Chain size is 5.
+2023-06-28T21:21:35.354341: Node Node1 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:21:35.354363: Node Node1 added a new block 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b to the chain!
+2023-06-28T21:21:35.354383: Node Node1 stopped mining because the mineLock was lifted.
+2023-06-28T21:21:41.111825: Node1: 6 ESIS 941a 941a 0b27 397d 651b 
+2023-06-28T21:21:41.112176: Node2: 7 ESIS 941a 0b27 0b27 397d 397d 651b 
+2023-06-28T21:21:41.112199: Node3: 6 ESIS 941a 0b27 397d 651b 651b 
+2023-06-28T21:21:41.112217: Node4: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:21:41.112263: Node5: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:21:41.112282: Node6: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:21:41.112358: Node1: 6 
+2023-06-28T21:21:41.112378: Node2: 7 
+2023-06-28T21:21:41.112385: Node3: 6 
+2023-06-28T21:21:41.112390: Node4: 5 
+2023-06-28T21:21:41.112396: Node5: 5 
+2023-06-28T21:21:41.112401: Node6: 5 
+2023-06-28T21:21:41.112405: 
+2023-06-28T21:21:41.112449: Total score: 138, max score: 180
+2023-06-28T21:21:41.112455: Same until block: 2 / 5
+2023-06-28T21:21:41.112460: Similarity: 76
+2023-06-28T21:21:51.117623: Node1: 6 ESIS 941a 941a 0b27 397d 651b 
+2023-06-28T21:21:51.117696: Node2: 7 ESIS 941a 0b27 0b27 397d 397d 651b 
+2023-06-28T21:21:51.117714: Node3: 6 ESIS 941a 0b27 397d 651b 651b 
+2023-06-28T21:21:51.117731: Node4: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:21:51.117748: Node5: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:21:51.117764: Node6: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:21:51.117778: Node1: 6 
+2023-06-28T21:21:51.117791: Node2: 7 
+2023-06-28T21:21:51.117804: Node3: 6 
+2023-06-28T21:21:51.117817: Node4: 5 
+2023-06-28T21:21:51.117829: Node5: 5 
+2023-06-28T21:21:51.117842: Node6: 5 
+2023-06-28T21:21:51.117853: 
+2023-06-28T21:21:51.117932: Total score: 138, max score: 180
+2023-06-28T21:21:51.117946: Same until block: 2 / 5
+2023-06-28T21:21:51.117960: Similarity: 76
+2023-06-28T21:22:01.123120: Node1: 6 ESIS 941a 941a 0b27 397d 651b 
+2023-06-28T21:22:01.123391: Node2: 7 ESIS 941a 0b27 0b27 397d 397d 651b 
+2023-06-28T21:22:01.123419: Node3: 6 ESIS 941a 0b27 397d 651b 651b 
+2023-06-28T21:22:01.123437: Node4: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:22:01.123455: Node5: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:22:01.123580: Node6: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:22:01.123898: Node1: 6 
+2023-06-28T21:22:01.123924: Node2: 7 
+2023-06-28T21:22:01.123937: Node3: 6 
+2023-06-28T21:22:01.123949: Node4: 5 
+2023-06-28T21:22:01.123961: Node5: 5 
+2023-06-28T21:22:01.123972: Node6: 5 
+2023-06-28T21:22:01.123982: 
+2023-06-28T21:22:01.124063: Total score: 138, max score: 180
+2023-06-28T21:22:01.124077: Same until block: 2 / 5
+2023-06-28T21:22:01.124090: Similarity: 76
+2023-06-28T21:22:11.127708: Node1: 6 ESIS 941a 941a 0b27 397d 651b 
+2023-06-28T21:22:11.127786: Node2: 7 ESIS 941a 0b27 0b27 397d 397d 651b 
+2023-06-28T21:22:11.127806: Node3: 6 ESIS 941a 0b27 397d 651b 651b 
+2023-06-28T21:22:11.127822: Node4: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:22:11.127838: Node5: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:22:11.128612: Node6: 5 ESIS 941a 0b27 397d 651b 
+2023-06-28T21:22:11.129513: Node1: 6 
+2023-06-28T21:22:11.129538: Node2: 7 
+2023-06-28T21:22:11.129544: Node3: 6 
+2023-06-28T21:22:11.129549: Node4: 5 
+2023-06-28T21:22:11.129553: Node5: 5 
+2023-06-28T21:22:11.129557: Node6: 5 
+2023-06-28T21:22:11.129560: 
+2023-06-28T21:22:11.129598: Total score: 138, max score: 180
+2023-06-28T21:22:11.129602: Same until block: 2 / 5
+2023-06-28T21:22:11.129607: Similarity: 76
+2023-06-28T21:22:13.085440: Node Node4 mined a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6. Index is 5, previous hash is 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b
+2023-06-28T21:22:13.085623: Newly-mined block is valid, node Node4 added a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 to chain tip 000000ca67a38fe809f62767b2191bd25555488c59f53ba2691250a43fec651b!
+2023-06-28T21:22:13.085698: Node Node5 received a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 from a peer. Block has index 5. Last chain index is 4. Chain size is 5.
+2023-06-28T21:22:13.085799: Node Node5 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:13.085808: Node Node5 added a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 to the chain!
+2023-06-28T21:22:13.085821: Node Node2 received a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 from a peer. Block has index 5. Last chain index is 4. Chain size is 7.
+2023-06-28T21:22:13.085820: Node Node5 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:13.085855: Node Node2 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:13.085860: Node Node2 added a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 to the chain!
+2023-06-28T21:22:13.085870: Node Node6 received a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 from a peer. Block has index 5. Last chain index is 4. Chain size is 5.
+2023-06-28T21:22:13.085875: Node Node2 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:13.085903: Node Node6 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:13.085909: Node Node6 added a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 to the chain!
+2023-06-28T21:22:13.085915: Node Node6 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:13.085920: Node Node1 received a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 from a peer. Block has index 5. Last chain index is 4. Chain size is 6.
+2023-06-28T21:22:13.085969: Node Node1 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:13.085974: Node Node1 added a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 to the chain!
+2023-06-28T21:22:13.085980: Node Node1 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:13.085985: Node Node3 received a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 from a peer. Block has index 5. Last chain index is 4. Chain size is 6.
+2023-06-28T21:22:13.086078: Node Node3 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:13.086086: Node Node3 added a new block 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6 to the chain!
+2023-06-28T21:22:13.086105: Node Node3 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:21.130808: Node1: 7 ESIS 941a 941a 0b27 397d 651b 30e6 
+2023-06-28T21:22:21.130857: Node2: 8 ESIS 941a 0b27 0b27 397d 397d 651b 30e6 
+2023-06-28T21:22:21.130874: Node3: 7 ESIS 941a 0b27 397d 651b 651b 30e6 
+2023-06-28T21:22:21.130887: Node4: 7 ESIS 941a 0b27 397d 651b 30e6 30e6 
+2023-06-28T21:22:21.130900: Node5: 6 ESIS 941a 0b27 397d 651b 30e6 
+2023-06-28T21:22:21.130912: Node6: 6 ESIS 941a 0b27 397d 651b 30e6 
+2023-06-28T21:22:21.130921: Node1: 7 
+2023-06-28T21:22:21.130930: Node2: 8 
+2023-06-28T21:22:21.130938: Node3: 7 
+2023-06-28T21:22:21.130946: Node4: 7 
+2023-06-28T21:22:21.130955: Node5: 6 
+2023-06-28T21:22:21.130963: Node6: 6 
+2023-06-28T21:22:21.130970: 
+2023-06-28T21:22:21.131060: Total score: 152, max score: 216
+2023-06-28T21:22:21.131071: Same until block: 2 / 6
+2023-06-28T21:22:21.131082: Similarity: 70
+2023-06-28T21:22:25.751385: Node Node1 mined a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e. Index is 6, previous hash is 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6
+2023-06-28T21:22:25.751503: Newly-mined block is valid, node Node1 added a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e to chain tip 000000db9f17e33e4cf7a0734abc256a7881ad3f521e0117b1f1662cdad430e6!
+2023-06-28T21:22:25.751727: Node Node5 received a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e from a peer. Block has index 6. Last chain index is 5. Chain size is 6.
+2023-06-28T21:22:25.751835: Node Node5 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:25.751965: Node Node5 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:25.752052: Node Node5 added a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e to the chain!
+2023-06-28T21:22:25.752066: Node Node2 received a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e from a peer. Block has index 6. Last chain index is 5. Chain size is 8.
+2023-06-28T21:22:25.752105: Node Node2 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:25.752109: Node Node2 added a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e to the chain!
+2023-06-28T21:22:25.752116: Node Node6 received a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e from a peer. Block has index 6. Last chain index is 5. Chain size is 6.
+2023-06-28T21:22:25.752121: Node Node2 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:25.752147: Node Node6 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:25.752151: Node Node6 added a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e to the chain!
+2023-06-28T21:22:25.752157: Node Node3 received a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e from a peer. Block has index 6. Last chain index is 5. Chain size is 7.
+2023-06-28T21:22:25.752155: Node Node6 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:25.752202: Node Node3 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:25.752209: Node Node3 added a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e to the chain!
+2023-06-28T21:22:25.752212: Node Node3 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:25.752219: Node Node4 received a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e from a peer. Block has index 6. Last chain index is 5. Chain size is 7.
+2023-06-28T21:22:25.752274: Node Node4 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T21:22:25.752278: Node Node4 added a new block 0000006315ba74f03207c22b43062c4140daefa213bc94355c7066122b55777e to the chain!
+2023-06-28T21:22:25.752286: Node Node4 stopped mining because the mineLock was lifted.
+2023-06-28T21:22:31.134042: Node1: 9 ESIS 941a 941a 0b27 397d 651b 30e6 777e 777e 
+2023-06-28T21:22:31.134098: Node2: 9 ESIS 941a 0b27 0b27 397d 397d 651b 30e6 777e 
+2023-06-28T21:22:31.134113: Node3: 8 ESIS 941a 0b27 397d 651b 651b 30e6 777e 
+2023-06-28T21:22:31.134128: Node4: 8 ESIS 941a 0b27 397d 651b 30e6 30e6 777e 
+2023-06-28T21:22:31.134141: Node5: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:22:31.134154: Node6: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:22:31.134163: Node1: 9 
+2023-06-28T21:22:31.134171: Node2: 9 
+2023-06-28T21:22:31.134180: Node3: 8 
+2023-06-28T21:22:31.134188: Node4: 8 
+2023-06-28T21:22:31.134196: Node5: 7 
+2023-06-28T21:22:31.134204: Node6: 7 
+2023-06-28T21:22:31.134210: 
+2023-06-28T21:22:31.134315: Total score: 166, max score: 252
+2023-06-28T21:22:31.134324: Same until block: 2 / 7
+2023-06-28T21:22:31.134334: Similarity: 65
+2023-06-28T21:22:41.137711: Node1: 9 ESIS 941a 941a 0b27 397d 651b 30e6 777e 777e 
+2023-06-28T21:22:41.137778: Node2: 9 ESIS 941a 0b27 0b27 397d 397d 651b 30e6 777e 
+2023-06-28T21:22:41.137795: Node3: 8 ESIS 941a 0b27 397d 651b 651b 30e6 777e 
+2023-06-28T21:22:41.137809: Node4: 8 ESIS 941a 0b27 397d 651b 30e6 30e6 777e 
+2023-06-28T21:22:41.137857: Node5: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:22:41.137874: Node6: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:22:41.137884: Node1: 9 
+2023-06-28T21:22:41.137893: Node2: 9 
+2023-06-28T21:22:41.137902: Node3: 8 
+2023-06-28T21:22:41.137952: Node4: 8 
+2023-06-28T21:22:41.137972: Node5: 7 
+2023-06-28T21:22:41.137976: Node6: 7 
+2023-06-28T21:22:41.137980: 
+2023-06-28T21:22:41.138027: Total score: 166, max score: 252
+2023-06-28T21:22:41.138031: Same until block: 2 / 7
+2023-06-28T21:22:41.138036: Similarity: 65
+2023-06-28T21:22:51.139393: Node1: 9 ESIS 941a 941a 0b27 397d 651b 30e6 777e 777e 
+2023-06-28T21:22:51.139500: Node2: 9 ESIS 941a 0b27 0b27 397d 397d 651b 30e6 777e 
+2023-06-28T21:22:51.139508: Node3: 8 ESIS 941a 0b27 397d 651b 651b 30e6 777e 
+2023-06-28T21:22:51.139513: Node4: 8 ESIS 941a 0b27 397d 651b 30e6 30e6 777e 
+2023-06-28T21:22:51.139519: Node5: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:22:51.139524: Node6: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:22:51.139528: Node1: 9 
+2023-06-28T21:22:51.139532: Node2: 9 
+2023-06-28T21:22:51.139535: Node3: 8 
+2023-06-28T21:22:51.139538: Node4: 8 
+2023-06-28T21:22:51.139541: Node5: 7 
+2023-06-28T21:22:51.139545: Node6: 7 
+2023-06-28T21:22:51.139548: 
+2023-06-28T21:22:51.139597: Total score: 166, max score: 252
+2023-06-28T21:22:51.139602: Same until block: 2 / 7
+2023-06-28T21:22:51.139606: Similarity: 65
+2023-06-28T21:23:01.144735: Node1: 9 ESIS 941a 941a 0b27 397d 651b 30e6 777e 777e 
+2023-06-28T21:23:01.144764: Node2: 9 ESIS 941a 0b27 0b27 397d 397d 651b 30e6 777e 
+2023-06-28T21:23:01.144770: Node3: 8 ESIS 941a 0b27 397d 651b 651b 30e6 777e 
+2023-06-28T21:23:01.144781: Node4: 8 ESIS 941a 0b27 397d 651b 30e6 30e6 777e 
+2023-06-28T21:23:01.144786: Node5: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:23:01.144793: Node6: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:23:01.144798: Node1: 9 
+2023-06-28T21:23:01.144810: Node2: 9 
+2023-06-28T21:23:01.144813: Node3: 8 
+2023-06-28T21:23:01.144817: Node4: 8 
+2023-06-28T21:23:01.144823: Node5: 7 
+2023-06-28T21:23:01.144826: Node6: 7 
+2023-06-28T21:23:01.144878: 
+2023-06-28T21:23:01.144927: Total score: 166, max score: 252
+2023-06-28T21:23:01.144932: Same until block: 2 / 7
+2023-06-28T21:23:01.144936: Similarity: 65
+2023-06-28T21:23:11.145303: Node1: 9 ESIS 941a 941a 0b27 397d 651b 30e6 777e 777e 
+2023-06-28T21:23:11.145456: Node2: 9 ESIS 941a 0b27 0b27 397d 397d 651b 30e6 777e 
+2023-06-28T21:23:11.145497: Node3: 8 ESIS 941a 0b27 397d 651b 651b 30e6 777e 
+2023-06-28T21:23:11.145509: Node4: 8 ESIS 941a 0b27 397d 651b 30e6 30e6 777e 
+2023-06-28T21:23:11.145521: Node5: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:23:11.145540: Node6: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:23:11.145548: Node1: 9 
+2023-06-28T21:23:11.145555: Node2: 9 
+2023-06-28T21:23:11.145561: Node3: 8 
+2023-06-28T21:23:11.145568: Node4: 8 
+2023-06-28T21:23:11.145581: Node5: 7 
+2023-06-28T21:23:11.145590: Node6: 7 
+2023-06-28T21:23:11.145596: 
+2023-06-28T21:23:11.145730: Total score: 166, max score: 252
+2023-06-28T21:23:11.145740: Same until block: 2 / 7
+2023-06-28T21:23:11.145749: Similarity: 65
+2023-06-28T21:23:21.149607: Node1: 9 ESIS 941a 941a 0b27 397d 651b 30e6 777e 777e 
+2023-06-28T21:23:21.149679: Node2: 9 ESIS 941a 0b27 0b27 397d 397d 651b 30e6 777e 
+2023-06-28T21:23:21.149695: Node3: 8 ESIS 941a 0b27 397d 651b 651b 30e6 777e 
+2023-06-28T21:23:21.149710: Node4: 8 ESIS 941a 0b27 397d 651b 30e6 30e6 777e 
+2023-06-28T21:23:21.149721: Node5: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:23:21.149732: Node6: 7 ESIS 941a 0b27 397d 651b 30e6 777e 
+2023-06-28T21:23:21.149749: Node1: 9 
+2023-06-28T21:23:21.149756: Node2: 9 
+2023-06-28T21:23:21.149763: Node3: 8 
+2023-06-28T21:23:21.149791: Node4: 8 
+2023-06-28T21:23:21.149798: Node5: 7 
+2023-06-28T21:23:21.149805: Node6: 7 
+2023-06-28T21:23:21.149810: 
+2023-06-28T21:23:21.149910: Total score: 166, max score: 252
+2023-06-28T21:23:21.149918: Same until block: 2 / 7
+2023-06-28T21:23:21.149925: Similarity: 65

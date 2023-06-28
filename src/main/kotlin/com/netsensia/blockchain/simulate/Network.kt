@@ -5,6 +5,7 @@ import kotlin.random.Random
 class Network {
 
     val nodes = mutableListOf<Node>()
+    var difficulty = 4
 
     fun createNode(id: String): Node {
         val node = Node(id)
@@ -23,10 +24,10 @@ class Network {
     }
 
     companion object {
-        const val DIFFICULTY = 5
 
-        fun createNetwork(numberOfNodes: Int): Network {
+        fun createNetwork(numberOfNodes: Int, difficulty: Int): Network {
             val network = Network()
+            network.difficulty = difficulty
             for (i in 1..numberOfNodes) {
                 network.createNode("Node$i")
             }

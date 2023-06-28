@@ -1,5 +1,6 @@
 package com.netsensia.blockchain.model
 import com.netsensia.blockchain.SimpleKotlinBlockchainCommand.Companion.output
+import com.netsensia.blockchain.simulate.DefaultSimulator.Companion.DIFFICULTY
 import com.netsensia.blockchain.simulate.Network
 import java.security.MessageDigest
 import kotlin.random.Random
@@ -16,7 +17,7 @@ sealed class Block {
         override val transactions: List<Transaction>,
         override val previousHash: String,
     ) : Block() {
-        fun mine(difficulty: Int = Network.DIFFICULTY): Mined {
+        fun mine(difficulty: Int = DIFFICULTY): Mined {
             val target = "0".repeat(difficulty)
             var nonce = Random.nextInt()
             var hash = calculateHash(this, nonce)

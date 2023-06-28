@@ -2,11 +2,12 @@ package com.netsensia.blockchain.service
 
 import com.netsensia.blockchain.model.Block
 import com.netsensia.blockchain.model.Transaction
+import com.netsensia.blockchain.simulate.DefaultSimulator.Companion.DIFFICULTY
 import com.netsensia.blockchain.simulate.Network
 import jakarta.inject.Singleton
 
 interface BlockService {
-    suspend fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int = Network.DIFFICULTY, miner: String = "N/A"): Block.Mined
+    suspend fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int = DIFFICULTY, miner: String = "N/A"): Block.Mined
 }
 
 @Singleton

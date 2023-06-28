@@ -2,6 +2,7 @@ package com.netsensia.blockchain.model
 
 import com.netsensia.blockchain.SimpleKotlinBlockchainCommand.Companion.output
 import com.netsensia.blockchain.service.DefaultBlockService
+import com.netsensia.blockchain.simulate.DefaultSimulator.Companion.DIFFICULTY
 import com.netsensia.blockchain.simulate.Network
 import kotlinx.coroutines.runBlocking
 
@@ -9,7 +10,7 @@ class Blockchain(val blocks: List<Block.Mined>) {
 
     val blockService = DefaultBlockService()
 
-    fun mineAndAddBlock(transactions: List<Transaction>, difficulty: Int = Network.DIFFICULTY): Blockchain {
+    fun mineAndAddBlock(transactions: List<Transaction>, difficulty: Int = DIFFICULTY): Blockchain {
         val validTransactions = validTransactionsOnly(transactions)
         val minedBlock = runBlocking {
             blockService.mineBlock(blocks.last(), validTransactions, difficulty)

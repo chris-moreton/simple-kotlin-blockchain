@@ -8,6 +8,7 @@ import jakarta.inject.Singleton
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.StringBuilder
 import kotlin.system.exitProcess
 
 interface Simulator {
@@ -23,7 +24,7 @@ class DefaultSimulator : Simulator {
     @OptIn(DelicateCoroutinesApi::class)
     override fun run() {
         println("Creating network")
-        val network = networkService.createNetwork(6)
+        val network = networkService.createNetwork(NUM_NODES, DIFFICULTY)
         println("Randomly connecting network")
         network.randomlyConnect()
 
@@ -47,8 +48,15 @@ class DefaultSimulator : Simulator {
 
     private fun networkDetails(network: Network, logLevel: Int = 0) {
         network.nodes.forEach {
-            output("${it.id}: ${it.blockchain.blocks.size} ", logLevel)
+            val s = StringBuilder()
+            s.append("${it.id}: ${it.blockchain.blocks.size} ")
+            it.blockchain.blocks.forEach { block ->
+                // add last four characters of hash
+                s.append("${block.hash.substring(block.hash.length - 4)} ")
+            }
+            output(s.toString(), logLevel)
         }
+
         output("", logLevel)
         val similarity = calculateSimilarityPercentage(network.nodes.map { it.blockchain }, logLevel).toInt()
         output("Similarity: $similarity", logLevel)
@@ -58,17 +66,17 @@ class DefaultSimulator : Simulator {
         val minLength = allChains.minByOrNull { it.blocks.size }!!.blocks.size
         var totalScore = 0
         var sameUntilBlock = 0
-        val maxScore = minLength * allChains.size * allChains.size
+        val maxScorePerPosition = allChains.size * allChains.size
+        val maxScore = minLength * maxScorePerPosition
 
         for (position in 0 until minLength) {
             val blocksAtPosition = allChains.map { it.blocks[position] }
-            output("Blocks at position $position: ${blocksAtPosition.size}", logLevel)
             val scoreAtPosition = blocksAtPosition.sumOf { block ->
                 blocksAtPosition.count { it.hash == block.hash }
             }
             output("Score at position $position: $scoreAtPosition", 8)
-            if (scoreAtPosition == allChains.size * allChains.size) {
-                sameUntilBlock = position
+            if (scoreAtPosition == maxScorePerPosition) {
+                sameUntilBlock = position + 1
             }
             totalScore += scoreAtPosition
             output("Total score: $totalScore", 8)
@@ -80,7 +88,9 @@ class DefaultSimulator : Simulator {
     }
 
     companion object {
+        const val NUM_NODES = 12
         const val LOG_LEVEL = 2
+        const val DIFFICULTY = 5
     }
 
 }

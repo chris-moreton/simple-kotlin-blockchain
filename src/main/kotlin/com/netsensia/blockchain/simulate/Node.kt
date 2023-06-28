@@ -5,6 +5,7 @@ import com.netsensia.blockchain.model.Block
 import com.netsensia.blockchain.model.Blockchain
 import com.netsensia.blockchain.model.Transaction
 import com.netsensia.blockchain.service.DefaultBlockchainService
+import com.netsensia.blockchain.simulate.DefaultSimulator.Companion.DIFFICULTY
 import java.io.File
 import java.util.*
 import java.util.concurrent.CopyOnWriteArrayList
@@ -110,12 +111,12 @@ class Node(val id: String) {
                 previousHash = blockchain.getLastBlock().hash
             )
 
-            val target = "0".repeat(Network.DIFFICULTY)
+            val target = "0".repeat(DIFFICULTY)
             var nonce = Random.nextInt()
             var hash = Block.calculateHash(unminedBlock, nonce)
-            while (mineLock && hash.substring(0, Network.DIFFICULTY) != target) {
+            while (mineLock && hash.substring(0, DIFFICULTY) != target) {
                 nonce = Random.nextInt()
-                if (nonce % (Math.pow(10.0, Network.DIFFICULTY.toDouble())).toInt() == 0) output("Currently being mined by $id to add to block ${blockchain.getLastBlock().hash}", 4)
+                if (nonce % (Math.pow(10.0, DIFFICULTY.toDouble())).toInt() == 0) output("Currently being mined by $id to add to block ${blockchain.getLastBlock().hash}", 4)
                 hash = Block.calculateHash(unminedBlock, nonce)
             }
 
@@ -125,7 +126,7 @@ class Node(val id: String) {
                     unminedBlock.timestamp,
                     unminedBlock.transactions,
                     unminedBlock.previousHash,
-                    Network.DIFFICULTY,
+                    DIFFICULTY,
                     nonce,
                     hash
                 )
@@ -135,7 +136,6 @@ class Node(val id: String) {
                     blockchain = blockchain.addMinedBlock(minedBlock)
                     output("Newly-mined block is valid, node $id added a new block ${minedBlock.hash} to chain tip ${minedBlock.previousHash}!")
                     blocksReceived.add(minedBlock.hash)
-                    blockchain = blockchain.addMinedBlock(minedBlock)
                     broadcastBlock(minedBlock)
                 } else {
                     output("Newly-mined block is invalid. This really shouldn't happen.")

@@ -5,13 +5,13 @@ import com.netsensia.blockchain.simulate.Node
 import jakarta.inject.Singleton
 
 interface NetworkService {
-    fun createNetwork(numberOfNodes: Int): Network
+    fun createNetwork(numberOfNodes: Int, difficulty: Int): Network
 }
 
 @Singleton
 class DefaultNetworkService : NetworkService {
 
-    override fun createNetwork(numberOfNodes: Int): Network {
-        return Network.createNetwork(numberOfNodes)
+    override fun createNetwork(numberOfNodes: Int, difficulty: Int): Network {
+        return Network.createNetwork(numberOfNodes, difficulty)
     }
 }
