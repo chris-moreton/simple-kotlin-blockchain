@@ -76,7 +76,7 @@ class DefaultSimulator : Simulator {
     }
 
     companion object {
-        const val LOG_LEVEL = 0
+        const val LOG_LEVEL = 2
     }
 
 }

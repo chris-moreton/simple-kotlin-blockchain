@@ -105,11 +105,17 @@ class Node(val id: String) {
         output("Node $id has ${validTransactions.size} valid transactions.", 2)
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
             output("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.", 2)
-            val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions)
+            val block = blockService.mineBlock(blockchain.getLastBlock(), validTransactions, miner = id)
             output("Node $id mined a new block ${block.hash}. Index is ${block.index}, previous hash is ${block.previousHash}")
-            blocksReceived.add(block.hash)
-            blockchain = blockchain.addMinedBlock(block)
-            broadcastBlock(block)
+            if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
+                blockchain = blockchain.addMinedBlock(block)
+                output("Newly-mined block is valid, node $id added a new block ${block.hash} to the chain!")
+                blocksReceived.add(block.hash)
+                blockchain = blockchain.addMinedBlock(block)
+                broadcastBlock(block)
+            } else {
+                output("Newly-mined block is invalid. This really shouldn't happen.")
+            }
             mineUnlock("mined a block")
             considerMining("mined a block")
         } else {
@@ -138,17 +144,16 @@ class Node(val id: String) {
         output("Node $id received a new block ${block.hash} from a peer. Block has index ${block.index}. Last chain index is ${blockchain.getLastBlock().index}. Chain size is ${blockchain.blocks.size}.")
         // Verify if block is valid and add it to the blockchain if so
         if (blockchainService.isValidNewBlock(block, blockchain.getLastBlock())) {
+            blockchain = blockchain.addMinedBlock(block)
             if (miningJob?.isActive == true) {
-                output("Node $id is cancelling mining job because a valid block being received from a peer.")
+                output("Node $id is cancelling mining job because a valid block was received from a peer.")
                 miningJob?.cancel()
                 mineUnlock("mining job was cancelled")
             }
-            blockchain = blockchain.addMinedBlock(block)
             output("Node $id added a new block ${block.hash} to the chain!")
             considerMining("new block was added to chain")
-            broadcastBlock(block)
         } else {
-            output("Node $id received a block ${block.hash} that doesn't fit on the main chain.")
+            output("Node $id received a block ${block.hash} that doesn't fit on the main chain. Block previous hash is ${block.previousHash}. Chain tip is ${blockchain.getLastBlock().hash}.")
 
             output("Node $id has ${forks.size} forks.")
 
@@ -203,7 +208,7 @@ class Node(val id: String) {
             output("Node $id is already mining. Won't consider mining ($reason).", 2)
             return
         }
-        mineLock(reason)
+        mineLock("it is about to start mining")
         startMining()
     }
 

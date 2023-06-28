@@ -6,17 +6,18 @@ import com.netsensia.blockchain.simulate.Network
 import jakarta.inject.Singleton
 
 interface BlockService {
-    suspend fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int = Network.DIFFICULTY): Block.Mined
+    suspend fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int = Network.DIFFICULTY, miner: String = "N/A"): Block.Mined
 }
 
 @Singleton
 class DefaultBlockService : BlockService {
-    override suspend fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int): Block.Mined {
+    override suspend fun mineBlock(previousBlock: Block.Mined, transactions: List<Transaction>, difficulty: Int, miner: String): Block.Mined {
         val unminedBlock = Block.Unmined(
             index = previousBlock.index + 1,
             timestamp = System.currentTimeMillis(),
             transactions = transactions,
-            previousHash = previousBlock.hash
+            previousHash = previousBlock.hash,
+            miner = miner
         )
 
         val minedBlock = unminedBlock.mine(difficulty)

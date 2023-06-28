@@ -14,6 +14,7 @@ sealed class Block {
         override val timestamp: Long,
         override val transactions: List<Transaction>,
         override val previousHash: String,
+        val miner: String? = null
     ) : Block() {
         fun mine(difficulty: Int = Network.DIFFICULTY): Mined {
             val target = "0".repeat(difficulty)
@@ -21,6 +22,7 @@ sealed class Block {
             var hash = calculateHash(this, nonce)
             while (hash.substring(0, difficulty) != target) {
                 nonce = Random.nextInt()
+                if (nonce % 100000 == 0) println("Currently being mined by $miner to add to block $previousHash")
                 hash = calculateHash(this, nonce)
             }
             return Mined(index, timestamp, transactions, previousHash, difficulty, nonce, hash)
