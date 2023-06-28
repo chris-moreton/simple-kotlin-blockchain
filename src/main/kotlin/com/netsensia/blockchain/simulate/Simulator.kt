@@ -27,10 +27,9 @@ class DefaultSimulator : Simulator {
         println("Randomly connecting network")
         network.randomlyConnect()
 
-        GlobalScope.launch {
-            (0..2500).forEach {
-                network.randomlySelectNode().generateTransaction()
-                Thread.sleep((0..5000).random().toLong())
+        network.nodes.forEach {
+            GlobalScope.launch {
+                it.run()
             }
         }
 
@@ -42,7 +41,7 @@ class DefaultSimulator : Simulator {
                 networkDetails(network)
                 exitProcess(0)
             }
-            Thread.sleep(1000)
+            Thread.sleep(10000)
         }
     }
 

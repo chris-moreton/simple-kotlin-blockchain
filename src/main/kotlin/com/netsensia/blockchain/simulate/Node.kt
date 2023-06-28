@@ -4,9 +4,7 @@ import com.netsensia.blockchain.SimpleKotlinBlockchainCommand.Companion.output
 import com.netsensia.blockchain.model.Block
 import com.netsensia.blockchain.model.Blockchain
 import com.netsensia.blockchain.model.Transaction
-import com.netsensia.blockchain.service.DefaultBlockService
 import com.netsensia.blockchain.service.DefaultBlockchainService
-import kotlinx.coroutines.*
 import java.io.File
 import java.util.*
 import java.util.concurrent.CopyOnWriteArrayList
@@ -43,7 +41,24 @@ class Node(val id: String) {
         }
     }
 
-    // Connect this node to another
+    fun run() {
+        mineLock("Node $id has loaded blockchain with ${blockchain.blocks.size} blocks")
+        generateTransaction()
+        var lastTransactionGeneratedAt = System.currentTimeMillis()
+        var lastMiningAttemptAt = System.currentTimeMillis()
+        while (true) {
+            if (System.currentTimeMillis() - lastTransactionGeneratedAt > 1000) {
+                generateTransaction()
+                lastTransactionGeneratedAt = System.currentTimeMillis()
+            }
+            // if 1 second has passed since we last tried mining, try again
+            if (System.currentTimeMillis() - lastMiningAttemptAt > 1000) {
+                lastMiningAttemptAt = System.currentTimeMillis()
+                tryMining()
+            }
+        }
+    }
+
     fun connect(node: Node) {
         peers.add(node)
     }
@@ -51,13 +66,14 @@ class Node(val id: String) {
     // Broadcast a block to all peers
     fun broadcastBlock(block: Block.Mined) {
         peers.forEach {
-            println("Node $id is broadcasting block ${block.hash} to ${it.id}")
+            output("Node $id is broadcasting block ${block.hash} to ${it.id}", 3)
             it.receiveBlock(block)
         }
     }
 
     fun broadcastTransaction(transaction: Transaction) {
         peers.forEach {
+            output("Node $id is broadcasting transaction ${transaction.id} to ${it.id}", 4)
             it.receiveTransaction(transaction)
         }
     }
@@ -74,26 +90,13 @@ class Node(val id: String) {
         transactions.add(transaction)
         transactionsReceived.add(transaction.id)
 
+        println("Node $id has generated transaction ${transaction.id} from $sender to $recipient for ${transaction.amount}")
+
         broadcastTransaction(transaction)
     }
 
-    fun receiveTransaction(transaction: Transaction) {
-        if (transactionsReceived.count { it == transaction.id } > 0) {
-            return
-        }
-        transactionsReceived.add(transaction.id)
-        broadcastTransaction(transaction)
-        considerMining("new transaction was received")
-    }
-
-    @OptIn(DelicateCoroutinesApi::class)
-    fun startMining() {
-        output("Node $id is starting to mine (if there are enough valid transactions).", 1)
-        mineBlock()
-    }
-
-    fun mineBlock() {
-        // Add logic to mine a new block with the current transactions
+    fun tryMining() {
+        mineLock("Node $id is starting to mine (if there are enough valid transactions)")
         output("Node $id has ${transactions.size} transactions queued.", 2)
         val validTransactions = getMaxAllowedValidTransactions()
         output("Node $id has ${validTransactions.size} valid transactions.", 2)
@@ -139,11 +142,9 @@ class Node(val id: String) {
             } else {
                 output("Node $id stopped mining because the mineLock was lifted.")
             }
-
-            considerMining("mined a block")
-        } else {
-            mineUnlock("there are not enough valid transactions")
         }
+
+        mineUnlock("there are not enough valid transactions")
     }
 
     private fun getMaxAllowedValidTransactions(): List<Transaction> {
@@ -157,7 +158,27 @@ class Node(val id: String) {
         return validTransactions.take(MAX_TXS_PER_BLOCK)
     }
 
-    // Receive a block from a peer
+    private fun checkChainLengths(forkNumber: Int) {
+        // If any fork is longer than the main chain, swap the main chain with the fork
+        output("Node $id is checking if fork $forkNumber is longer than the main chain.")
+        if (forks[forkNumber].blocks.size > blockchain.blocks.size) {
+            output("Node $id has a fork [$forkNumber] that is longer than the main chain. Swapping to the fork.")
+            val temp = forks[forkNumber]
+            forks[forkNumber] = blockchain
+            blockchain = temp
+            return
+        }
+        output("Node $id found that fork [$forkNumber] is not longer than the main chain.")
+    }
+
+    fun receiveTransaction(transaction: Transaction) {
+        if (transactionsReceived.count { it == transaction.id } > 0) {
+            return
+        }
+        transactionsReceived.add(transaction.id)
+        broadcastTransaction(transaction)
+    }
+
     fun receiveBlock(block: Block.Mined) {
         if (blocksReceived.count { it == block.hash } > 0) {
             return
@@ -173,7 +194,6 @@ class Node(val id: String) {
                 mineUnlock("a valid block was received from a peer")
             }
             output("Node $id added a new block ${block.hash} to the chain!")
-            considerMining("new block was added to chain")
         } else {
             output("Node $id received a block ${block.hash} that doesn't fit on the main chain. Block previous hash is ${block.previousHash}. Chain tip is ${blockchain.getLastBlock().hash}.")
 
@@ -209,29 +229,6 @@ class Node(val id: String) {
 
             output("Node $id is ignoring block ${block.hash} because it doesn't fit on the main chain or any existing forks.")
         }
-    }
-
-    private fun checkChainLengths(forkNumber: Int) {
-        // If any fork is longer than the main chain, swap the main chain with the fork
-        output("Node $id is checking if fork $forkNumber is longer than the main chain.")
-        if (forks[forkNumber].blocks.size > blockchain.blocks.size) {
-            output("Node $id has a fork [$forkNumber] that is longer than the main chain. Swapping to the fork.")
-            val temp = forks[forkNumber]
-            forks[forkNumber] = blockchain
-            blockchain = temp
-            return
-        }
-        output("Node $id found that fork [$forkNumber] is not longer than the main chain.")
-    }
-
-    private fun considerMining(reason: String) {
-        output("Node $id is considering mining because $reason.", 2)
-        if (mineLock) {
-            output("Node $id is already mining. Won't consider mining ($reason).", 2)
-            return
-        }
-        mineLock("it is about to start mining")
-        startMining()
     }
 
     private fun mineLock(reason: String) {

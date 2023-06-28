@@ -1,0 +1,1417 @@
+> Task :processResources UP-TO-DATE
+> Task :inspectRuntimeClasspath UP-TO-DATE
+> Task :kaptGenerateStubsKotlin
+> Task :kaptKotlin UP-TO-DATE
+> Task :compileKotlin
+> Task :compileJava NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar
+> Task :inspectClassesForKotlinIC
+
+> Task :run
+[36m17:40:58.130[0;39m [1;30m[main][0;39m [34mINFO [0;39m [35mi.m.context.env.DefaultEnvironment[0;39m - Established active environments: [cli]
+Creating network
+Randomly connecting network
+2023-06-28T17:40:58.570253: Node1: 1 
+2023-06-28T17:40:58.570552: Node2: 1 
+2023-06-28T17:40:58.570574: Node3: 1 
+2023-06-28T17:40:58.570590: Node4: 1 
+2023-06-28T17:40:58.570603: Node5: 1 
+2023-06-28T17:40:58.570615: Node6: 1 
+2023-06-28T17:40:58.570627: 
+2023-06-28T17:40:58.570704: Node Node4 is considering mining because new transaction was received.
+2023-06-28T17:40:58.571013: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:40:58.571148: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:58.572547: Blocks at position 0: 6
+2023-06-28T17:40:58.572704: Score at position 0: 36
+2023-06-28T17:40:58.572799: Total score: 36
+2023-06-28T17:40:58.572895: Total score: 36, max score: 36
+2023-06-28T17:40:58.572968: Similarity: 100
+2023-06-28T17:40:58.573044: Node Node4 has 0 transactions queued.
+2023-06-28T17:40:58.573566: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:58.574534: Node Node4 has 0 valid transactions.
+2023-06-28T17:40:58.574792: Node Node4 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:58.574826: Node Node2 is considering mining because new transaction was received.
+2023-06-28T17:40:58.574928: Node Node2 is locking mining because it is about to start mining.
+2023-06-28T17:40:58.575010: Node Node2 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:58.575064: Node Node2 has 0 transactions queued.
+2023-06-28T17:40:58.575112: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:58.575158: Node Node2 has 0 valid transactions.
+2023-06-28T17:40:58.575202: Node Node2 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:58.575258: Node Node6 is considering mining because new transaction was received.
+2023-06-28T17:40:58.575299: Node Node6 is locking mining because it is about to start mining.
+2023-06-28T17:40:58.575356: Node Node6 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:58.575394: Node Node6 has 0 transactions queued.
+2023-06-28T17:40:58.575443: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:58.575487: Node Node6 has 0 valid transactions.
+2023-06-28T17:40:58.575527: Node Node6 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:58.575577: Node Node5 is considering mining because new transaction was received.
+2023-06-28T17:40:58.575616: Node Node5 is locking mining because it is about to start mining.
+2023-06-28T17:40:58.575678: Node Node5 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:58.575729: Node Node5 has 0 transactions queued.
+2023-06-28T17:40:58.575772: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:58.575834: Node Node5 has 0 valid transactions.
+2023-06-28T17:40:58.575945: Node Node5 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:58.575983: Node Node1 is considering mining because new transaction was received.
+2023-06-28T17:40:58.575996: Node Node1 is locking mining because it is about to start mining.
+2023-06-28T17:40:58.576009: Node Node1 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:58.576103: Node Node1 has 0 transactions queued.
+2023-06-28T17:40:58.576124: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:58.576139: Node Node1 has 0 valid transactions.
+2023-06-28T17:40:58.576151: Node Node1 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:59.248572: Node Node4 is considering mining because new transaction was received.
+2023-06-28T17:40:59.248703: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:40:59.248746: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:59.248794: Node Node4 has 0 transactions queued.
+2023-06-28T17:40:59.248844: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:59.248894: Node Node4 has 0 valid transactions.
+2023-06-28T17:40:59.248935: Node Node4 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:59.248989: Node Node5 is considering mining because new transaction was received.
+2023-06-28T17:40:59.249037: Node Node5 is locking mining because it is about to start mining.
+2023-06-28T17:40:59.249075: Node Node5 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:59.249114: Node Node5 has 0 transactions queued.
+2023-06-28T17:40:59.249154: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:59.249200: Node Node5 has 0 valid transactions.
+2023-06-28T17:40:59.249238: Node Node5 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:59.249303: Node Node2 is considering mining because new transaction was received.
+2023-06-28T17:40:59.249355: Node Node2 is locking mining because it is about to start mining.
+2023-06-28T17:40:59.249393: Node Node2 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:59.249434: Node Node2 has 0 transactions queued.
+2023-06-28T17:40:59.249475: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:59.249518: Node Node2 has 0 valid transactions.
+2023-06-28T17:40:59.249557: Node Node2 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:59.249747: Node Node3 is considering mining because new transaction was received.
+2023-06-28T17:40:59.249917: Node Node3 is locking mining because it is about to start mining.
+2023-06-28T17:40:59.249959: Node Node3 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:59.250001: Node Node3 has 1 transactions queued.
+2023-06-28T17:40:59.250230: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:59.250342: Node Node3 has 1 valid transactions.
+2023-06-28T17:40:59.250383: Node Node3 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:59.250450: Node Node1 is considering mining because new transaction was received.
+2023-06-28T17:40:59.250491: Node Node1 is locking mining because it is about to start mining.
+2023-06-28T17:40:59.250530: Node Node1 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:40:59.250569: Node Node1 has 0 transactions queued.
+2023-06-28T17:40:59.250610: Removing 0 invalid transactions from the queue.
+2023-06-28T17:40:59.250660: Node Node1 has 0 valid transactions.
+2023-06-28T17:40:59.250699: Node Node1 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:40:59.576521: Node1: 1 
+2023-06-28T17:40:59.576597: Node2: 1 
+2023-06-28T17:40:59.576609: Node3: 1 
+2023-06-28T17:40:59.576619: Node4: 1 
+2023-06-28T17:40:59.576628: Node5: 1 
+2023-06-28T17:40:59.576637: Node6: 1 
+2023-06-28T17:40:59.576649: 
+2023-06-28T17:40:59.576666: Blocks at position 0: 6
+2023-06-28T17:40:59.576683: Score at position 0: 36
+2023-06-28T17:40:59.576693: Total score: 36
+2023-06-28T17:40:59.576702: Total score: 36, max score: 36
+2023-06-28T17:40:59.576712: Similarity: 100
+2023-06-28T17:41:00.581671: Node1: 1 
+2023-06-28T17:41:00.581835: Node2: 1 
+2023-06-28T17:41:00.581869: Node3: 1 
+2023-06-28T17:41:00.581899: Node4: 1 
+2023-06-28T17:41:00.581928: Node5: 1 
+2023-06-28T17:41:00.581958: Node6: 1 
+2023-06-28T17:41:00.581984: 
+2023-06-28T17:41:00.582046: Blocks at position 0: 6
+2023-06-28T17:41:00.582088: Score at position 0: 36
+2023-06-28T17:41:00.582120: Total score: 36
+2023-06-28T17:41:00.582151: Total score: 36, max score: 36
+2023-06-28T17:41:00.582181: Similarity: 100
+2023-06-28T17:41:01.586694: Node1: 1 
+2023-06-28T17:41:01.586834: Node2: 1 
+2023-06-28T17:41:01.586882: Node3: 1 
+2023-06-28T17:41:01.586928: Node4: 1 
+2023-06-28T17:41:01.586994: Node5: 1 
+2023-06-28T17:41:01.587040: Node6: 1 
+2023-06-28T17:41:01.587080: 
+2023-06-28T17:41:01.587145: Blocks at position 0: 6
+2023-06-28T17:41:01.587207: Score at position 0: 36
+2023-06-28T17:41:01.587254: Total score: 36
+2023-06-28T17:41:01.587300: Total score: 36, max score: 36
+2023-06-28T17:41:01.587345: Similarity: 100
+2023-06-28T17:41:02.592164: Node1: 1 
+2023-06-28T17:41:02.592397: Node2: 1 
+2023-06-28T17:41:02.592483: Node3: 1 
+2023-06-28T17:41:02.593362: Node4: 1 
+2023-06-28T17:41:02.594069: Node5: 1 
+2023-06-28T17:41:02.594298: Node6: 1 
+2023-06-28T17:41:02.594633: 
+2023-06-28T17:41:02.594699: Blocks at position 0: 6
+2023-06-28T17:41:02.596207: Score at position 0: 36
+2023-06-28T17:41:02.596262: Total score: 36
+2023-06-28T17:41:02.596296: Total score: 36, max score: 36
+2023-06-28T17:41:02.596326: Similarity: 100
+2023-06-28T17:41:03.300805: Node Node6 is considering mining because new transaction was received.
+2023-06-28T17:41:03.300999: Node Node6 is locking mining because it is about to start mining.
+2023-06-28T17:41:03.301120: Node Node6 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:03.301162: Node Node6 has 1 transactions queued.
+2023-06-28T17:41:03.301435: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:03.301529: Node Node6 has 1 valid transactions.
+2023-06-28T17:41:03.301577: Node Node6 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:03.302311: Node Node2 is considering mining because new transaction was received.
+2023-06-28T17:41:03.302347: Node Node2 is locking mining because it is about to start mining.
+2023-06-28T17:41:03.302379: Node Node2 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:03.302505: Node Node2 has 0 transactions queued.
+2023-06-28T17:41:03.302548: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:03.302581: Node Node2 has 0 valid transactions.
+2023-06-28T17:41:03.302622: Node Node2 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:03.302829: Node Node4 is considering mining because new transaction was received.
+2023-06-28T17:41:03.302860: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:41:03.302901: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:03.302940: Node Node4 has 0 transactions queued.
+2023-06-28T17:41:03.302979: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:03.303013: Node Node4 has 0 valid transactions.
+2023-06-28T17:41:03.303040: Node Node4 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:03.303089: Node Node1 is considering mining because new transaction was received.
+2023-06-28T17:41:03.303198: Node Node1 is locking mining because it is about to start mining.
+2023-06-28T17:41:03.303232: Node Node1 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:03.303259: Node Node1 has 0 transactions queued.
+2023-06-28T17:41:03.303288: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:03.303318: Node Node1 has 0 valid transactions.
+2023-06-28T17:41:03.303344: Node Node1 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:03.303393: Node Node3 is considering mining because new transaction was received.
+2023-06-28T17:41:03.303421: Node Node3 is locking mining because it is about to start mining.
+2023-06-28T17:41:03.303446: Node Node3 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:03.303472: Node Node3 has 1 transactions queued.
+2023-06-28T17:41:03.303524: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:03.303705: Node Node3 has 1 valid transactions.
+2023-06-28T17:41:03.303737: Node Node3 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:03.598101: Node1: 1 
+2023-06-28T17:41:03.598187: Node2: 1 
+2023-06-28T17:41:03.598197: Node3: 1 
+2023-06-28T17:41:03.598205: Node4: 1 
+2023-06-28T17:41:03.598212: Node5: 1 
+2023-06-28T17:41:03.598219: Node6: 1 
+2023-06-28T17:41:03.598225: 
+2023-06-28T17:41:03.598240: Blocks at position 0: 6
+2023-06-28T17:41:03.598253: Score at position 0: 36
+2023-06-28T17:41:03.598261: Total score: 36
+2023-06-28T17:41:03.598268: Total score: 36, max score: 36
+2023-06-28T17:41:03.598276: Similarity: 100
+2023-06-28T17:41:04.603385: Node1: 1 
+2023-06-28T17:41:04.603439: Node2: 1 
+2023-06-28T17:41:04.603448: Node3: 1 
+2023-06-28T17:41:04.603455: Node4: 1 
+2023-06-28T17:41:04.603467: Node5: 1 
+2023-06-28T17:41:04.603475: Node6: 1 
+2023-06-28T17:41:04.603481: 
+2023-06-28T17:41:04.603496: Blocks at position 0: 6
+2023-06-28T17:41:04.603508: Score at position 0: 36
+2023-06-28T17:41:04.603516: Total score: 36
+2023-06-28T17:41:04.603523: Total score: 36, max score: 36
+2023-06-28T17:41:04.603531: Similarity: 100
+2023-06-28T17:41:05.608856: Node1: 1 
+2023-06-28T17:41:05.609002: Node2: 1 
+2023-06-28T17:41:05.609035: Node3: 1 
+2023-06-28T17:41:05.609065: Node4: 1 
+2023-06-28T17:41:05.609094: Node5: 1 
+2023-06-28T17:41:05.609123: Node6: 1 
+2023-06-28T17:41:05.609147: 
+2023-06-28T17:41:05.609196: Blocks at position 0: 6
+2023-06-28T17:41:05.609239: Score at position 0: 36
+2023-06-28T17:41:05.609275: Total score: 36
+2023-06-28T17:41:05.609304: Total score: 36, max score: 36
+2023-06-28T17:41:05.609333: Similarity: 100
+2023-06-28T17:41:06.613259: Node1: 1 
+2023-06-28T17:41:06.613441: Node2: 1 
+2023-06-28T17:41:06.613461: Node3: 1 
+2023-06-28T17:41:06.613479: Node4: 1 
+2023-06-28T17:41:06.613497: Node5: 1 
+2023-06-28T17:41:06.613514: Node6: 1 
+2023-06-28T17:41:06.613529: 
+2023-06-28T17:41:06.613561: Blocks at position 0: 6
+2023-06-28T17:41:06.613589: Score at position 0: 36
+2023-06-28T17:41:06.613607: Total score: 36
+2023-06-28T17:41:06.613624: Total score: 36, max score: 36
+2023-06-28T17:41:06.613642: Similarity: 100
+2023-06-28T17:41:07.242749: Node Node6 is considering mining because new transaction was received.
+2023-06-28T17:41:07.242861: Node Node6 is locking mining because it is about to start mining.
+2023-06-28T17:41:07.243: Node Node6 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:07.243077: Node Node6 has 1 transactions queued.
+2023-06-28T17:41:07.243187: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:07.243252: Node Node6 has 1 valid transactions.
+2023-06-28T17:41:07.243318: Node Node6 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:07.243467: Node Node5 is considering mining because new transaction was received.
+2023-06-28T17:41:07.243517: Node Node5 is locking mining because it is about to start mining.
+2023-06-28T17:41:07.243662: Node Node5 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:07.243700: Node Node5 has 1 transactions queued.
+2023-06-28T17:41:07.243769: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:07.243822: Node Node5 has 1 valid transactions.
+2023-06-28T17:41:07.243858: Node Node5 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:07.243914: Node Node1 is considering mining because new transaction was received.
+2023-06-28T17:41:07.243968: Node Node1 is locking mining because it is about to start mining.
+2023-06-28T17:41:07.244094: Node Node1 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:07.244122: Node Node1 has 0 transactions queued.
+2023-06-28T17:41:07.244148: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:07.244175: Node Node1 has 0 valid transactions.
+2023-06-28T17:41:07.244195: Node Node1 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:07.244229: Node Node3 is considering mining because new transaction was received.
+2023-06-28T17:41:07.244249: Node Node3 is locking mining because it is about to start mining.
+2023-06-28T17:41:07.244268: Node Node3 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:07.244289: Node Node3 has 1 transactions queued.
+2023-06-28T17:41:07.244329: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:07.244358: Node Node3 has 1 valid transactions.
+2023-06-28T17:41:07.244379: Node Node3 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:07.244426: Node Node2 is considering mining because new transaction was received.
+2023-06-28T17:41:07.244448: Node Node2 is locking mining because it is about to start mining.
+2023-06-28T17:41:07.244467: Node Node2 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:07.244488: Node Node2 has 0 transactions queued.
+2023-06-28T17:41:07.244511: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:07.244535: Node Node2 has 0 valid transactions.
+2023-06-28T17:41:07.244555: Node Node2 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:07.615873: Node1: 1 
+2023-06-28T17:41:07.616102: Node2: 1 
+2023-06-28T17:41:07.616132: Node3: 1 
+2023-06-28T17:41:07.616157: Node4: 1 
+2023-06-28T17:41:07.616182: Node5: 1 
+2023-06-28T17:41:07.616212: Node6: 1 
+2023-06-28T17:41:07.616240: 
+2023-06-28T17:41:07.616460: Blocks at position 0: 6
+2023-06-28T17:41:07.616634: Score at position 0: 36
+2023-06-28T17:41:07.616665: Total score: 36
+2023-06-28T17:41:07.616693: Total score: 36, max score: 36
+2023-06-28T17:41:07.616716: Similarity: 100
+2023-06-28T17:41:08.547743: Node Node4 is considering mining because new transaction was received.
+2023-06-28T17:41:08.547834: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:41:08.547856: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:08.547884: Node Node4 has 1 transactions queued.
+2023-06-28T17:41:08.547942: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:08.547977: Node Node4 has 1 valid transactions.
+2023-06-28T17:41:08.547996: Node Node4 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:08.548020: Node Node6 is considering mining because new transaction was received.
+2023-06-28T17:41:08.548038: Node Node6 is locking mining because it is about to start mining.
+2023-06-28T17:41:08.548053: Node Node6 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:08.548070: Node Node6 has 1 transactions queued.
+2023-06-28T17:41:08.548104: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:08.548129: Node Node6 has 1 valid transactions.
+2023-06-28T17:41:08.548146: Node Node6 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:08.548174: Node Node5 is considering mining because new transaction was received.
+2023-06-28T17:41:08.548190: Node Node5 is locking mining because it is about to start mining.
+2023-06-28T17:41:08.548206: Node Node5 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:08.548223: Node Node5 has 1 transactions queued.
+2023-06-28T17:41:08.548259: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:08.548285: Node Node5 has 1 valid transactions.
+2023-06-28T17:41:08.548303: Node Node5 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:08.548333: Node Node1 is considering mining because new transaction was received.
+2023-06-28T17:41:08.548350: Node Node1 is locking mining because it is about to start mining.
+2023-06-28T17:41:08.548365: Node Node1 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:08.548383: Node Node1 has 0 transactions queued.
+2023-06-28T17:41:08.548404: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:08.548424: Node Node1 has 0 valid transactions.
+2023-06-28T17:41:08.548441: Node Node1 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:08.548469: Node Node3 is considering mining because new transaction was received.
+2023-06-28T17:41:08.548486: Node Node3 is locking mining because it is about to start mining.
+2023-06-28T17:41:08.548501: Node Node3 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:08.548518: Node Node3 has 1 transactions queued.
+2023-06-28T17:41:08.548550: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:08.548574: Node Node3 has 1 valid transactions.
+2023-06-28T17:41:08.548592: Node Node3 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:08.620969: Node1: 1 
+2023-06-28T17:41:08.621130: Node2: 1 
+2023-06-28T17:41:08.621166: Node3: 1 
+2023-06-28T17:41:08.621197: Node4: 1 
+2023-06-28T17:41:08.621227: Node5: 1 
+2023-06-28T17:41:08.621257: Node6: 1 
+2023-06-28T17:41:08.621280: 
+2023-06-28T17:41:08.621333: Blocks at position 0: 6
+2023-06-28T17:41:08.621382: Score at position 0: 36
+2023-06-28T17:41:08.621412: Total score: 36
+2023-06-28T17:41:08.621440: Total score: 36, max score: 36
+2023-06-28T17:41:08.621468: Similarity: 100
+2023-06-28T17:41:09.624798: Node1: 1 
+2023-06-28T17:41:09.624873: Node2: 1 
+2023-06-28T17:41:09.624889: Node3: 1 
+2023-06-28T17:41:09.624946: Node4: 1 
+2023-06-28T17:41:09.624963: Node5: 1 
+2023-06-28T17:41:09.624978: Node6: 1 
+2023-06-28T17:41:09.624989: 
+2023-06-28T17:41:09.625017: Blocks at position 0: 6
+2023-06-28T17:41:09.625041: Score at position 0: 36
+2023-06-28T17:41:09.625057: Total score: 36
+2023-06-28T17:41:09.625070: Total score: 36, max score: 36
+2023-06-28T17:41:09.625085: Similarity: 100
+2023-06-28T17:41:10.629633: Node1: 1 
+2023-06-28T17:41:10.629709: Node2: 1 
+2023-06-28T17:41:10.629728: Node3: 1 
+2023-06-28T17:41:10.629744: Node4: 1 
+2023-06-28T17:41:10.629761: Node5: 1 
+2023-06-28T17:41:10.629784: Node6: 1 
+2023-06-28T17:41:10.629797: 
+2023-06-28T17:41:10.629830: Blocks at position 0: 6
+2023-06-28T17:41:10.629859: Score at position 0: 36
+2023-06-28T17:41:10.629877: Total score: 36
+2023-06-28T17:41:10.629893: Total score: 36, max score: 36
+2023-06-28T17:41:10.629910: Similarity: 100
+2023-06-28T17:41:11.631657: Node1: 1 
+2023-06-28T17:41:11.631745: Node2: 1 
+2023-06-28T17:41:11.631766: Node3: 1 
+2023-06-28T17:41:11.631783: Node4: 1 
+2023-06-28T17:41:11.631800: Node5: 1 
+2023-06-28T17:41:11.631817: Node6: 1 
+2023-06-28T17:41:11.631830: 
+2023-06-28T17:41:11.631864: Blocks at position 0: 6
+2023-06-28T17:41:11.631894: Score at position 0: 36
+2023-06-28T17:41:11.631912: Total score: 36
+2023-06-28T17:41:11.631928: Total score: 36, max score: 36
+2023-06-28T17:41:11.631945: Similarity: 100
+2023-06-28T17:41:12.633541: Node1: 1 
+2023-06-28T17:41:12.633662: Node2: 1 
+2023-06-28T17:41:12.633680: Node3: 1 
+2023-06-28T17:41:12.633694: Node4: 1 
+2023-06-28T17:41:12.633708: Node5: 1 
+2023-06-28T17:41:12.633722: Node6: 1 
+2023-06-28T17:41:12.633733: 
+2023-06-28T17:41:12.633811: Blocks at position 0: 6
+2023-06-28T17:41:12.634008: Score at position 0: 36
+2023-06-28T17:41:12.634027: Total score: 36
+2023-06-28T17:41:12.634042: Total score: 36, max score: 36
+2023-06-28T17:41:12.634056: Similarity: 100
+2023-06-28T17:41:13.550085: Node Node4 is considering mining because new transaction was received.
+2023-06-28T17:41:13.550174: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:41:13.550207: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:13.550248: Node Node4 has 1 transactions queued.
+2023-06-28T17:41:13.550421: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:13.550480: Node Node4 has 1 valid transactions.
+2023-06-28T17:41:13.550512: Node Node4 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:13.550544: Node Node6 is considering mining because new transaction was received.
+2023-06-28T17:41:13.550573: Node Node6 is locking mining because it is about to start mining.
+2023-06-28T17:41:13.550600: Node Node6 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:13.550628: Node Node6 has 1 transactions queued.
+2023-06-28T17:41:13.550685: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:13.550727: Node Node6 has 1 valid transactions.
+2023-06-28T17:41:13.550757: Node Node6 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:13.550789: Node Node5 is considering mining because new transaction was received.
+2023-06-28T17:41:13.550817: Node Node5 is locking mining because it is about to start mining.
+2023-06-28T17:41:13.550843: Node Node5 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:13.550872: Node Node5 has 1 transactions queued.
+2023-06-28T17:41:13.550928: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:13.550970: Node Node5 has 1 valid transactions.
+2023-06-28T17:41:13.550999: Node Node5 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:13.551032: Node Node1 is considering mining because new transaction was received.
+2023-06-28T17:41:13.551060: Node Node1 is locking mining because it is about to start mining.
+2023-06-28T17:41:13.551087: Node Node1 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:13.551114: Node Node1 has 0 transactions queued.
+2023-06-28T17:41:13.551148: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:13.551183: Node Node1 has 0 valid transactions.
+2023-06-28T17:41:13.551226: Node Node1 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:13.551775: Node Node3 is considering mining because new transaction was received.
+2023-06-28T17:41:13.551806: Node Node3 is locking mining because it is about to start mining.
+2023-06-28T17:41:13.551825: Node Node3 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:13.551843: Node Node3 has 1 transactions queued.
+2023-06-28T17:41:13.551913: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:13.551941: Node Node3 has 1 valid transactions.
+2023-06-28T17:41:13.551958: Node Node3 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:13.637016: Node1: 1 
+2023-06-28T17:41:13.637373: Node2: 1 
+2023-06-28T17:41:13.637390: Node3: 1 
+2023-06-28T17:41:13.637404: Node4: 1 
+2023-06-28T17:41:13.637417: Node5: 1 
+2023-06-28T17:41:13.637431: Node6: 1 
+2023-06-28T17:41:13.637441: 
+2023-06-28T17:41:13.637474: Blocks at position 0: 6
+2023-06-28T17:41:13.637502: Score at position 0: 36
+2023-06-28T17:41:13.637517: Total score: 36
+2023-06-28T17:41:13.637530: Total score: 36, max score: 36
+2023-06-28T17:41:13.637544: Similarity: 100
+2023-06-28T17:41:13.875088: Node Node4 is considering mining because new transaction was received.
+2023-06-28T17:41:13.875135: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:41:13.875147: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:13.875167: Node Node4 has 1 transactions queued.
+2023-06-28T17:41:13.875214: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:13.875238: Node Node4 has 1 valid transactions.
+2023-06-28T17:41:13.875249: Node Node4 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:13.875260: Node Node5 is considering mining because new transaction was received.
+2023-06-28T17:41:13.875268: Node Node5 is locking mining because it is about to start mining.
+2023-06-28T17:41:13.875276: Node Node5 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:13.875285: Node Node5 has 1 transactions queued.
+2023-06-28T17:41:13.875305: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:13.875320: Node Node5 has 1 valid transactions.
+2023-06-28T17:41:13.875329: Node Node5 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:41:13.875340: Node Node2 is considering mining because new transaction was received.
+2023-06-28T17:41:13.875348: Node Node2 is locking mining because it is about to start mining.
+2023-06-28T17:41:13.875356: Node Node2 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:13.875388: Node Node2 has 2 transactions queued.
+2023-06-28T17:41:13.875484: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:13.875502: Node Node2 has 2 valid transactions.
+2023-06-28T17:41:13.876007: Node Node2 has enough valid transactions to mine a new block with index 1.
+2023-06-28T17:41:14.061578: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:14.129128: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:14.642202: Node1: 1 
+2023-06-28T17:41:14.642236: Node2: 1 
+2023-06-28T17:41:14.642240: Node3: 1 
+2023-06-28T17:41:14.642243: Node4: 1 
+2023-06-28T17:41:14.642252: Node5: 1 
+2023-06-28T17:41:14.642258: Node6: 1 
+2023-06-28T17:41:14.642261: 
+2023-06-28T17:41:14.642308: Blocks at position 0: 6
+2023-06-28T17:41:14.642324: Score at position 0: 36
+2023-06-28T17:41:14.642328: Total score: 36
+2023-06-28T17:41:14.642332: Total score: 36, max score: 36
+2023-06-28T17:41:14.642336: Similarity: 100
+2023-06-28T17:41:14.868379: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:15.290368: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:15.643926: Node1: 1 
+2023-06-28T17:41:15.643956: Node2: 1 
+2023-06-28T17:41:15.643960: Node3: 1 
+2023-06-28T17:41:15.643964: Node4: 1 
+2023-06-28T17:41:15.643969: Node5: 1 
+2023-06-28T17:41:15.643973: Node6: 1 
+2023-06-28T17:41:15.644001: 
+2023-06-28T17:41:15.644041: Blocks at position 0: 6
+2023-06-28T17:41:15.644050: Score at position 0: 36
+2023-06-28T17:41:15.644054: Total score: 36
+2023-06-28T17:41:15.644058: Total score: 36, max score: 36
+2023-06-28T17:41:15.644062: Similarity: 100
+2023-06-28T17:41:16.649138: Node1: 1 
+2023-06-28T17:41:16.649170: Node2: 1 
+2023-06-28T17:41:16.649174: Node3: 1 
+2023-06-28T17:41:16.649178: Node4: 1 
+2023-06-28T17:41:16.649181: Node5: 1 
+2023-06-28T17:41:16.649184: Node6: 1 
+2023-06-28T17:41:16.649187: 
+2023-06-28T17:41:16.649199: Blocks at position 0: 6
+2023-06-28T17:41:16.649207: Score at position 0: 36
+2023-06-28T17:41:16.649211: Total score: 36
+2023-06-28T17:41:16.649218: Total score: 36, max score: 36
+2023-06-28T17:41:16.649222: Similarity: 100
+2023-06-28T17:41:17.006548: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:17.652458: Node1: 1 
+2023-06-28T17:41:17.652490: Node2: 1 
+2023-06-28T17:41:17.652494: Node3: 1 
+2023-06-28T17:41:17.652497: Node4: 1 
+2023-06-28T17:41:17.652500: Node5: 1 
+2023-06-28T17:41:17.652504: Node6: 1 
+2023-06-28T17:41:17.652511: 
+2023-06-28T17:41:17.652525: Blocks at position 0: 6
+2023-06-28T17:41:17.652535: Score at position 0: 36
+2023-06-28T17:41:17.652539: Total score: 36
+2023-06-28T17:41:17.652542: Total score: 36, max score: 36
+2023-06-28T17:41:17.652546: Similarity: 100
+2023-06-28T17:41:18.657631: Node1: 1 
+2023-06-28T17:41:18.657664: Node2: 1 
+2023-06-28T17:41:18.657668: Node3: 1 
+2023-06-28T17:41:18.657672: Node4: 1 
+2023-06-28T17:41:18.657675: Node5: 1 
+2023-06-28T17:41:18.657678: Node6: 1 
+2023-06-28T17:41:18.657681: 
+2023-06-28T17:41:18.657692: Blocks at position 0: 6
+2023-06-28T17:41:18.657700: Score at position 0: 36
+2023-06-28T17:41:18.657705: Total score: 36
+2023-06-28T17:41:18.657708: Total score: 36, max score: 36
+2023-06-28T17:41:18.657715: Similarity: 100
+2023-06-28T17:41:19.660388: Node1: 1 
+2023-06-28T17:41:19.660426: Node2: 1 
+2023-06-28T17:41:19.660431: Node3: 1 
+2023-06-28T17:41:19.660436: Node4: 1 
+2023-06-28T17:41:19.660439: Node5: 1 
+2023-06-28T17:41:19.660443: Node6: 1 
+2023-06-28T17:41:19.660446: 
+2023-06-28T17:41:19.660457: Blocks at position 0: 6
+2023-06-28T17:41:19.660465: Score at position 0: 36
+2023-06-28T17:41:19.660470: Total score: 36
+2023-06-28T17:41:19.660473: Total score: 36, max score: 36
+2023-06-28T17:41:19.660477: Similarity: 100
+2023-06-28T17:41:19.896418: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:20.665550: Node1: 1 
+2023-06-28T17:41:20.665581: Node2: 1 
+2023-06-28T17:41:20.665585: Node3: 1 
+2023-06-28T17:41:20.665589: Node4: 1 
+2023-06-28T17:41:20.665592: Node5: 1 
+2023-06-28T17:41:20.665595: Node6: 1 
+2023-06-28T17:41:20.665604: 
+2023-06-28T17:41:20.665616: Blocks at position 0: 6
+2023-06-28T17:41:20.665624: Score at position 0: 36
+2023-06-28T17:41:20.665628: Total score: 36
+2023-06-28T17:41:20.665632: Total score: 36, max score: 36
+2023-06-28T17:41:20.665673: Similarity: 100
+2023-06-28T17:41:21.666916: Node1: 1 
+2023-06-28T17:41:21.666957: Node2: 1 
+2023-06-28T17:41:21.667013: Node3: 1 
+2023-06-28T17:41:21.667016: Node4: 1 
+2023-06-28T17:41:21.667019: Node5: 1 
+2023-06-28T17:41:21.667022: Node6: 1 
+2023-06-28T17:41:21.667024: 
+2023-06-28T17:41:21.667037: Blocks at position 0: 6
+2023-06-28T17:41:21.667045: Score at position 0: 36
+2023-06-28T17:41:21.667048: Total score: 36
+2023-06-28T17:41:21.667051: Total score: 36, max score: 36
+2023-06-28T17:41:21.667054: Similarity: 100
+2023-06-28T17:41:22.672131: Node1: 1 
+2023-06-28T17:41:22.672160: Node2: 1 
+2023-06-28T17:41:22.672163: Node3: 1 
+2023-06-28T17:41:22.672166: Node4: 1 
+2023-06-28T17:41:22.672169: Node5: 1 
+2023-06-28T17:41:22.672172: Node6: 1 
+2023-06-28T17:41:22.672175: 
+2023-06-28T17:41:22.672187: Blocks at position 0: 6
+2023-06-28T17:41:22.672195: Score at position 0: 36
+2023-06-28T17:41:22.672199: Total score: 36
+2023-06-28T17:41:22.672202: Total score: 36, max score: 36
+2023-06-28T17:41:22.672205: Similarity: 100
+2023-06-28T17:41:23.677270: Node1: 1 
+2023-06-28T17:41:23.677290: Node2: 1 
+2023-06-28T17:41:23.677294: Node3: 1 
+2023-06-28T17:41:23.677297: Node4: 1 
+2023-06-28T17:41:23.677299: Node5: 1 
+2023-06-28T17:41:23.677302: Node6: 1 
+2023-06-28T17:41:23.677305: 
+2023-06-28T17:41:23.677315: Blocks at position 0: 6
+2023-06-28T17:41:23.677323: Score at position 0: 36
+2023-06-28T17:41:23.677327: Total score: 36
+2023-06-28T17:41:23.677329: Total score: 36, max score: 36
+2023-06-28T17:41:23.677333: Similarity: 100
+2023-06-28T17:41:24.680356: Node1: 1 
+2023-06-28T17:41:24.680384: Node2: 1 
+2023-06-28T17:41:24.680387: Node3: 1 
+2023-06-28T17:41:24.680390: Node4: 1 
+2023-06-28T17:41:24.680394: Node5: 1 
+2023-06-28T17:41:24.680396: Node6: 1 
+2023-06-28T17:41:24.680399: 
+2023-06-28T17:41:24.680411: Blocks at position 0: 6
+2023-06-28T17:41:24.680419: Score at position 0: 36
+2023-06-28T17:41:24.680423: Total score: 36
+2023-06-28T17:41:24.680426: Total score: 36, max score: 36
+2023-06-28T17:41:24.680429: Similarity: 100
+2023-06-28T17:41:25.326682: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:25.685506: Node1: 1 
+2023-06-28T17:41:25.685534: Node2: 1 
+2023-06-28T17:41:25.685538: Node3: 1 
+2023-06-28T17:41:25.685541: Node4: 1 
+2023-06-28T17:41:25.685553: Node5: 1 
+2023-06-28T17:41:25.685558: Node6: 1 
+2023-06-28T17:41:25.685560: 
+2023-06-28T17:41:25.685572: Blocks at position 0: 6
+2023-06-28T17:41:25.685580: Score at position 0: 36
+2023-06-28T17:41:25.685584: Total score: 36
+2023-06-28T17:41:25.685586: Total score: 36, max score: 36
+2023-06-28T17:41:25.685590: Similarity: 100
+2023-06-28T17:41:26.341085: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:26.686337: Node1: 1 
+2023-06-28T17:41:26.686359: Node2: 1 
+2023-06-28T17:41:26.686363: Node3: 1 
+2023-06-28T17:41:26.686366: Node4: 1 
+2023-06-28T17:41:26.686375: Node5: 1 
+2023-06-28T17:41:26.686378: Node6: 1 
+2023-06-28T17:41:26.686380: 
+2023-06-28T17:41:26.686390: Blocks at position 0: 6
+2023-06-28T17:41:26.686400: Score at position 0: 36
+2023-06-28T17:41:26.686404: Total score: 36
+2023-06-28T17:41:26.686407: Total score: 36, max score: 36
+2023-06-28T17:41:26.686422: Similarity: 100
+2023-06-28T17:41:27.116838: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:27.691500: Node1: 1 
+2023-06-28T17:41:27.691526: Node2: 1 
+2023-06-28T17:41:27.691529: Node3: 1 
+2023-06-28T17:41:27.691532: Node4: 1 
+2023-06-28T17:41:27.691535: Node5: 1 
+2023-06-28T17:41:27.691545: Node6: 1 
+2023-06-28T17:41:27.691548: 
+2023-06-28T17:41:27.691559: Blocks at position 0: 6
+2023-06-28T17:41:27.691567: Score at position 0: 36
+2023-06-28T17:41:27.691588: Total score: 36
+2023-06-28T17:41:27.691591: Total score: 36, max score: 36
+2023-06-28T17:41:27.691594: Similarity: 100
+2023-06-28T17:41:28.141296: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:28.696671: Node1: 1 
+2023-06-28T17:41:28.696698: Node2: 1 
+2023-06-28T17:41:28.696702: Node3: 1 
+2023-06-28T17:41:28.696705: Node4: 1 
+2023-06-28T17:41:28.696708: Node5: 1 
+2023-06-28T17:41:28.696711: Node6: 1 
+2023-06-28T17:41:28.696714: 
+2023-06-28T17:41:28.696725: Blocks at position 0: 6
+2023-06-28T17:41:28.696735: Score at position 0: 36
+2023-06-28T17:41:28.696740: Total score: 36
+2023-06-28T17:41:28.696743: Total score: 36, max score: 36
+2023-06-28T17:41:28.696746: Similarity: 100
+2023-06-28T17:41:29.552133: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:29.700285: Node1: 1 
+2023-06-28T17:41:29.700314: Node2: 1 
+2023-06-28T17:41:29.700329: Node3: 1 
+2023-06-28T17:41:29.700333: Node4: 1 
+2023-06-28T17:41:29.700336: Node5: 1 
+2023-06-28T17:41:29.700341: Node6: 1 
+2023-06-28T17:41:29.700356: 
+2023-06-28T17:41:29.700369: Blocks at position 0: 6
+2023-06-28T17:41:29.700376: Score at position 0: 36
+2023-06-28T17:41:29.700380: Total score: 36
+2023-06-28T17:41:29.700383: Total score: 36, max score: 36
+2023-06-28T17:41:29.700387: Similarity: 100
+2023-06-28T17:41:30.616844: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:30.705473: Node1: 1 
+2023-06-28T17:41:30.705498: Node2: 1 
+2023-06-28T17:41:30.705501: Node3: 1 
+2023-06-28T17:41:30.705504: Node4: 1 
+2023-06-28T17:41:30.705507: Node5: 1 
+2023-06-28T17:41:30.705510: Node6: 1 
+2023-06-28T17:41:30.705512: 
+2023-06-28T17:41:30.705524: Blocks at position 0: 6
+2023-06-28T17:41:30.705532: Score at position 0: 36
+2023-06-28T17:41:30.705539: Total score: 36
+2023-06-28T17:41:30.705541: Total score: 36, max score: 36
+2023-06-28T17:41:30.705545: Similarity: 100
+2023-06-28T17:41:31.662156: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:31.709927: Node1: 1 
+2023-06-28T17:41:31.709948: Node2: 1 
+2023-06-28T17:41:31.709951: Node3: 1 
+2023-06-28T17:41:31.709954: Node4: 1 
+2023-06-28T17:41:31.709964: Node5: 1 
+2023-06-28T17:41:31.709967: Node6: 1 
+2023-06-28T17:41:31.709971: 
+2023-06-28T17:41:31.709983: Blocks at position 0: 6
+2023-06-28T17:41:31.709991: Score at position 0: 36
+2023-06-28T17:41:31.709995: Total score: 36
+2023-06-28T17:41:31.709998: Total score: 36, max score: 36
+2023-06-28T17:41:31.710001: Similarity: 100
+2023-06-28T17:41:32.204656: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:32.711275: Node1: 1 
+2023-06-28T17:41:32.711298: Node2: 1 
+2023-06-28T17:41:32.711301: Node3: 1 
+2023-06-28T17:41:32.711305: Node4: 1 
+2023-06-28T17:41:32.711343: Node5: 1 
+2023-06-28T17:41:32.711349: Node6: 1 
+2023-06-28T17:41:32.711352: 
+2023-06-28T17:41:32.711362: Blocks at position 0: 6
+2023-06-28T17:41:32.711370: Score at position 0: 36
+2023-06-28T17:41:32.711374: Total score: 36
+2023-06-28T17:41:32.711377: Total score: 36, max score: 36
+2023-06-28T17:41:32.711381: Similarity: 100
+2023-06-28T17:41:33.712354: Node1: 1 
+2023-06-28T17:41:33.712379: Node2: 1 
+2023-06-28T17:41:33.712395: Node3: 1 
+2023-06-28T17:41:33.712401: Node4: 1 
+2023-06-28T17:41:33.712406: Node5: 1 
+2023-06-28T17:41:33.712409: Node6: 1 
+2023-06-28T17:41:33.712412: 
+2023-06-28T17:41:33.712422: Blocks at position 0: 6
+2023-06-28T17:41:33.712431: Score at position 0: 36
+2023-06-28T17:41:33.712435: Total score: 36
+2023-06-28T17:41:33.712438: Total score: 36, max score: 36
+2023-06-28T17:41:33.712441: Similarity: 100
+2023-06-28T17:41:34.169398: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:34.717527: Node1: 1 
+2023-06-28T17:41:34.717551: Node2: 1 
+2023-06-28T17:41:34.717555: Node3: 1 
+2023-06-28T17:41:34.717564: Node4: 1 
+2023-06-28T17:41:34.717567: Node5: 1 
+2023-06-28T17:41:34.717572: Node6: 1 
+2023-06-28T17:41:34.717574: 
+2023-06-28T17:41:34.717586: Blocks at position 0: 6
+2023-06-28T17:41:34.717595: Score at position 0: 36
+2023-06-28T17:41:34.717599: Total score: 36
+2023-06-28T17:41:34.717602: Total score: 36, max score: 36
+2023-06-28T17:41:34.717606: Similarity: 100
+2023-06-28T17:41:35.722682: Node1: 1 
+2023-06-28T17:41:35.722709: Node2: 1 
+2023-06-28T17:41:35.722713: Node3: 1 
+2023-06-28T17:41:35.722716: Node4: 1 
+2023-06-28T17:41:35.722719: Node5: 1 
+2023-06-28T17:41:35.722722: Node6: 1 
+2023-06-28T17:41:35.722724: 
+2023-06-28T17:41:35.722735: Blocks at position 0: 6
+2023-06-28T17:41:35.722744: Score at position 0: 36
+2023-06-28T17:41:35.722748: Total score: 36
+2023-06-28T17:41:35.722752: Total score: 36, max score: 36
+2023-06-28T17:41:35.722755: Similarity: 100
+2023-06-28T17:41:36.725722: Node1: 1 
+2023-06-28T17:41:36.725752: Node2: 1 
+2023-06-28T17:41:36.725755: Node3: 1 
+2023-06-28T17:41:36.725758: Node4: 1 
+2023-06-28T17:41:36.725762: Node5: 1 
+2023-06-28T17:41:36.725765: Node6: 1 
+2023-06-28T17:41:36.725768: 
+2023-06-28T17:41:36.725781: Blocks at position 0: 6
+2023-06-28T17:41:36.725795: Score at position 0: 36
+2023-06-28T17:41:36.725799: Total score: 36
+2023-06-28T17:41:36.725802: Total score: 36, max score: 36
+2023-06-28T17:41:36.725806: Similarity: 100
+2023-06-28T17:41:37.730286: Node1: 1 
+2023-06-28T17:41:37.730312: Node2: 1 
+2023-06-28T17:41:37.730315: Node3: 1 
+2023-06-28T17:41:37.730318: Node4: 1 
+2023-06-28T17:41:37.730328: Node5: 1 
+2023-06-28T17:41:37.730331: Node6: 1 
+2023-06-28T17:41:37.730333: 
+2023-06-28T17:41:37.730357: Blocks at position 0: 6
+2023-06-28T17:41:37.730365: Score at position 0: 36
+2023-06-28T17:41:37.730369: Total score: 36
+2023-06-28T17:41:37.730372: Total score: 36, max score: 36
+2023-06-28T17:41:37.730376: Similarity: 100
+2023-06-28T17:41:38.730869: Node1: 1 
+2023-06-28T17:41:38.730896: Node2: 1 
+2023-06-28T17:41:38.730900: Node3: 1 
+2023-06-28T17:41:38.730903: Node4: 1 
+2023-06-28T17:41:38.730912: Node5: 1 
+2023-06-28T17:41:38.730915: Node6: 1 
+2023-06-28T17:41:38.730918: 
+2023-06-28T17:41:38.730930: Blocks at position 0: 6
+2023-06-28T17:41:38.730947: Score at position 0: 36
+2023-06-28T17:41:38.730951: Total score: 36
+2023-06-28T17:41:38.730954: Total score: 36, max score: 36
+2023-06-28T17:41:38.730957: Similarity: 100
+2023-06-28T17:41:39.732451: Node1: 1 
+2023-06-28T17:41:39.732472: Node2: 1 
+2023-06-28T17:41:39.732475: Node3: 1 
+2023-06-28T17:41:39.732478: Node4: 1 
+2023-06-28T17:41:39.732480: Node5: 1 
+2023-06-28T17:41:39.732483: Node6: 1 
+2023-06-28T17:41:39.732491: 
+2023-06-28T17:41:39.732517: Blocks at position 0: 6
+2023-06-28T17:41:39.732526: Score at position 0: 36
+2023-06-28T17:41:39.732530: Total score: 36
+2023-06-28T17:41:39.732533: Total score: 36, max score: 36
+2023-06-28T17:41:39.732537: Similarity: 100
+2023-06-28T17:41:40.737614: Node1: 1 
+2023-06-28T17:41:40.737638: Node2: 1 
+2023-06-28T17:41:40.737642: Node3: 1 
+2023-06-28T17:41:40.737656: Node4: 1 
+2023-06-28T17:41:40.737659: Node5: 1 
+2023-06-28T17:41:40.737667: Node6: 1 
+2023-06-28T17:41:40.737670: 
+2023-06-28T17:41:40.737683: Blocks at position 0: 6
+2023-06-28T17:41:40.737692: Score at position 0: 36
+2023-06-28T17:41:40.737696: Total score: 36
+2023-06-28T17:41:40.737699: Total score: 36, max score: 36
+2023-06-28T17:41:40.737703: Similarity: 100
+2023-06-28T17:41:41.742799: Node1: 1 
+2023-06-28T17:41:41.742822: Node2: 1 
+2023-06-28T17:41:41.742826: Node3: 1 
+2023-06-28T17:41:41.742828: Node4: 1 
+2023-06-28T17:41:41.742831: Node5: 1 
+2023-06-28T17:41:41.742834: Node6: 1 
+2023-06-28T17:41:41.742836: 
+2023-06-28T17:41:41.742848: Blocks at position 0: 6
+2023-06-28T17:41:41.742857: Score at position 0: 36
+2023-06-28T17:41:41.742863: Total score: 36
+2023-06-28T17:41:41.742867: Total score: 36, max score: 36
+2023-06-28T17:41:41.742871: Similarity: 100
+2023-06-28T17:41:42.745614: Node1: 1 
+2023-06-28T17:41:42.745638: Node2: 1 
+2023-06-28T17:41:42.745641: Node3: 1 
+2023-06-28T17:41:42.745651: Node4: 1 
+2023-06-28T17:41:42.745654: Node5: 1 
+2023-06-28T17:41:42.745657: Node6: 1 
+2023-06-28T17:41:42.745661: 
+2023-06-28T17:41:42.745675: Blocks at position 0: 6
+2023-06-28T17:41:42.745684: Score at position 0: 36
+2023-06-28T17:41:42.745687: Total score: 36
+2023-06-28T17:41:42.745690: Total score: 36, max score: 36
+2023-06-28T17:41:42.745694: Similarity: 100
+2023-06-28T17:41:43.748819: Node1: 1 
+2023-06-28T17:41:43.748841: Node2: 1 
+2023-06-28T17:41:43.748845: Node3: 1 
+2023-06-28T17:41:43.748847: Node4: 1 
+2023-06-28T17:41:43.748850: Node5: 1 
+2023-06-28T17:41:43.748853: Node6: 1 
+2023-06-28T17:41:43.748856: 
+2023-06-28T17:41:43.748870: Blocks at position 0: 6
+2023-06-28T17:41:43.748880: Score at position 0: 36
+2023-06-28T17:41:43.748884: Total score: 36
+2023-06-28T17:41:43.748887: Total score: 36, max score: 36
+2023-06-28T17:41:43.748891: Similarity: 100
+2023-06-28T17:41:44.752612: Node1: 1 
+2023-06-28T17:41:44.752643: Node2: 1 
+2023-06-28T17:41:44.752652: Node3: 1 
+2023-06-28T17:41:44.752654: Node4: 1 
+2023-06-28T17:41:44.752660: Node5: 1 
+2023-06-28T17:41:44.752663: Node6: 1 
+2023-06-28T17:41:44.752666: 
+2023-06-28T17:41:44.752719: Blocks at position 0: 6
+2023-06-28T17:41:44.752730: Score at position 0: 36
+2023-06-28T17:41:44.752735: Total score: 36
+2023-06-28T17:41:44.752738: Total score: 36, max score: 36
+2023-06-28T17:41:44.752742: Similarity: 100
+2023-06-28T17:41:45.757813: Node1: 1 
+2023-06-28T17:41:45.757840: Node2: 1 
+2023-06-28T17:41:45.757843: Node3: 1 
+2023-06-28T17:41:45.757846: Node4: 1 
+2023-06-28T17:41:45.757849: Node5: 1 
+2023-06-28T17:41:45.757853: Node6: 1 
+2023-06-28T17:41:45.757857: 
+2023-06-28T17:41:45.757872: Blocks at position 0: 6
+2023-06-28T17:41:45.757881: Score at position 0: 36
+2023-06-28T17:41:45.757885: Total score: 36
+2023-06-28T17:41:45.757888: Total score: 36, max score: 36
+2023-06-28T17:41:45.757892: Similarity: 100
+2023-06-28T17:41:46.760438: Node1: 1 
+2023-06-28T17:41:46.760460: Node2: 1 
+2023-06-28T17:41:46.760464: Node3: 1 
+2023-06-28T17:41:46.760467: Node4: 1 
+2023-06-28T17:41:46.760469: Node5: 1 
+2023-06-28T17:41:46.760472: Node6: 1 
+2023-06-28T17:41:46.760474: 
+2023-06-28T17:41:46.760486: Blocks at position 0: 6
+2023-06-28T17:41:46.760494: Score at position 0: 36
+2023-06-28T17:41:46.760498: Total score: 36
+2023-06-28T17:41:46.760500: Total score: 36, max score: 36
+2023-06-28T17:41:46.760504: Similarity: 100
+2023-06-28T17:41:47.765568: Node1: 1 
+2023-06-28T17:41:47.765591: Node2: 1 
+2023-06-28T17:41:47.765594: Node3: 1 
+2023-06-28T17:41:47.765597: Node4: 1 
+2023-06-28T17:41:47.765600: Node5: 1 
+2023-06-28T17:41:47.765602: Node6: 1 
+2023-06-28T17:41:47.765605: 
+2023-06-28T17:41:47.765617: Blocks at position 0: 6
+2023-06-28T17:41:47.765626: Score at position 0: 36
+2023-06-28T17:41:47.765630: Total score: 36
+2023-06-28T17:41:47.765632: Total score: 36, max score: 36
+2023-06-28T17:41:47.765636: Similarity: 100
+2023-06-28T17:41:48.766857: Node1: 1 
+2023-06-28T17:41:48.766883: Node2: 1 
+2023-06-28T17:41:48.766886: Node3: 1 
+2023-06-28T17:41:48.766893: Node4: 1 
+2023-06-28T17:41:48.766896: Node5: 1 
+2023-06-28T17:41:48.766901: Node6: 1 
+2023-06-28T17:41:48.766904: 
+2023-06-28T17:41:48.766917: Blocks at position 0: 6
+2023-06-28T17:41:48.766927: Score at position 0: 36
+2023-06-28T17:41:48.766931: Total score: 36
+2023-06-28T17:41:48.766934: Total score: 36, max score: 36
+2023-06-28T17:41:48.766938: Similarity: 100
+2023-06-28T17:41:49.769583: Node1: 1 
+2023-06-28T17:41:49.769607: Node2: 1 
+2023-06-28T17:41:49.769609: Node3: 1 
+2023-06-28T17:41:49.769612: Node4: 1 
+2023-06-28T17:41:49.769615: Node5: 1 
+2023-06-28T17:41:49.769617: Node6: 1 
+2023-06-28T17:41:49.769620: 
+2023-06-28T17:41:49.769633: Blocks at position 0: 6
+2023-06-28T17:41:49.769643: Score at position 0: 36
+2023-06-28T17:41:49.769647: Total score: 36
+2023-06-28T17:41:49.769650: Total score: 36, max score: 36
+2023-06-28T17:41:49.769654: Similarity: 100
+2023-06-28T17:41:50.774616: Node1: 1 
+2023-06-28T17:41:50.774642: Node2: 1 
+2023-06-28T17:41:50.774645: Node3: 1 
+2023-06-28T17:41:50.774648: Node4: 1 
+2023-06-28T17:41:50.774659: Node5: 1 
+2023-06-28T17:41:50.774662: Node6: 1 
+2023-06-28T17:41:50.774666: 
+2023-06-28T17:41:50.774679: Blocks at position 0: 6
+2023-06-28T17:41:50.774688: Score at position 0: 36
+2023-06-28T17:41:50.774692: Total score: 36
+2023-06-28T17:41:50.774695: Total score: 36, max score: 36
+2023-06-28T17:41:50.774699: Similarity: 100
+2023-06-28T17:41:51.779778: Node1: 1 
+2023-06-28T17:41:51.779800: Node2: 1 
+2023-06-28T17:41:51.779803: Node3: 1 
+2023-06-28T17:41:51.779805: Node4: 1 
+2023-06-28T17:41:51.779808: Node5: 1 
+2023-06-28T17:41:51.779811: Node6: 1 
+2023-06-28T17:41:51.779813: 
+2023-06-28T17:41:51.779827: Blocks at position 0: 6
+2023-06-28T17:41:51.779836: Score at position 0: 36
+2023-06-28T17:41:51.779840: Total score: 36
+2023-06-28T17:41:51.779843: Total score: 36, max score: 36
+2023-06-28T17:41:51.779847: Similarity: 100
+2023-06-28T17:41:51.982566: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:52.780459: Node1: 1 
+2023-06-28T17:41:52.780484: Node2: 1 
+2023-06-28T17:41:52.780487: Node3: 1 
+2023-06-28T17:41:52.780490: Node4: 1 
+2023-06-28T17:41:52.780529: Node5: 1 
+2023-06-28T17:41:52.780533: Node6: 1 
+2023-06-28T17:41:52.780536: 
+2023-06-28T17:41:52.780549: Blocks at position 0: 6
+2023-06-28T17:41:52.780558: Score at position 0: 36
+2023-06-28T17:41:52.780562: Total score: 36
+2023-06-28T17:41:52.780565: Total score: 36, max score: 36
+2023-06-28T17:41:52.780569: Similarity: 100
+2023-06-28T17:41:52.883359: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:53.217088: Currently being mined by Node2 to add to block GENESIS
+2023-06-28T17:41:53.785630: Node1: 1 
+2023-06-28T17:41:53.785653: Node2: 1 
+2023-06-28T17:41:53.785656: Node3: 1 
+2023-06-28T17:41:53.785659: Node4: 1 
+2023-06-28T17:41:53.785668: Node5: 1 
+2023-06-28T17:41:53.785671: Node6: 1 
+2023-06-28T17:41:53.785674: 
+2023-06-28T17:41:53.785689: Blocks at position 0: 6
+2023-06-28T17:41:53.785698: Score at position 0: 36
+2023-06-28T17:41:53.785702: Total score: 36
+2023-06-28T17:41:53.785705: Total score: 36, max score: 36
+2023-06-28T17:41:53.785708: Similarity: 100
+2023-06-28T17:41:54.786814: Node1: 1 
+2023-06-28T17:41:54.786838: Node2: 1 
+2023-06-28T17:41:54.786841: Node3: 1 
+2023-06-28T17:41:54.786844: Node4: 1 
+2023-06-28T17:41:54.786846: Node5: 1 
+2023-06-28T17:41:54.786849: Node6: 1 
+2023-06-28T17:41:54.786863: 
+2023-06-28T17:41:54.786880: Blocks at position 0: 6
+2023-06-28T17:41:54.786889: Score at position 0: 36
+2023-06-28T17:41:54.786893: Total score: 36
+2023-06-28T17:41:54.786895: Total score: 36, max score: 36
+2023-06-28T17:41:54.786899: Similarity: 100
+2023-06-28T17:41:55.791968: Node1: 1 
+2023-06-28T17:41:55.791994: Node2: 1 
+2023-06-28T17:41:55.791997: Node3: 1 
+2023-06-28T17:41:55.792: Node4: 1 
+2023-06-28T17:41:55.792028: Node5: 1 
+2023-06-28T17:41:55.792031: Node6: 1 
+2023-06-28T17:41:55.792033: 
+2023-06-28T17:41:55.792047: Blocks at position 0: 6
+2023-06-28T17:41:55.792058: Score at position 0: 36
+2023-06-28T17:41:55.792062: Total score: 36
+2023-06-28T17:41:55.792065: Total score: 36, max score: 36
+2023-06-28T17:41:55.792069: Similarity: 100
+2023-06-28T17:41:56.293529: Node Node2 mined a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb. Index is 1, previous hash is GENESIS
+2023-06-28T17:41:56.296704: Newly-mined block is valid, node Node2 added a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to chain tip GENESIS!
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node4 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+2023-06-28T17:41:56.301742: Node Node4 received a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T17:41:56.301921: Node Node4 added a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to the chain!
+2023-06-28T17:41:56.301928: Node Node4 is considering mining because new block was added to chain.
+2023-06-28T17:41:56.301932: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:41:56.301936: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:56.301994: Node Node4 has 1 transactions queued.
+2023-06-28T17:41:56.302027: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:56.302086: Node Node4 has 1 valid transactions.
+2023-06-28T17:41:56.302226: Node Node4 is unlocking mining because there are not enough valid transactions.
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node6 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+2023-06-28T17:41:56.302254: Node Node6 received a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T17:41:56.302289: Node Node6 added a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to the chain!
+2023-06-28T17:41:56.302293: Node Node6 is considering mining because new block was added to chain.
+2023-06-28T17:41:56.302296: Node Node6 is locking mining because it is about to start mining.
+2023-06-28T17:41:56.302299: Node Node6 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:41:56.302302: Node Node6 has 2 transactions queued.
+2023-06-28T17:41:56.302321: Removing 0 invalid transactions from the queue.
+2023-06-28T17:41:56.302333: Node Node6 has 2 valid transactions.
+2023-06-28T17:41:56.302406: Node Node6 has enough valid transactions to mine a new block with index 2.
+2023-06-28T17:41:56.701737: Currently being mined by Node6 to add to block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb
+2023-06-28T17:41:56.797150: Node1: 1 
+2023-06-28T17:41:56.797180: Node2: 3 
+2023-06-28T17:41:56.797184: Node3: 1 
+2023-06-28T17:41:56.797187: Node4: 2 
+2023-06-28T17:41:56.797190: Node5: 1 
+2023-06-28T17:41:56.797192: Node6: 2 
+2023-06-28T17:41:56.797195: 
+2023-06-28T17:41:56.797211: Blocks at position 0: 6
+2023-06-28T17:41:56.797220: Score at position 0: 36
+2023-06-28T17:41:56.797224: Total score: 36
+2023-06-28T17:41:56.797227: Total score: 36, max score: 36
+2023-06-28T17:41:56.797230: Similarity: 100
+2023-06-28T17:41:57.799394: Node1: 1 
+2023-06-28T17:41:57.799418: Node2: 3 
+2023-06-28T17:41:57.799421: Node3: 1 
+2023-06-28T17:41:57.799428: Node4: 2 
+2023-06-28T17:41:57.799431: Node5: 1 
+2023-06-28T17:41:57.799434: Node6: 2 
+2023-06-28T17:41:57.799438: 
+2023-06-28T17:41:57.799452: Blocks at position 0: 6
+2023-06-28T17:41:57.799461: Score at position 0: 36
+2023-06-28T17:41:57.799465: Total score: 36
+2023-06-28T17:41:57.799468: Total score: 36, max score: 36
+2023-06-28T17:41:57.799472: Similarity: 100
+2023-06-28T17:41:58.804543: Node1: 1 
+2023-06-28T17:41:58.804569: Node2: 3 
+2023-06-28T17:41:58.804574: Node3: 1 
+2023-06-28T17:41:58.804577: Node4: 2 
+2023-06-28T17:41:58.804580: Node5: 1 
+2023-06-28T17:41:58.804583: Node6: 2 
+2023-06-28T17:41:58.804586: 
+2023-06-28T17:41:58.804599: Blocks at position 0: 6
+2023-06-28T17:41:58.804608: Score at position 0: 36
+2023-06-28T17:41:58.804612: Total score: 36
+2023-06-28T17:41:58.804619: Total score: 36, max score: 36
+2023-06-28T17:41:58.804623: Similarity: 100
+2023-06-28T17:41:59.805314: Node1: 1 
+2023-06-28T17:41:59.805339: Node2: 3 
+2023-06-28T17:41:59.805376: Node3: 1 
+2023-06-28T17:41:59.805391: Node4: 2 
+2023-06-28T17:41:59.805394: Node5: 1 
+2023-06-28T17:41:59.805401: Node6: 2 
+2023-06-28T17:41:59.805404: 
+2023-06-28T17:41:59.805418: Blocks at position 0: 6
+2023-06-28T17:41:59.805427: Score at position 0: 36
+2023-06-28T17:41:59.805431: Total score: 36
+2023-06-28T17:41:59.805434: Total score: 36, max score: 36
+2023-06-28T17:41:59.805438: Similarity: 100
+2023-06-28T17:42:00.809868: Node1: 1 
+2023-06-28T17:42:00.809895: Node2: 3 
+2023-06-28T17:42:00.809898: Node3: 1 
+2023-06-28T17:42:00.809901: Node4: 2 
+2023-06-28T17:42:00.809904: Node5: 1 
+2023-06-28T17:42:00.809907: Node6: 2 
+2023-06-28T17:42:00.809909: 
+2023-06-28T17:42:00.809922: Blocks at position 0: 6
+2023-06-28T17:42:00.809931: Score at position 0: 36
+2023-06-28T17:42:00.809935: Total score: 36
+2023-06-28T17:42:00.809938: Total score: 36, max score: 36
+2023-06-28T17:42:00.809941: Similarity: 100
+2023-06-28T17:42:01.815041: Node1: 1 
+2023-06-28T17:42:01.815066: Node2: 3 
+2023-06-28T17:42:01.815069: Node3: 1 
+2023-06-28T17:42:01.815072: Node4: 2 
+2023-06-28T17:42:01.815075: Node5: 1 
+2023-06-28T17:42:01.815077: Node6: 2 
+2023-06-28T17:42:01.815080: 
+2023-06-28T17:42:01.815094: Blocks at position 0: 6
+2023-06-28T17:42:01.815102: Score at position 0: 36
+2023-06-28T17:42:01.815106: Total score: 36
+2023-06-28T17:42:01.815108: Total score: 36, max score: 36
+2023-06-28T17:42:01.815113: Similarity: 100
+2023-06-28T17:42:02.820175: Node1: 1 
+2023-06-28T17:42:02.820198: Node2: 3 
+2023-06-28T17:42:02.820201: Node3: 1 
+2023-06-28T17:42:02.820204: Node4: 2 
+2023-06-28T17:42:02.820206: Node5: 1 
+2023-06-28T17:42:02.820212: Node6: 2 
+2023-06-28T17:42:02.820215: 
+2023-06-28T17:42:02.820229: Blocks at position 0: 6
+2023-06-28T17:42:02.820238: Score at position 0: 36
+2023-06-28T17:42:02.820241: Total score: 36
+2023-06-28T17:42:02.820244: Total score: 36, max score: 36
+2023-06-28T17:42:02.820248: Similarity: 100
+2023-06-28T17:42:02.990167: Currently being mined by Node6 to add to block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb
+2023-06-28T17:42:03.444544: Currently being mined by Node6 to add to block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb
+2023-06-28T17:42:03.455017: Currently being mined by Node6 to add to block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb
+2023-06-28T17:42:03.825308: Node1: 1 
+2023-06-28T17:42:03.825331: Node2: 3 
+2023-06-28T17:42:03.825335: Node3: 1 
+2023-06-28T17:42:03.825337: Node4: 2 
+2023-06-28T17:42:03.825340: Node5: 1 
+2023-06-28T17:42:03.825343: Node6: 2 
+2023-06-28T17:42:03.825346: 
+2023-06-28T17:42:03.825361: Blocks at position 0: 6
+2023-06-28T17:42:03.825369: Score at position 0: 36
+2023-06-28T17:42:03.825374: Total score: 36
+2023-06-28T17:42:03.825376: Total score: 36, max score: 36
+2023-06-28T17:42:03.825380: Similarity: 100
+2023-06-28T17:42:04.830447: Node1: 1 
+2023-06-28T17:42:04.830472: Node2: 3 
+2023-06-28T17:42:04.830475: Node3: 1 
+2023-06-28T17:42:04.830478: Node4: 2 
+2023-06-28T17:42:04.830481: Node5: 1 
+2023-06-28T17:42:04.830485: Node6: 2 
+2023-06-28T17:42:04.830488: 
+2023-06-28T17:42:04.830501: Blocks at position 0: 6
+2023-06-28T17:42:04.830510: Score at position 0: 36
+2023-06-28T17:42:04.830514: Total score: 36
+2023-06-28T17:42:04.830518: Total score: 36, max score: 36
+2023-06-28T17:42:04.830521: Similarity: 100
+2023-06-28T17:42:05.836307: Node1: 1 
+2023-06-28T17:42:05.836330: Node2: 3 
+2023-06-28T17:42:05.836333: Node3: 1 
+2023-06-28T17:42:05.836336: Node4: 2 
+2023-06-28T17:42:05.836338: Node5: 1 
+2023-06-28T17:42:05.836341: Node6: 2 
+2023-06-28T17:42:05.836344: 
+2023-06-28T17:42:05.836359: Blocks at position 0: 6
+2023-06-28T17:42:05.836368: Score at position 0: 36
+2023-06-28T17:42:05.836372: Total score: 36
+2023-06-28T17:42:05.836376: Total score: 36, max score: 36
+2023-06-28T17:42:05.836382: Similarity: 100
+2023-06-28T17:42:06.838010: Node1: 1 
+2023-06-28T17:42:06.838038: Node2: 3 
+2023-06-28T17:42:06.838041: Node3: 1 
+2023-06-28T17:42:06.838044: Node4: 2 
+2023-06-28T17:42:06.838047: Node5: 1 
+2023-06-28T17:42:06.838050: Node6: 2 
+2023-06-28T17:42:06.838054: 
+2023-06-28T17:42:06.838068: Blocks at position 0: 6
+2023-06-28T17:42:06.838076: Score at position 0: 36
+2023-06-28T17:42:06.838080: Total score: 36
+2023-06-28T17:42:06.838083: Total score: 36, max score: 36
+2023-06-28T17:42:06.838087: Similarity: 100
+2023-06-28T17:42:07.838548: Node1: 1 
+2023-06-28T17:42:07.838573: Node2: 3 
+2023-06-28T17:42:07.838577: Node3: 1 
+2023-06-28T17:42:07.838580: Node4: 2 
+2023-06-28T17:42:07.838582: Node5: 1 
+2023-06-28T17:42:07.838585: Node6: 2 
+2023-06-28T17:42:07.838588: 
+2023-06-28T17:42:07.838602: Blocks at position 0: 6
+2023-06-28T17:42:07.838611: Score at position 0: 36
+2023-06-28T17:42:07.838616: Total score: 36
+2023-06-28T17:42:07.838619: Total score: 36, max score: 36
+2023-06-28T17:42:07.838623: Similarity: 100
+2023-06-28T17:42:08.843691: Node1: 1 
+2023-06-28T17:42:08.843718: Node2: 3 
+2023-06-28T17:42:08.843722: Node3: 1 
+2023-06-28T17:42:08.843725: Node4: 2 
+2023-06-28T17:42:08.843735: Node5: 1 
+2023-06-28T17:42:08.843738: Node6: 2 
+2023-06-28T17:42:08.843743: 
+2023-06-28T17:42:08.843757: Blocks at position 0: 6
+2023-06-28T17:42:08.843766: Score at position 0: 36
+2023-06-28T17:42:08.843770: Total score: 36
+2023-06-28T17:42:08.843772: Total score: 36, max score: 36
+2023-06-28T17:42:08.843776: Similarity: 100
+2023-06-28T17:42:09.848327: Node1: 1 
+2023-06-28T17:42:09.848350: Node2: 3 
+2023-06-28T17:42:09.848354: Node3: 1 
+2023-06-28T17:42:09.848357: Node4: 2 
+2023-06-28T17:42:09.848366: Node5: 1 
+2023-06-28T17:42:09.848369: Node6: 2 
+2023-06-28T17:42:09.848374: 
+2023-06-28T17:42:09.848387: Blocks at position 0: 6
+2023-06-28T17:42:09.848395: Score at position 0: 36
+2023-06-28T17:42:09.848399: Total score: 36
+2023-06-28T17:42:09.848401: Total score: 36, max score: 36
+2023-06-28T17:42:09.848405: Similarity: 100
+2023-06-28T17:42:10.200720: Currently being mined by Node6 to add to block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb
+2023-06-28T17:42:10.305337: Currently being mined by Node6 to add to block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb
+2023-06-28T17:42:10.853468: Node1: 1 
+2023-06-28T17:42:10.853493: Node2: 3 
+2023-06-28T17:42:10.853506: Node3: 1 
+2023-06-28T17:42:10.853510: Node4: 2 
+2023-06-28T17:42:10.853513: Node5: 1 
+2023-06-28T17:42:10.853516: Node6: 2 
+2023-06-28T17:42:10.853518: 
+2023-06-28T17:42:10.853532: Blocks at position 0: 6
+2023-06-28T17:42:10.853540: Score at position 0: 36
+2023-06-28T17:42:10.853544: Total score: 36
+2023-06-28T17:42:10.853546: Total score: 36, max score: 36
+2023-06-28T17:42:10.853550: Similarity: 100
+2023-06-28T17:42:10.853836: Node Node6 mined a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef. Index is 2, previous hash is 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb
+2023-06-28T17:42:10.853906: Newly-mined block is valid, node Node6 added a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to chain tip 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb!
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node4 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+2023-06-28T17:42:10.853996: Node Node4 received a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef from a peer. Block has index 2. Last chain index is 1. Chain size is 2.
+2023-06-28T17:42:10.854032: Node Node4 added a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to the chain!
+2023-06-28T17:42:10.854036: Node Node4 is considering mining because new block was added to chain.
+2023-06-28T17:42:10.854039: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.854043: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.854048: Node Node4 has 1 transactions queued.
+2023-06-28T17:42:10.854072: Removing 0 invalid transactions from the queue.
+2023-06-28T17:42:10.854080: Node Node4 has 1 valid transactions.
+2023-06-28T17:42:10.854083: Node Node4 is unlocking mining because there are not enough valid transactions.
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node5 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+2023-06-28T17:42:10.854102: Node Node5 received a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef from a peer. Block has index 2. Last chain index is 0. Chain size is 1.
+2023-06-28T17:42:10.857576: Node Node5 received a block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef that doesn't fit on the main chain. Block previous hash is 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb. Chain tip is GENESIS.
+2023-06-28T17:42:10.857725: Node Node5 has 0 forks.
+2023-06-28T17:42:10.857805: Node Node5 could not fit block onto an existing fork.
+2023-06-28T17:42:10.857906: Node Node5 is ignoring block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef because it doesn't fit on the main chain or any existing forks.
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+Node Node2 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+2023-06-28T17:42:10.857941: Node Node2 received a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef from a peer. Block has index 2. Last chain index is 1. Chain size is 3.
+2023-06-28T17:42:10.858056: Node Node2 is cancelling mining job because a valid block was received from a peer.
+2023-06-28T17:42:10.858062: Node Node2 is unlocking mining because a valid block was received from a peer.
+2023-06-28T17:42:10.858066: Node Node2 added a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to the chain!
+2023-06-28T17:42:10.858069: Node Node2 is considering mining because new block was added to chain.
+2023-06-28T17:42:10.858072: Node Node2 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.858076: Node Node2 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.858079: Node Node2 has 2 transactions queued.
+2023-06-28T17:42:10.858093: Removing 2 invalid transactions from the queue.
+2023-06-28T17:42:10.858119: Node Node2 has 0 valid transactions.
+2023-06-28T17:42:10.858123: Node Node2 is unlocking mining because there are not enough valid transactions.
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node3 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+2023-06-28T17:42:10.858150: Node Node3 received a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef from a peer. Block has index 2. Last chain index is 0. Chain size is 1.
+2023-06-28T17:42:10.858156: Node Node3 received a block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef that doesn't fit on the main chain. Block previous hash is 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb. Chain tip is GENESIS.
+2023-06-28T17:42:10.858159: Node Node3 has 0 forks.
+2023-06-28T17:42:10.858162: Node Node3 could not fit block onto an existing fork.
+2023-06-28T17:42:10.858166: Node Node3 is ignoring block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef because it doesn't fit on the main chain or any existing forks.
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node6
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node1 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+2023-06-28T17:42:10.858198: Node Node1 received a new block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef from a peer. Block has index 2. Last chain index is 0. Chain size is 1.
+2023-06-28T17:42:10.858203: Node Node1 received a block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef that doesn't fit on the main chain. Block previous hash is 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb. Chain tip is GENESIS.
+2023-06-28T17:42:10.858207: Node Node1 has 0 forks.
+2023-06-28T17:42:10.858210: Node Node1 could not fit block onto an existing fork.
+2023-06-28T17:42:10.858213: Node Node1 is ignoring block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef because it doesn't fit on the main chain or any existing forks.
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node3
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node2
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node5
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node1
+Node Node6 is broadcasting block 0000086e07b54ff709ac69e2d0d33afb2bc5be4d28d4c568db6ba18e6b67bdef to Node4
+2023-06-28T17:42:10.858243: Node Node6 is considering mining because mined a block.
+2023-06-28T17:42:10.858329: Node Node6 is already mining. Won't consider mining (mined a block).
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node5 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+2023-06-28T17:42:10.858360: Node Node5 received a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T17:42:10.858396: Node Node5 received a block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb that doesn't fit on the main chain. Block previous hash is GENESIS. Chain tip is GENESIS.
+2023-06-28T17:42:10.858400: Node Node5 has 0 forks.
+2023-06-28T17:42:10.858403: Node Node5 could not fit block onto an existing fork.
+2023-06-28T17:42:10.858407: Node Node5 is ignoring block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb because it doesn't fit on the main chain or any existing forks.
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node1 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+2023-06-28T17:42:10.858436: Node Node1 received a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T17:42:10.858468: Node Node1 received a block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb that doesn't fit on the main chain. Block previous hash is GENESIS. Chain tip is GENESIS.
+2023-06-28T17:42:10.858471: Node Node1 has 0 forks.
+2023-06-28T17:42:10.858475: Node Node1 could not fit block onto an existing fork.
+2023-06-28T17:42:10.858479: Node Node1 is ignoring block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb because it doesn't fit on the main chain or any existing forks.
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node2
+Node Node3 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+2023-06-28T17:42:10.858510: Node Node3 received a new block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb from a peer. Block has index 1. Last chain index is 0. Chain size is 1.
+2023-06-28T17:42:10.858545: Node Node3 received a block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb that doesn't fit on the main chain. Block previous hash is GENESIS. Chain tip is GENESIS.
+2023-06-28T17:42:10.858548: Node Node3 has 0 forks.
+2023-06-28T17:42:10.858551: Node Node3 could not fit block onto an existing fork.
+2023-06-28T17:42:10.858555: Node Node3 is ignoring block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb because it doesn't fit on the main chain or any existing forks.
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node6
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node1
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node5
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node3
+Node Node2 is broadcasting block 000005260516838a3579526d1d6a99a443490b758961b6317315923193a9a9fb to Node4
+2023-06-28T17:42:10.858583: Node Node2 is considering mining because mined a block.
+2023-06-28T17:42:10.858585: Node Node2 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.858588: Node Node2 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.858591: Node Node2 has 0 transactions queued.
+2023-06-28T17:42:10.858596: Removing 0 invalid transactions from the queue.
+2023-06-28T17:42:10.858601: Node Node2 has 0 valid transactions.
+2023-06-28T17:42:10.858604: Node Node2 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:42:10.858612: Node Node3 is considering mining because new transaction was received.
+2023-06-28T17:42:10.858615: Node Node3 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.858618: Node Node3 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.858621: Node Node3 has 1 transactions queued.
+2023-06-28T17:42:10.858634: Removing 0 invalid transactions from the queue.
+2023-06-28T17:42:10.858639: Node Node3 has 1 valid transactions.
+2023-06-28T17:42:10.858642: Node Node3 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:42:10.858650: Node Node1 is considering mining because new transaction was received.
+2023-06-28T17:42:10.858653: Node Node1 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.858656: Node Node1 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.858659: Node Node1 has 0 transactions queued.
+2023-06-28T17:42:10.858662: Removing 0 invalid transactions from the queue.
+2023-06-28T17:42:10.858665: Node Node1 has 0 valid transactions.
+2023-06-28T17:42:10.858668: Node Node1 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:42:10.956834: Node Node4 is considering mining because new transaction was received.
+2023-06-28T17:42:10.956855: Node Node4 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.956860: Node Node4 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.956873: Node Node4 has 1 transactions queued.
+2023-06-28T17:42:10.956908: Removing 0 invalid transactions from the queue.
+2023-06-28T17:42:10.956917: Node Node4 has 1 valid transactions.
+2023-06-28T17:42:10.956920: Node Node4 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:42:10.956924: Node Node6 is considering mining because new transaction was received.
+2023-06-28T17:42:10.956927: Node Node6 is already mining. Won't consider mining (new transaction was received).
+2023-06-28T17:42:10.956931: Node Node5 is considering mining because new transaction was received.
+2023-06-28T17:42:10.956934: Node Node5 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.956937: Node Node5 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.956940: Node Node5 has 1 transactions queued.
+2023-06-28T17:42:10.956947: Removing 0 invalid transactions from the queue.
+2023-06-28T17:42:10.956951: Node Node5 has 1 valid transactions.
+2023-06-28T17:42:10.956954: Node Node5 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:42:10.956958: Node Node1 is considering mining because new transaction was received.
+2023-06-28T17:42:10.956961: Node Node1 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.956964: Node Node1 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.956967: Node Node1 has 0 transactions queued.
+2023-06-28T17:42:10.956972: Removing 0 invalid transactions from the queue.
+2023-06-28T17:42:10.956976: Node Node1 has 0 valid transactions.
+2023-06-28T17:42:10.956979: Node Node1 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:42:10.956983: Node Node3 is considering mining because new transaction was received.
+2023-06-28T17:42:10.956986: Node Node3 is locking mining because it is about to start mining.
+2023-06-28T17:42:10.956989: Node Node3 is starting to mine (if there are enough valid transactions).
+2023-06-28T17:42:10.956992: Node Node3 has 1 transactions queued.
+2023-06-28T17:42:10.956999: Removing 0 invalid transactions from the queue.
+2023-06-28T17:42:10.957003: Node Node3 has 1 valid transactions.
+2023-06-28T17:42:10.957006: Node Node3 is unlocking mining because there are not enough valid transactions.
+2023-06-28T17:42:11.858630: Node1: 1 
+2023-06-28T17:42:11.858680: Node2: 4 
+2023-06-28T17:42:11.858688: Node3: 1 
+2023-06-28T17:42:11.858697: Node4: 3 
+2023-06-28T17:42:11.858704: Node5: 1 
+2023-06-28T17:42:11.858712: Node6: 4 
+2023-06-28T17:42:11.858718: 
+2023-06-28T17:42:11.858750: Blocks at position 0: 6
+2023-06-28T17:42:11.858770: Score at position 0: 36
+2023-06-28T17:42:11.858780: Total score: 36
+2023-06-28T17:42:11.858788: Total score: 36, max score: 36
+2023-06-28T17:42:11.858798: Similarity: 100
+2023-06-28T17:42:11.858840: Node1: 1 
+2023-06-28T17:42:11.858849: Node2: 4 
+2023-06-28T17:42:11.858857: Node3: 1 
+2023-06-28T17:42:11.858864: Node4: 3 
+2023-06-28T17:42:11.858871: Node5: 1 
+2023-06-28T17:42:11.858879: Node6: 4 
+2023-06-28T17:42:11.858885: 
+2023-06-28T17:42:11.858900: Blocks at position 0: 6
+2023-06-28T17:42:11.858916: Score at position 0: 36
+2023-06-28T17:42:11.858925: Total score: 36
+2023-06-28T17:42:11.858932: Total score: 36, max score: 36
+2023-06-28T17:42:11.858940: Similarity: 100
+
+BUILD SUCCESSFUL in 1m 16s
+8 actionable tasks: 5 executed, 3 up-to-date
