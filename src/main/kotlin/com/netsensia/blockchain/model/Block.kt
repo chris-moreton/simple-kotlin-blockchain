@@ -1,4 +1,5 @@
 package com.netsensia.blockchain.model
+import com.netsensia.blockchain.SimpleKotlinBlockchainCommand.Companion.output
 import com.netsensia.blockchain.simulate.Network
 import java.security.MessageDigest
 import kotlin.random.Random
@@ -22,7 +23,7 @@ sealed class Block {
             var hash = calculateHash(this, nonce)
             while (hash.substring(0, difficulty) != target) {
                 nonce = Random.nextInt()
-                if (nonce % 100000 == 0) println("Currently being mined by $miner to add to block $previousHash")
+                if (nonce % (Math.pow(10.0, difficulty.toDouble())).toInt() == 0) output("Currently being mined by $miner to add to block $previousHash", 3)
                 hash = calculateHash(this, nonce)
             }
             return Mined(index, timestamp, transactions, previousHash, difficulty, nonce, hash)

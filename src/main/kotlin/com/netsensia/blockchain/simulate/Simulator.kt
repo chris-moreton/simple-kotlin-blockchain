@@ -38,7 +38,7 @@ class DefaultSimulator : Simulator {
             networkDetails(network, 2)
             val smallestChain = network.nodes.minByOrNull { it.blockchain.blocks.size }!!.blockchain
             val longestChain = network.nodes.maxByOrNull { it.blockchain.blocks.size }!!.blockchain
-            if (smallestChain.blocks.size < longestChain.blocks.size - 1) {
+            if (smallestChain.blocks.size < longestChain.blocks.size - 2) {
                 networkDetails(network)
                 exitProcess(0)
             }
@@ -76,7 +76,7 @@ class DefaultSimulator : Simulator {
     }
 
     companion object {
-        const val LOG_LEVEL = 2
+        const val LOG_LEVEL = 3
     }
 
 }

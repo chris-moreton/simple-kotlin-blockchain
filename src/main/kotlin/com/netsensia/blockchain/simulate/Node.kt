@@ -7,13 +7,11 @@ import com.netsensia.blockchain.model.Transaction
 import com.netsensia.blockchain.service.DefaultBlockService
 import com.netsensia.blockchain.service.DefaultBlockchainService
 import com.netsensia.blockchain.simulate.DefaultSimulator.Companion.LOG_LEVEL
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.io.File
 import java.util.*
 import java.util.concurrent.CopyOnWriteArrayList
+import kotlin.math.min
 
 private const val MIN_TXS_PER_BLOCK = 2
 private const val MAX_TXS_PER_BLOCK = 4
@@ -148,6 +146,9 @@ class Node(val id: String) {
             if (miningJob?.isActive == true) {
                 output("Node $id is cancelling mining job because a valid block was received from a peer.")
                 miningJob?.cancel()
+                runBlocking {
+                    miningJob?.join()
+                }
                 mineUnlock("mining job was cancelled")
             }
             output("Node $id added a new block ${block.hash} to the chain!")

@@ -35,7 +35,9 @@ class SimpleKotlinBlockchainCommand : Runnable {
 
         fun output(s: String, logLevel: Int = 0) {
             if (logLevel <= DefaultSimulator.LOG_LEVEL) {
-                println(s)
+                // Get current time in human-readable UTC string
+                val time = java.time.LocalDateTime.now().toString()
+                println("$time: $s")
             }
         }
     }
