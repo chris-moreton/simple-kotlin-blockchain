@@ -88,9 +88,9 @@ class DefaultSimulator : Simulator {
     }
 
     companion object {
-        const val NUM_NODES = 22
+        const val NUM_NODES = 100
         const val LOG_LEVEL = 2
-        const val DIFFICULTY = 4
+        const val DIFFICULTY = 7
     }
 
 }

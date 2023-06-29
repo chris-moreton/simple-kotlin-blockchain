@@ -17,6 +17,7 @@ sealed class Block {
         override val transactions: List<Transaction>,
         override val previousHash: String,
     ) : Block() {
+
         fun mine(difficulty: Int = DIFFICULTY): Mined {
             val target = "0".repeat(difficulty)
             var nonce = Random.nextInt()
@@ -27,6 +28,20 @@ sealed class Block {
             }
             return Mined(index, timestamp, transactions, previousHash, difficulty, nonce, hash)
         }
+
+        fun toMined(difficulty: Int, nonce: Int): Mined {
+            val hash = calculateHash(this, nonce)
+            return Mined(
+                index = index,
+                timestamp = timestamp,
+                transactions = transactions,
+                previousHash = previousHash,
+                difficulty = difficulty,
+                nonce = nonce,
+                hash = hash
+            )
+        }
+
     }
 
     data class Mined(

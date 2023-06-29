@@ -18,8 +18,6 @@ private const val MAX_FORKS = 50
 
 class Node(val id: String) {
 
-    val filename = "blockchain_${id}.txt"
-
     var mineLock = false
 
     val blockchainService = DefaultBlockchainService()
@@ -35,11 +33,7 @@ class Node(val id: String) {
     private val peers = mutableListOf<Node>()
 
     fun loadChain() {
-        blockchain = if (LOAD_FROM_FILE && File(filename).exists()) {
-            blockchainService.load(filename)
-        } else {
-            blockchainService.genesis()
-        }
+        blockchainService.genesis()
     }
 
     fun run() {
@@ -104,32 +98,12 @@ class Node(val id: String) {
         if (validTransactions.size >= MIN_TXS_PER_BLOCK) {
             output("Node $id has enough valid transactions to mine a new block with index ${blockchain.getLastBlock().index + 1}.", 3)
 
-            val unminedBlock = Block.Unmined(
-                index = blockchain.getLastBlock().index + 1,
-                timestamp = System.currentTimeMillis(),
-                transactions = validTransactions.toList(),
-                previousHash = blockchain.getLastBlock().hash
-            )
-
-            val target = "0".repeat(DIFFICULTY)
-            var nonce = Random.nextInt()
-            var hash = Block.calculateHash(unminedBlock, nonce)
-            while (mineLock && hash.substring(0, DIFFICULTY) != target) {
-                nonce = Random.nextInt()
-                if (nonce % (Math.pow(10.0, DIFFICULTY.toDouble())).toInt() == 0) output("Currently being mined by $id to add to block ${blockchain.getLastBlock().hash}", 4)
-                hash = Block.calculateHash(unminedBlock, nonce)
-            }
+            val pair = mineBlock(validTransactions)
+            val unminedBlock = pair.first
+            var nonce = pair.second
 
             if (mineLock) {
-                val minedBlock = Block.Mined(
-                    unminedBlock.index,
-                    unminedBlock.timestamp,
-                    unminedBlock.transactions,
-                    unminedBlock.previousHash,
-                    DIFFICULTY,
-                    nonce,
-                    hash
-                )
+                val minedBlock = unminedBlock.toMined(DIFFICULTY, nonce)
                 output("Node $id mined a new block ${minedBlock.hash}. Index is ${minedBlock.index}, previous hash is ${minedBlock.previousHash}")
                 output("Block ${minedBlock.hash} contains ${minedBlock.transactions}", 3)
                 if (blockchainService.isValidNewBlock(minedBlock, blockchain.getLastBlock())) {
@@ -146,6 +120,29 @@ class Node(val id: String) {
         }
 
         mineUnlock("there are not enough valid transactions")
+    }
+
+    private fun mineBlock(validTransactions: List<Transaction>): Pair<Block.Unmined, Int> {
+        val unminedBlock = Block.Unmined(
+            index = blockchain.getLastBlock().index + 1,
+            timestamp = System.currentTimeMillis(),
+            transactions = validTransactions.toList(),
+            previousHash = blockchain.getLastBlock().hash
+        )
+
+        val target = "0".repeat(DIFFICULTY)
+        var nonce = Random.nextInt()
+        var hash = Block.calculateHash(unminedBlock, nonce)
+        while (mineLock && hash.substring(0, DIFFICULTY) != target) {
+            nonce = Random.nextInt()
+            if (nonce % (Math.pow(
+                    10.0,
+                    DIFFICULTY.toDouble()
+                )).toInt() == 0
+            ) output("Currently being mined by $id to add to block ${blockchain.getLastBlock().hash}", 4)
+            hash = Block.calculateHash(unminedBlock, nonce)
+        }
+        return Pair(unminedBlock, nonce)
     }
 
     private fun getMaxAllowedValidTransactions(): List<Transaction> {
