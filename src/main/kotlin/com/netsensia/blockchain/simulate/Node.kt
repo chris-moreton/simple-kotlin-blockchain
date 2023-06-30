@@ -18,22 +18,22 @@ private const val MAX_FORKS = 50
 
 class Node(val id: String) {
 
-    var mineLock = false
+    private var mineLock = false
 
-    val blockchainService = DefaultBlockchainService()
+    private val blockchainService = DefaultBlockchainService()
 
     lateinit var blockchain: Blockchain
-    val forks = CopyOnWriteArrayList<Blockchain>()
+    private val forks = CopyOnWriteArrayList<Blockchain>()
 
-    val transactions = CopyOnWriteArrayList<Transaction>()
+    private val transactions = CopyOnWriteArrayList<Transaction>()
 
-    val transactionsReceived = CopyOnWriteArrayList<UUID>()
-    val blocksReceived = mutableListOf<String>()
+    private val transactionsReceived = CopyOnWriteArrayList<UUID>()
+    private val blocksReceived = mutableListOf<String>()
 
     private val peers = mutableListOf<Node>()
 
     fun loadChain() {
-        blockchainService.genesis()
+        blockchain = blockchainService.genesis()
     }
 
     fun run() {
@@ -66,7 +66,7 @@ class Node(val id: String) {
         }
     }
 
-    fun broadcastTransaction(transaction: Transaction) {
+    private fun broadcastTransaction(transaction: Transaction) {
         peers.forEach {
             output("Node $id is broadcasting transaction ${transaction.id} to ${it.id}", 7)
             it.receiveTransaction(transaction)
@@ -100,7 +100,7 @@ class Node(val id: String) {
 
             val pair = mineBlock(validTransactions)
             val unminedBlock = pair.first
-            var nonce = pair.second
+            val nonce = pair.second
 
             if (mineLock) {
                 val minedBlock = unminedBlock.toMined(DIFFICULTY, nonce)
